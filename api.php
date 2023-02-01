@@ -1,20 +1,17 @@
 <?php 
 include "connexion.php";
 
-$method=$_SERVER["Request_Method"];
+//$method=$_SERVER["Request_Method"];
 
 function getItems($bdd) {
-    $sql = "SELECT * FROM my_table";
+    $sql = "SELECT * FROM companies";
     $result =$bdd->query($sql);
     $response = [];
-      while ($row = $result->fetch_assoc()) {
+      while ($row = $result->fetchAll()) {
         $response[] = $row;
       }
-    return Json_encode($response);
+    return $response;
   }
 
-  switch($method){
-    case 'GET'
-        getItems($bdd);
-        break;
-  }
+  header('Content-Type: application/json');
+  echo json_encode(getItems($bdd));
