@@ -1,4 +1,4 @@
- <?php
+<?php
 require __DIR__. '/vendor/autoload.php';
 
 
@@ -24,9 +24,9 @@ $router->get('/invoices', function () {
 //API selectionnant le nombre d'élément voulu de Invoices
 $router->get('/invoices/{number}', function ($number) {
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM invoices LIMIT ".$number." ORDER BY create_dat ASC ");
+        $resultat=$pdo->prepare("SELECT * FROM invoices ORDER BY create_dat DESC LIMIT $number ");
         $resultat->execute();
-        $donnees=$resultat->fetchALL(PDO::FETCH_ASSOC);
+        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($donnees);
         
     });
@@ -69,7 +69,6 @@ $router->get('/contacts/{number}', function ($number) {
         echo json_encode($donnees);
         
     });
-
 
 $router->post('/companies',function(){
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
