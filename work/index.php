@@ -60,26 +60,6 @@ $router->get('/contacts',function(){
         echo json_encode($donnees);
 });
 
-$router->post('/companies',function($name,$country,$tva,$creat_at){
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $add=$pdo->prepare("INSERT INTO (name,country,tva,creat_at) companies VALUES (:name,:country,:tva,:creat_at)");
-        $add->bindValue(':name',$name);
-        $add->bindValue(':country',$country);
-        $add->bindValue(':tva',$tva);
-        $add->bindValue(':creat_at',$creat_at);
-        $add->execute();
-});
-
-$router->post('/companies',function($name,$country,$tva,$creat_at){
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $add=$pdo->prepare("INSERT INTO (name,country,tva,creat_at) companies VALUES (:name,:country,:tva,:creat_at)");
-        $add->bindValue(':name',$name);
-        $add->bindValue(':country',$country);
-        $add->bindValue(':tva',$tva);
-        $add->bindValue(':creat_at',$creat_at);
-        $add->execute();
-});
-
 //API selectionnant un npmbre précis de contacts
 $router->get('/contacts/{number}', function ($number) {
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
@@ -91,6 +71,15 @@ $router->get('/contacts/{number}', function ($number) {
     });
 $router->run();
 
+$router->post('/companies',function($name,$country,$tva,$creat_at){
+        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+        $add=$pdo->prepare("INSERT INTO (name,country,tva,creat_at) companies VALUES (:name,:country,:tva,:creat_at)");
+        $add->bindValue(':name',$name);
+        $add->bindValue(':country',$country);
+        $add->bindValue(':tva',$tva);
+        $add->bindValue(':creat_at',$creat_at);
+        $add->execute();
+});
 
 
 ?>
