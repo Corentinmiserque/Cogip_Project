@@ -14,7 +14,7 @@ $router->get('/invoices/{number}', function ($number) {
         $resultat->execute();
         $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($donnees);
-
+        
     });
 
 $router->get('/companies',function(){
@@ -23,9 +23,9 @@ $router->get('/companies',function(){
         $resultat->execute();
         $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($donnees);
-    });
-    
-    $router->run();
+});
+
+$router->run();
 
 
 
