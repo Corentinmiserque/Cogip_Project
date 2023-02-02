@@ -7,11 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    <p class="test"></p>
+    <form method="post">
+        <label for="name">name</label>
+        <input type="text" name="name">
+        <label for="type_id">type_id</label>
+        <input type="number" name="type_id">
+        <label for="country">country</label>
+        <input type="text" name="country">
+        <label for="tva">tva</label>
+        <input type="text" name="tva">
+        <label for="create_at">creat_at</label>
+        <input type="date" name="create-at">
+        <input type="submit">
+    </form>
     <script>
 let url = 'http://localhost:8001/companies';
-let data = { name: "test", country: "belgium", tva: "5555", creat_at: "2023-02-02" };
 fetch(url,{method:"POST"})
     </script>
+<?php $data=$_POST;
+ print_r($_POST); ?>
 </body>
 </html>

@@ -70,11 +70,20 @@ $router->get('/contacts/{number}', function ($number) {
         
     });
 
-$router->post('/companies',function(){
+    $router->post('/companies', function() {
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $add=$pdo->prepare("INSERT INTO `companies` (`name`,`country`,`tva`,`creat_at`) VALUES (test,test,test,test)");
+        $data = $_POST;
+        $add = $pdo->prepare("INSERT INTO companies (name, type_id, country, tva, create_dat) VALUES (:name, :type_id, :country, :tva, :create_dat)");
+        $add->bindValue(':name', $data["name"]);
+        $add->bindValue(':type_id', $data["type_id"]);
+        $add->bindValue(':country', $data["country"]);
+        $add->bindValue(':tva', $data["tva"]);
+        $add->bindValue(':create_dat', $data["create_dat"]);
         $add->execute();
-});
+        header('Content-Type: application/json');
+        echo json_encode(['message' => 'Données reçues avec succès']);
+      });
+      
 
 $router->run();
 
