@@ -69,17 +69,15 @@ $router->get('/contacts/{number}', function ($number) {
         echo json_encode($donnees);
         
     });
-$router->run();
 
-$router->post('/companies',function($name,$country,$tva,$creat_at){
+
+$router->post('/companies',function(){
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $add=$pdo->prepare("INSERT INTO (name,country,tva,creat_at) companies VALUES (:name,:country,:tva,:creat_at)");
-        $add->bindValue(':name',$name);
-        $add->bindValue(':country',$country);
-        $add->bindValue(':tva',$tva);
-        $add->bindValue(':creat_at',$creat_at);
+        $add=$pdo->prepare("INSERT INTO `companies` (`name`,`country`,`tva`,`creat_at`) VALUES (test,test,test,test)");
         $add->execute();
 });
+
+$router->run();
 
 
 ?>

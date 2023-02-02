@@ -9,16 +9,9 @@
 <body>
     <p class="test"></p>
     <script>
-let url = 'http://localhost:8001/contacts/5'
-
-fetch(url,{method:"GET"}) 
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-        console.log(data)
-      
-    }) 
+let url = 'http://localhost:8001/companies';
+let data = { name: "test", country: "belgium", tva: "5555", creat_at: "2023-02-02" };
+fetch(url,{method:"POST"})
     </script>
 </body>
 </html>
