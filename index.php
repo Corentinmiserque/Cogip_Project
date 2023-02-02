@@ -9,7 +9,7 @@
 <body>
     <p class="test"></p>
     <script>
-let url = 'http://localhost:8001/companies'
+let url = 'http://localhost:8001/contacts/5'
 
 fetch(url,{method:"GET"}) 
     .then((response) => {
