@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+    <p class="test"></p>
     <script>
-let url = 'http://localhost:8001/users'
+let url = 'http://localhost:8001/invoices/5'
 
-fetch(url,{method:"POST"}) 
+fetch(url,{method:"GET"}) 
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+        console.log(data)
+      
+    }) 
     </script>
 </body>
 </html>
