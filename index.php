@@ -16,15 +16,24 @@
         <input type="text" name="country">
         <label for="tva">tva</label>
         <input type="text" name="tva">
-        <label for="create_at">creat_at</label>
-        <input type="date" name="create-at">
+        <label for="create_dat">creat_at</label>
+        <input type="date" name="create-dat">
         <input type="submit">
     </form>
     <script>
-let url = 'http://localhost:8001/companies';
-fetch(url,{method:"POST"})
+
+    data = 
+    let url = 'http://localhost:8001/companies';
+    let option = {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+
     </script>
-<?php $data=$_POST;
+<?php $data = $_POST;
  print_r($_POST); ?>
 </body>
 </html>
