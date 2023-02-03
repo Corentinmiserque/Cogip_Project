@@ -121,7 +121,7 @@ $router = new \Bramus\Router\Router();
 
 $router->get('/invoices', function () {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+    $resultat=$pdo->prepare("SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
     INNER JOIN companies
     ON invoices.id_company = companies.id
     ORDER BY invoices.create_dat DESC ");
@@ -131,10 +131,12 @@ $router->get('/invoices', function () {
     
 });
 
+
+
 //API selectionnant le nombre d'élément voulu de Invoices par plus récent
 $router->get('/invoices/{number}', function ($number) {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+    $resultat=$pdo->prepare("SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
     INNER JOIN companies
     ON invoices.id_company = companies.id ORDER BY create_dat DESC LIMIT $number ");
     $resultat->execute();
@@ -145,7 +147,7 @@ $router->get('/invoices/{number}', function ($number) {
 //API selectionnant UNE FACTURE (SANS S invoice)
 $router->get('/invoice/{id}', function ($id) {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+    $resultat=$pdo->prepare("SELECT invoices.id , ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
     INNER JOIN companies
     ON invoices.id_company = companies.id WHERE invoices.id = $id  ");
     $resultat->execute();
@@ -157,7 +159,7 @@ $router->get('/invoice/{id}', function ($id) {
 //API selectionnant toute les companies par ordre Alphabet
 $router->get('/companies',function(){
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+    $resultat=$pdo->prepare("SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
     FROM companies 
     INNER JOIN types 
     ON companies.type_id = types.id 
@@ -170,7 +172,7 @@ $router->get('/companies',function(){
 //API selectionnant un nombre précis de companies Par plus recent
 $router->get('/companies/{number}', function ($number) {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+    $resultat=$pdo->prepare("SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
     FROM companies 
     INNER JOIN types 
     ON companies.type_id = types.id  ORDER BY create_dat DESC  LIMIT $number ");
@@ -183,7 +185,7 @@ $router->get('/companies/{number}', function ($number) {
 //API selectionnant UNE COMPANY(AVEC UN Y)
 $router->get('/company/{id}', function ($id) {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+    $resultat=$pdo->prepare("SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
     FROM companies 
     INNER JOIN types 
     ON companies.type_id = types.id  WHERE companies.id = $id ");
@@ -196,7 +198,7 @@ $router->get('/company/{id}', function ($id) {
 //API selectionnant toute les contacts par odre alphabet
 $router->get('/contacts',function(){
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
+    $resultat=$pdo->prepare("SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
     INNER JOIN companies
     ON contacts.company_id = companies.id
     ORDER BY contacts.name ASC");
@@ -208,7 +210,7 @@ $router->get('/contacts',function(){
 //API selectionnant un nombre précis de contacts par plus récent
 $router->get('/contacts/{number}', function ($number) {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
+    $resultat=$pdo->prepare("SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
     INNER JOIN companies
     ON contacts.company_id = companies.id ORDER BY create_dat DESC  LIMIT $number ");
     $resultat->execute();
@@ -220,7 +222,7 @@ $router->get('/contacts/{number}', function ($number) {
 //API selectionnant UN CONTACT (sans s)
 $router->get('/contact/{id}', function ($id) {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
+    $resultat=$pdo->prepare("SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
     INNER JOIN companies
     ON contacts.company_id = companies.id WHERE contacts.id = $id ");
     $resultat->execute();
