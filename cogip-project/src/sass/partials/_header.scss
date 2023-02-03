@@ -5,6 +5,7 @@
 
 // header
 body{
+  
     width: 30%;
     font-size: calc(90% + 0.5vw);
   
@@ -12,6 +13,7 @@ body{
       background-color: $yellow;
       width: 100vw;
       height: auto;
+      
       
       .header{
         width: 100%;
@@ -51,6 +53,9 @@ body{
             } 
           }  
         }
+        .navbarDisplay{
+          transform: translateY(0);
+        }
   
         .login{
           width: 35%;
@@ -72,7 +77,9 @@ body{
             margin-left: 5%;
           }
         }
-        
+        .loginDisplay{
+          display: none;
+        }
         .hamburger-lines{
           width: 1.2rem;
           height: 0.8rem;
@@ -80,6 +87,7 @@ body{
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
+          z-index: 2;
           
           .line{
             display: block;
@@ -126,16 +134,8 @@ body{
       :nth-child(3) {
         transform: translateY(-1.8vw) rotate(-135deg);
       }
-      } 
-      .navbarDisplay{
-        transform: none;
-      }
-      .loginDisplay{
-        display: none;
-      }
+    } 
 }
-
-
 
 
 
@@ -153,7 +153,7 @@ body{
                     width: 15%;
                     margin: 0;
                 }
-                nav{
+                .navbar{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
@@ -165,13 +165,16 @@ body{
                     a{
                         &:nth-child(n+2){
                         margin-left: 10%;
+                        margin-top: 0;
                     }}
                 }
                 .login{
-                    width: 25%;
+                    width: 20%;
                     margin: 0;
                     flex-direction: row;
                     justify-content: right;
+                    position: relative;
+                    transform: none;
                     .signUp{
                         width: fit-content;
                         margin-right: 5%;

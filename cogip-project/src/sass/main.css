@@ -54,6 +54,9 @@ body header .header .navbar a {
 body header .header .navbar a:nth-child(n+2) {
   margin-top: 8%;
 }
+body header .header .navbarDisplay {
+  transform: translateY(0);
+}
 body header .header .login {
   width: 35%;
   text-align: center;
@@ -72,6 +75,9 @@ body header .header .login .signUp {
   border-radius: 5px;
   margin-left: 5%;
 }
+body header .header .loginDisplay {
+  display: none;
+}
 body header .header .hamburger-lines {
   width: 1.2rem;
   height: 0.8rem;
@@ -79,6 +85,7 @@ body header .header .hamburger-lines {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
 }
 body header .header .hamburger-lines .line {
   display: block;
@@ -119,12 +126,6 @@ body .menu :nth-child(2) {
 body .menu :nth-child(3) {
   transform: translateY(-1.8vw) rotate(-135deg);
 }
-body .navbarDisplay {
-  transform: none;
-}
-body .loginDisplay {
-  display: none;
-}
 
 @media screen and (min-width: 425px) {
   * {
@@ -139,7 +140,7 @@ body .loginDisplay {
     width: 15%;
     margin: 0;
   }
-  body header .header nav {
+  body header .header .navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -151,14 +152,17 @@ body .loginDisplay {
     width: fit-content;
     transform: none;
   }
-  body header .header nav a:nth-child(n+2) {
+  body header .header .navbar a:nth-child(n+2) {
     margin-left: 10%;
+    margin-top: 0;
   }
   body header .header .login {
-    width: 25%;
+    width: 20%;
     margin: 0;
     flex-direction: row;
     justify-content: right;
+    position: relative;
+    transform: none;
   }
   body header .header .login .signUp {
     width: -webkit-fit-content;
@@ -196,4 +200,68 @@ body .loginDisplay {
   color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
   font-weight: 600;
+}
+
+body main {
+  width: 100vw;
+}
+body main .arrays {
+  width: 85%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+body main .arrays :nth-child(n+2) {
+  margin: 10% 0;
+}
+body main .arrays .spotlight {
+  width: 25%;
+}
+body main .arrays img {
+  width: 20%;
+  position: absolute;
+}
+body main .arrays .array {
+  width: 100%;
+}
+body main .arrays h2 {
+  margin: 2rem 0;
+  font-size: calc(150% + 0.1vw);
+}
+body main .arrays table {
+  font-size: 100%;
+  border-collapse: collapse;
+  width: 200%;
+}
+body main .arrays th {
+  background-color: rgb(249, 222, 78);
+  border: none;
+  padding: 0.5em;
+  text-align: left;
+}
+body main .arrays tr:nth-child(even) {
+  background-color: rgb(245, 245, 245);
+}
+body main .arrays td {
+  border: none;
+  padding: 0.5em;
+  text-align: left;
+}
+body main .arrays .overflowArray {
+  overflow-x: auto;
+}
+body main .array5column table {
+  width: 250%;
+}
+body main .arrays__lastContacts .blocknote {
+  width: 25%;
+  position: absolute;
+  right: 0;
+  transform: translateY(-60%);
+}
+body main .arrays__lastCompanies .spotlight {
+  width: 17%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 0;
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,72 @@
+body{
+    main{
+        width: 100vw;
+        .arrays{
+        width: 85%;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        :nth-child(n+2){
+            margin: 10% 0;
+            }
+        .spotlight{
+            width: 25%;
+        }
+        img{
+            width: 20%;
+            position: absolute;
+        }
+        .array {
+            width: 100%;
+            
+            }
+            h2{
+                margin: 2rem 0;
+                font-size: calc(150% + 0.1vw);
+            }
+            table {
+                font-size:100%;
+                border-collapse: collapse;
+                width: 200%;  
+              }
+              th {
+                background-color: $yellow;
+                border: none;
+                padding: 0.5em;
+                text-align: left;
+              }
+              tr:nth-child(even) {
+                background-color: $lightgrey;
+              }
+              td {
+                border: none;
+                padding: 0.5em;
+                text-align: left;
+              } 
+              .overflowArray{
+                overflow-x: auto;
+              }
+            }
+            .array5column{
+                table{
+                    width: 250%;
+                }
+            }
+            .arrays__lastContacts{
+                .blocknote{
+                    width: 25%;
+                    position: absolute;
+                    right: 0;
+                    transform: translateY(-60%);
+                } 
+            }
+            .arrays__lastCompanies{
+                .spotlight{
+                    width: 17%;
+                    transform: translateY(-50%);
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+    }
