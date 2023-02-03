@@ -4,7 +4,7 @@
 
 OBJECTIF:
 
-L'objectif de cette API est de permettre de récupérer différentes informations(contacts,factures,companies) pour le projet COGIP
+L'objectif de cette API est de permettre de récupérer différentes informations(contacts,factures,entreprises,...) pour le projet COGIP
 
 COMMENT INSTALLER L'API:
 
@@ -68,6 +68,21 @@ toutes les urls commencent par "http://localhost:8001" ce sont justes les termin
 11) methode : POST , terminaison :/invoices , body: {ref: "invoice_ref" , id_company:"invoice_id_company", creat_dat:"invoice_creat_dat"} , effet : ajoute une facture
 
 12) methode : POST , terminaison :/contacts , body: {name:"contact_name", company_id : "contact_company", email: "contact_email", phone : "contact_phone", create_dat : "contact_create_dat"} , effet : ajoute un contact
+
+13) methode : PATCH , terminaison :/invoice/{id} , body :  {ref=new_ref , id_company=:new_id_company,update_dat=new_update_dat},
+effet : modifie la facture correspondante à l'id
+
+14) methode : PATCH , terminaison :/companie/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
+effet : modifie l'entreprise correspondante à l'id
+
+15) methode : PATCH , terminaison :/contact/{id} , body :  {name=new_name , phone=new_phone,email=new_email},
+effet : modifie le contact correspondant à l'id
+
+16) methode : DELETE , terminaison : /company/{id} , effet : supprime l'entreprise correspondante à l'id
+
+17) methode : DELETE , terminaison : /invoice/{id} , effet : supprime la facture correspondante à l'id
+
+18) methode : DELETE , terminaison : /contact/{id} , effet : supprime le contact correspondant à l'id
 
 
 
