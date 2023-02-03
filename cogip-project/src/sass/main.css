@@ -212,7 +212,7 @@ body main .arrays {
   flex-direction: column;
 }
 body main .arrays :nth-child(n+2) {
-  margin: 10% 0;
+  margin: 8% 0;
 }
 body main .arrays .spotlight {
   width: 25%;

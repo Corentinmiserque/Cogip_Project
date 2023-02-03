@@ -1,14 +1,13 @@
 body{
     main{
         width: 100vw;
+
         .arrays{
         width: 85%;
         display: flex;
         margin: 0 auto;
         flex-direction: column;
-        :nth-child(n+2){
-            margin: 10% 0;
-            }
+            
         .spotlight{
             width: 25%;
         }
@@ -63,7 +62,7 @@ body{
             .arrays__lastCompanies{
                 .spotlight{
                     width: 17%;
-                    transform: translateY(-50%);
+                    transform: translateY(-10%);
                     position: absolute;
                     left: 0;
                 }
