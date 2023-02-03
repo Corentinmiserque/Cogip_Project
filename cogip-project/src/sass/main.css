@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  color: rgb(0, 0, 0);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+body {
+  width: 30%;
+  font-size: calc(90% + 0.5vw);
+}
+body header {
+  background-color: rgb(249, 222, 78);
+  width: 100vw;
+  height: auto;
+}
+body header .header {
+  width: 100%;
+  padding-bottom: 1em;
+  justify-content: space-between;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  margin: 0 5%;
+  padding-top: 5%;
+}
+body header .header .logo {
+  width: 25%;
+  height: auto;
+}
+body header .header .navbar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  padding: 10% 0;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.95;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-100%);
+}
+body header .header .navbar a {
+  padding: 2%;
+}
+body header .header .navbar a:nth-child(n+2) {
+  margin-top: 8%;
+}
+body header .header .login {
+  width: 35%;
+  text-align: center;
+  font-size: 80%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  transform: translateX(30%);
+}
+body header .header .login :hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+body header .header .login .signUp {
+  background-color: white;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  margin-left: 5%;
+}
+body header .header .hamburger-lines {
+  width: 1.2rem;
+  height: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+body header .header .hamburger-lines .line {
+  display: block;
+  height: 0.1rem;
+  width: 100%;
+  border-radius: 10px;
+  background: rgb(0, 0, 0);
+}
+body header .herosection {
+  display: flex;
+  flex-direction: column;
+}
+body header .herosection .herosection__title {
+  width: 80%;
+  margin: 10% auto 0;
+}
+body header .herosection .herosection__title h1 {
+  font-size: calc(160% + 0.9vw);
+  font-weight: 900;
+  text-align: center;
+}
+body header .herosection img {
+  width: 100%;
+  height: auto;
+}
+body header .herosectionImg2 {
+  display: flex;
+  margin: 0 auto 0;
+  width: 95%;
+  height: auto;
+}
+body .menu :first-child {
+  transform: translateY(1.8vw) rotate(135deg);
+}
+body .menu :nth-child(2) {
+  opacity: 0;
+}
+body .menu :nth-child(3) {
+  transform: translateY(-1.8vw) rotate(-135deg);
+}
+body .navbarDisplay {
+  transform: none;
+}
+body .loginDisplay {
+  display: none;
+}
+
+@media screen and (min-width: 425px) {
+  * {
+    font-size: calc(70% + 0.5vw);
+  }
+  body header .header {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+  }
+  body header .header .logo {
+    width: 15%;
+    margin: 0;
+  }
+  body header .header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: transparent;
+    position: relative;
+    padding: 0;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    transform: none;
+  }
+  body header .header nav a:nth-child(n+2) {
+    margin-left: 10%;
+  }
+  body header .header .login {
+    width: 25%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: right;
+  }
+  body header .header .login .signUp {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-right: 5%;
+  }
+  body header .header .hamburger-lines {
+    display: none;
+  }
+  body header .herosection {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  body header .herosection .herosection__title {
+    width: 45%;
+  }
+  body header .herosection .herosection__title h1 {
+    font-size: calc(170% + 0.7vw);
+    text-align: left;
+  }
+  body header .herosection img {
+    width: 45%;
+    transform: translateY(5%);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  color: rgb(0, 0, 0);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}/*# sourceMappingURL=main.css.map */

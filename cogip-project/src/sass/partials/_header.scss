@@ -1,0 +1,204 @@
+
+
+// import scss
+@import "_variables.scss";
+
+// header
+body{
+    width: 30%;
+    font-size: calc(90% + 0.5vw);
+  
+    header{
+      background-color: $yellow;
+      width: 100vw;
+      height: auto;
+      
+      .header{
+        width: 100%;
+        padding-bottom:1em ;
+        justify-content: space-between;
+        display: flex;
+        width: 90%;
+        align-items: center;
+        margin: 0 5%;
+        padding-top: 5%;
+        
+        .logo{
+          width: 25%;
+          height: auto;
+        }
+  
+        .navbar{
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          z-index: 0;
+          top: 0;
+          left: 0;
+          padding: 10% 0;
+          background-color: $white;
+          opacity: 0.95;
+          width: 100%;
+          text-align: center;
+          transform: translateY(-100%);
+          
+          
+          a{
+            padding: 2%;
+            
+            &:nth-child(n+2){
+              margin-top: 8%;
+            } 
+          }  
+        }
+  
+        .login{
+          width: 35%;
+          text-align: center;
+          font-size:80% ;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          transform: translateX(30%);
+          
+          :hover{  
+            color:rgba(0, 0, 0, 0.7);
+          }
+  
+          .signUp{
+            background-color: white;
+            padding: 0.25em 0.5em;
+            border-radius: 5px;
+            margin-left: 5%;
+          }
+        }
+        
+        .hamburger-lines{
+          width: 1.2rem;
+          height: 0.8rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          
+          .line{
+            display: block;
+            height: 0.1rem;
+            width: 100%;
+            border-radius: 10px;
+            background: $black;
+          }
+        }  
+      }
+  
+      .herosection{
+        display: flex;
+        flex-direction: column;
+        
+        .herosection__title{
+          width: 80%;
+          margin: 10% auto 0;
+                h1{
+                    font-size: calc(160% + 0.9vw);
+                    font-weight: 900;
+                    text-align: center;
+                }
+            }
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .herosectionImg2{
+            display: flex;
+            margin: 0 auto 0;
+            width: 95%;
+            height: auto;
+        }
+    }
+    .menu {
+      :first-child {
+        transform: translateY(1.8vw) rotate(135deg);
+      }
+      :nth-child(2) {
+        opacity: 0;
+      }
+      :nth-child(3) {
+        transform: translateY(-1.8vw) rotate(-135deg);
+      }
+      } 
+      .navbarDisplay{
+        transform: none;
+      }
+      .loginDisplay{
+        display: none;
+      }
+}
+
+
+
+
+
+@media screen and (min-width: 425px) {
+*{
+    font-size: calc(70% + 0.5vw);
+}
+    body{
+        header{
+            .header{
+                display: flex;
+                width: 90%;
+                justify-content: space-between;
+                .logo{
+                    width: 15%;
+                    margin: 0;
+                }
+                nav{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    background-color: transparent;
+                    position: relative;
+                    padding: 0;
+                    width: fit-content;
+                    transform: none;
+                    a{
+                        &:nth-child(n+2){
+                        margin-left: 10%;
+                    }}
+                }
+                .login{
+                    width: 25%;
+                    margin: 0;
+                    flex-direction: row;
+                    justify-content: right;
+                    .signUp{
+                        width: fit-content;
+                        margin-right: 5%;
+                    }
+                }
+               .hamburger-lines{
+                display: none;
+               }
+               }
+               .herosection{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .herosection__title{
+                    width: 45%;
+                    h1{
+                        font-size: calc(170% + 0.7vw);
+                        text-align: left;
+                    }
+                }
+                img{
+                    width: 45%;
+                    transform: translateY(5%);
+                }
+            }
+        }
+    }
+    }
+
