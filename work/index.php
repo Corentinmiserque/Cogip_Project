@@ -9,7 +9,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
             // may also be using PUT, PATCH, HEAD etc
-            header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+            header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE,PATCH");
         }
     
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) {
@@ -158,6 +158,50 @@ $router->get('/contact/{id}', function ($id) {
             header('Content-Type: application/json');
             echo json_encode(['message' => 'Données reçues avec succès']);
           });
+
+        //API modifier une facture
+        $router->patch('/invoice/{id}', function ($id) {
+            $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+            $data = json_decode(file_get_contents('php://input'), true);
+            $change=$pdo->prepare("UPDATE invoices SET ref=:ref , id_company=:id_company,update_dat=:update_dat  WHERE id = $id ");
+            $change->bindValue(':ref', $data["ref"]);
+            $change->bindValue(':id_company', $data["id_company"]);
+            $change->bindValue(':update_dat', $data["update_dat"]);
+            $change->execute();
+            header('Content-Type: application/json');
+            echo json_encode(['message' => 'Données modifiées avec succès']);
+            
+        });
+
+        //API modifier une companie
+        $router->patch('/companie/{id}', function ($id) {
+            $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+            $data = json_decode(file_get_contents('php://input'), true);
+            $change=$pdo->prepare("UPDATE companies SET name=:name , tva=:tva,country=:country  WHERE id = $id ");
+            $change->bindValue(':name', $data["name"]);
+            $change->bindValue(':tva', $data["tva"]);
+            $change->bindValue(':country', $data["country"]);
+            $change->execute();
+            header('Content-Type: application/json');
+            echo json_encode(['message' => 'Données modifiées avec succès']);
+            
+        });
+
+        //API modifier un contact
+        $router->patch('/contact/{id}', function ($id) {
+            $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+            $data = json_decode(file_get_contents('php://input'), true);
+            $change=$pdo->prepare("UPDATE contacts SET name=:name , phone=:phone,email=:email  WHERE id = $id ");
+            $change->bindValue(':name', $data["name"]);
+            $change->bindValue(':phone', $data["phone"]);
+            $change->bindValue(':email', $data["email"]);
+            $change->execute();
+            header('Content-Type: application/json');
+            echo json_encode(['message' => 'Données modifiées avec succès']);
+            
+        });
+
+
 $router->run();
 
 
