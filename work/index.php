@@ -118,94 +118,117 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 header("Content-Type: application/json");
 $router = new \Bramus\Router\Router();
 
-//API selectionnant TOUT les Invoices par plus récent
+
 $router->get('/invoices', function () {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM invoices ORDER BY create_dat DESC ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+    INNER JOIN companies
+    ON invoices.id_company = companies.id
+    ORDER BY invoices.create_dat DESC ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
 
 //API selectionnant le nombre d'élément voulu de Invoices par plus récent
 $router->get('/invoices/{number}', function ($number) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM invoices ORDER BY create_dat DESC LIMIT $number ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
-
-
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+    INNER JOIN companies
+    ON invoices.id_company = companies.id ORDER BY create_dat DESC LIMIT $number ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
 //API selectionnant UNE FACTURE (SANS S invoice)
 $router->get('/invoice/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM invoices WHERE id = $id ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+    INNER JOIN companies
+    ON invoices.id_company = companies.id WHERE invoices.id = $id  ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
 
 //API selectionnant toute les companies par ordre Alphabet
 $router->get('/companies',function(){
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM companies ORDER BY name ASC");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+    FROM companies 
+    INNER JOIN types 
+    ON companies.type_id = types.id 
+    ORDER BY companies.name ASC");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+});
 
 //API selectionnant un nombre précis de companies Par plus recent
 $router->get('/companies/{number}', function ($number) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM companies ORDER BY create_dat DESC  LIMIT $number ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+    FROM companies 
+    INNER JOIN types 
+    ON companies.type_id = types.id  ORDER BY create_dat DESC  LIMIT $number ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
 
 //API selectionnant UNE COMPANY(AVEC UN Y)
 $router->get('/company/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM companies WHERE id = $id ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+    FROM companies 
+    INNER JOIN types 
+    ON companies.type_id = types.id  WHERE companies.id = $id ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
 
 //API selectionnant toute les contacts par odre alphabet
 $router->get('/contacts',function(){
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM contacts ORDER BY name ASC");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
+    INNER JOIN companies
+    ON contacts.company_id = companies.id
+    ORDER BY contacts.name ASC");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+});
 
 //API selectionnant un nombre précis de contacts par plus récent
 $router->get('/contacts/{number}', function ($number) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM contacts ORDER BY create_dat DESC  LIMIT $number ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
+    INNER JOIN companies
+    ON contacts.company_id = companies.id ORDER BY create_dat DESC  LIMIT $number ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
 
 //API selectionnant UN CONTACT (sans s)
 $router->get('/contact/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare("SELECT * FROM contacts WHERE id = $id ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-        
-    });
+    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+    $resultat=$pdo->prepare("SELECT contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
+    INNER JOIN companies
+    ON contacts.company_id = companies.id WHERE contacts.id = $id ");
+    $resultat->execute();
+    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($donnees);
+    
+});
+
 
 //API créant une nouvelle companie
 $router->post('/companies', function() {
