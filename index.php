@@ -21,9 +21,8 @@
         <input type="submit">
     </form>
     <script>
-
-    data = 
-    let url = 'http://localhost:8001/companies';
+    data = { name : "test",  company_id: 1, email:"test.test@test.com", phone:"00000000000", create_dat: "2023-02-02"}
+    let url = 'http://localhost:8001/contacts';
     let option = {
         method: "POST",
         body: JSON.stringify(data),
@@ -31,7 +30,7 @@
             "Content-Type": "application/json",
         },
     };
-
+    fetch(url,option)
     </script>
 <?php $data = $_POST;
  print_r($_POST); ?>

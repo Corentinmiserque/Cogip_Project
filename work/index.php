@@ -116,6 +116,8 @@ $router->get('/contact/{id}', function ($id) {
         
     });
 
+
+    //API Ajouter une companies
     $router->post('/companies', function() {
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
         $data = $_POST;
@@ -130,7 +132,34 @@ $router->get('/contact/{id}', function ($id) {
         echo json_encode(['message' => 'Données reçues avec succès']);
       });
       
+      //API ajouter une facture
+      $router->post('/invoices', function() {
+        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+        $data = json_decode(file_get_contents('php://input'), true);
+        $add = $pdo->prepare("INSERT INTO invoices (ref, id_company, create_dat) VALUES (:ref, :id_company, :create_dat)");
+        $add->bindValue(':ref', $data["ref"]);
+        $add->bindValue(':id_company', $data["id_company"]);
+        $add->bindValue(':create_dat', $data["create_dat"]);
+        $add->execute();
+        header('Content-Type: application/json');
+        echo json_encode(['message' => 'Données reçues avec succès']);
+      });
 
+
+          //API ajouter un contact
+          $router->post('/contacts', function() {
+            $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
+            $data = json_decode(file_get_contents('php://input'), true);
+            $add = $pdo->prepare("INSERT INTO contacts (name, company_id, email, phone, create_dat) VALUES (:name, :company_id, :email, :phone, :create_dat)");
+            $add->bindValue(':name', $data["name"]);
+            $add->bindValue(':company_id', $data["company_id"]);
+            $add->bindValue('email', $data["email"]);
+            $add->bindValue('phone', $data["phone"]);
+            $add->bindValue(':create_dat', $data["create_dat"]);
+            $add->execute();
+            header('Content-Type: application/json');
+            echo json_encode(['message' => 'Données reçues avec succès']);
+          });
 $router->run();
 
 
