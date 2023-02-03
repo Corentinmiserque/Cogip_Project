@@ -118,7 +118,7 @@ $router->get('/contact/{id}', function ($id) {
 
     $router->post('/companies', function() {
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = $_POST;
+        $data = json_decode(file_get_contents('php://input'), true);
         $add = $pdo->prepare("INSERT INTO companies (name, type_id, country, tva, create_dat) VALUES (:name, :type_id, :country, :tva, :create_dat)");
         $add->bindValue(':name', $data["name"]);
         $add->bindValue(':type_id', $data["type_id"]);
