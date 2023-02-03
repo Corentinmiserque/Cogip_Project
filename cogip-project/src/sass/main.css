@@ -211,9 +211,6 @@ body main .arrays {
   margin: 0 auto;
   flex-direction: column;
 }
-body main .arrays :nth-child(n+2) {
-  margin: 8% 0;
-}
 body main .arrays .spotlight {
   width: 25%;
 }
@@ -223,6 +220,7 @@ body main .arrays img {
 }
 body main .arrays .array {
   width: 100%;
+  margin-bottom: 15%;
 }
 body main .arrays h2 {
   margin: 2rem 0;
@@ -257,11 +255,21 @@ body main .arrays__lastContacts .blocknote {
   width: 25%;
   position: absolute;
   right: 0;
-  transform: translateY(-60%);
 }
 body main .arrays__lastCompanies .spotlight {
   width: 17%;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
   position: absolute;
   left: 0;
+}
+
+body main #home_Header_Footer h1 {
+  font-size: 100%;
+  width: 50%;
+}
+body main #home_Header_Footer .rectangle {
+  width: 20%;
+}
+body main #home_Header_Footer .phone {
+  width: 20%;
 }/*# sourceMappingURL=main.css.map */

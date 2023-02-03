@@ -1,13 +1,11 @@
 body{
     main{
         width: 100vw;
-
         .arrays{
         width: 85%;
         display: flex;
         margin: 0 auto;
-        flex-direction: column;
-            
+        flex-direction: column;  
         .spotlight{
             width: 25%;
         }
@@ -17,7 +15,7 @@ body{
         }
         .array {
             width: 100%;
-            
+            margin-bottom: 15%;
             }
             h2{
                 margin: 2rem 0;
@@ -56,13 +54,12 @@ body{
                     width: 25%;
                     position: absolute;
                     right: 0;
-                    transform: translateY(-60%);
                 } 
             }
             .arrays__lastCompanies{
                 .spotlight{
                     width: 17%;
-                    transform: translateY(-10%);
+                    transform: translateY(-40%);
                     position: absolute;
                     left: 0;
                 }
