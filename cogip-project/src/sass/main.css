@@ -8,6 +8,9 @@
   list-style: none;
   color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
+}
+
+body {
   font-weight: 600;
 }
 
@@ -204,6 +207,9 @@ body .menu :nth-child(3) {
   list-style: none;
   color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
+}
+
+body {
   font-weight: 600;
 }
 
@@ -285,13 +291,96 @@ body main #home_Main_Footer .home_Main_Footer_Img {
 }
 body main #home_Main_Footer .home_Main_Footer_Img .rectangle {
   width: 100%;
-  position: absolute;
   z-index: 1;
   left: 0;
 }
 body main #home_Main_Footer .home_Main_Footer_Img .phone {
   width: 60%;
   position: absolute;
-  transform: translateX(20%) translateY(-20%);
-  z-index: 5;
+  transform: translateX(-110%) translateY(-20%);
+  z-index: 2;
+}
+
+body {
+  width: 100vw;
+}
+body footer {
+  width: 80vw;
+  margin: 10% auto 0;
+  border-top: solid 2px rgb(249, 222, 78);
+  font-size: calc(40% + 0.5vw);
+  font-weight: 400;
+}
+body footer .footer {
+  margin-top: 10%;
+  display: flex;
+  width: 100%;
+}
+body footer .footer .logo {
+  width: 25%;
+  height: 35%;
+  border: solid 3px rgb(249, 222, 78);
+  padding: 2.5%;
+}
+body footer .footer .contacts {
+  width: 90%;
+}
+body footer .footer .contacts .contact {
+  margin: 0 0 0 20%;
+}
+body footer .footer .contacts .contact :nth-child(n+2) {
+  display: inline-block;
+  margin-top: 5%;
+}
+body footer .footer .contacts .contact :nth-child(3) {
+  margin-left: 5%;
+}
+body footer .footer .contacts .contact .localisation {
+  background: url("../../../public/localisation.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 7.5%;
+}
+body footer .footer .contacts .contact .phonenumber {
+  background: url("../../../public/phoneNumber.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 7.5%;
+}
+body footer .footer .contacts .contact .fax {
+  background: url("../../../public/fax.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 7.5%;
+}
+body footer .footer .contacts .socialmedia {
+  display: inline-block;
+  width: 90%;
+  flex-direction: row;
+  margin-left: 20%;
+  margin-top: 5%;
+}
+body footer .footer .contacts .socialmedia img {
+  width: 5%;
+  margin-left: 2%;
+  display: inline-block;
+}
+body footer .footer .contacts .socialmedia p {
+  display: inline-block;
+}
+body footer .footer_footer {
+  width: 100%;
+  border-top: 1px solid rgb(245, 245, 245);
+  margin-top: 5%;
+}
+body footer .footer_footer nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+body footer .copyright {
+  margin: 5% 0;
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=main.css.map */

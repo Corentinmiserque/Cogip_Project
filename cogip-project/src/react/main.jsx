@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './partials/Header'
-import Footer from'./partials/Footer'
+import Footer from './partials/footer'
 import Home_HeroSection from './partials/homepage/Home_HeroSection'
 import Header_Img from './partials/Header_Img'
 import Home_Main_Footer from './partials/homepage/Home_Main_Footer'
@@ -27,7 +27,12 @@ ReactDOM.createRoot(document.getElementById('home_Main_Footer')).render(
     <Home_Main_Footer/>
   </React.StrictMode>,)
 
+ReactDOM.createRoot(document.getElementById('Footer')).render(
+  <React.StrictMode>
+    <Footer/>
+  </React.StrictMode>,
 
+)
 
 
 

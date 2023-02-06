@@ -4,9 +4,7 @@ body{
         #home_Main_Footer{
             width: 90%;
             margin: 0 auto;
-            display: flex;
-        
-          
+            display: flex; 
             h1{
                 width: 90%;
                 margin: 20% auto 30%;
@@ -15,16 +13,14 @@ body{
                 width: 100%;
                 .rectangle{
                     width: 100%;
-                    position: absolute;
                     z-index: 1;
-                    left: 0;
-                    
+                    left: 0;    
                 }
                 .phone{
                     width: 60%;
                     position: absolute;
-                    transform: translateX(20%) translateY(-20%);
-                    z-index: 5;
+                    transform: translateX(-110%) translateY(-20%);
+                    z-index: 2;
                 }
             }
         }

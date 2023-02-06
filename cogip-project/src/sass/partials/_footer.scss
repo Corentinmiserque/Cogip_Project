@@ -1,0 +1,88 @@
+body {
+    width: 100vw;
+    footer {
+      width: 80vw;
+      margin: 10% auto 0;
+      border-top: solid 2px $yellow;
+      font-size: calc(40% + 0.5vw);
+      font-weight: 400;
+      
+      .footer {
+        margin-top: 10%;
+        display: flex;
+        width: 100%;
+        
+        .logo {
+          width: 25%;
+          height: 35%;
+          border: solid 3px $yellow;
+          padding: 2.5%;
+          }
+          .contacts{
+            width: 90%;
+            .contact{    
+                margin: 0 0 0 20%;
+                
+                :nth-child(n+2){
+                    display: inline-block;
+                    margin-top: 5%;
+                }
+                :nth-child(3){
+                    margin-left: 5%;
+                }
+                .localisation {
+                    background: url("../../../public/localisation.svg");
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    padding-left: 7.5%;
+                  }      
+                  .phonenumber {
+                    background: url("../../../public/phoneNumber.svg");
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    padding-left: 7.5%;
+                  } 
+                  .fax {
+                    background: url("../../../public/fax.svg");
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    padding-left: 7.5%;
+                  }             
+                }
+            .socialmedia{
+                display: inline-block;
+                width: 90%;
+                flex-direction: row;
+                margin-left: 20%;
+                margin-top: 5%;
+                
+                img{
+                width: 5%;
+                margin-left: 2%;
+                display: inline-block;
+                }
+                p{
+                    display: inline-block;
+                }
+            }
+        }
+      }
+      .footer_footer {
+        width: 100%;
+        border-top: 1px solid $lightgrey;
+        margin-top: 5%;
+        nav {
+            display: flex;
+          width: 100%;
+          justify-content: space-between;
+          margin-top: 5%;
+        }
+      }    
+      .copyright{
+        margin: 5% 0;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  
