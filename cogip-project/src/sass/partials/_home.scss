@@ -1,16 +1,32 @@
 body{
     main{
-        #home_Header_Footer{
+        width: 100vw;
+        #home_Main_Footer{
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+        
+          
             h1{
-               font-size: 100%;
-               width: 50%; 
+                width: 90%;
+                margin: 20% auto 30%;
             }
-        .rectangle{
-            width: 20%;
-        }
-        .phone{
-            width: 20%;
-        }
+            .home_Main_Footer_Img{
+                width: 100%;
+                .rectangle{
+                    width: 100%;
+                    position: absolute;
+                    z-index: 1;
+                    left: 0;
+                    
+                }
+                .phone{
+                    width: 60%;
+                    position: absolute;
+                    transform: translateX(20%) translateY(-20%);
+                    z-index: 5;
+                }
+            }
         }
     }
 }

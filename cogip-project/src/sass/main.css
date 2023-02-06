@@ -15,6 +15,11 @@ body {
   width: 30%;
   font-size: calc(90% + 0.5vw);
 }
+body h1 {
+  font-size: calc(160% + 0.9vw);
+  font-weight: 900;
+  text-align: center;
+}
 body header {
   background-color: rgb(249, 222, 78);
   width: 100vw;
@@ -263,13 +268,30 @@ body main .arrays__lastCompanies .spotlight {
   left: 0;
 }
 
-body main #home_Header_Footer h1 {
-  font-size: 100%;
-  width: 50%;
+body main {
+  width: 100vw;
 }
-body main #home_Header_Footer .rectangle {
-  width: 20%;
+body main #home_Main_Footer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
 }
-body main #home_Header_Footer .phone {
-  width: 20%;
+body main #home_Main_Footer h1 {
+  width: 90%;
+  margin: 20% auto 30%;
+}
+body main #home_Main_Footer .home_Main_Footer_Img {
+  width: 100%;
+}
+body main #home_Main_Footer .home_Main_Footer_Img .rectangle {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+}
+body main #home_Main_Footer .home_Main_Footer_Img .phone {
+  width: 60%;
+  position: absolute;
+  transform: translateX(20%) translateY(-20%);
+  z-index: 5;
 }/*# sourceMappingURL=main.css.map */

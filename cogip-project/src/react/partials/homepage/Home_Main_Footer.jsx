@@ -1,14 +1,16 @@
-function Home_Header_Footer() {
+function Home_Main_Footer() {
     // state, données
     
     //comportements
     
     
     //render
-      return    <section className="main__Footer">
-      <h1>WORK BETTER IN YOUR COMPANY</h1>  
-      <img className="rectangle"src="./src/img/rectangle.svg" alt="rectangle" /> 
-      <img className="phone"src="./src/img/phone.svg" alt="phone"/> 
-        </section>}
+      return    <div className="main__Footer">
+                    <h1>WORK BETTER IN YOUR COMPANY</h1>  
+                    <section className="home_Main_Footer_Img">  
+                        <img className="rectangle"src="./src/img/rectangle.svg" alt="rectangle" /> 
+                        <img className="phone"src="./src/img/phone.svg" alt="phone"/> 
+                    </section>
+                </div>}
 
-    export default Home_Header_Footer
+    export default Home_Main_Footer
