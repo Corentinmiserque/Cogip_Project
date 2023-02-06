@@ -1,6 +1,3 @@
-
-
-
 function Footer() {
 // state, données
 
