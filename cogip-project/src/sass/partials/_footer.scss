@@ -22,7 +22,9 @@ body {
             width: 90%;
             .contact{    
                 margin: 0 0 0 20%;
-                
+                p{
+                  color: $grey;
+                }
                 :nth-child(n+2){
                     display: inline-block;
                     margin-top: 5%;
@@ -63,26 +65,49 @@ body {
                 }
                 p{
                     display: inline-block;
+                    color:$grey;
                 }
             }
         }
       }
       .footer_footer {
-        width: 100%;
+        
         border-top: 1px solid $lightgrey;
         margin-top: 5%;
+        width: 100%;
         nav {
-            display: flex;
+          display: flex;
           width: 100%;
           justify-content: space-between;
           margin-top: 5%;
+          a{
+            color:$grey;
+            text-transform: uppercase;
+          }
         }
-      }    
+      }  
       .copyright{
-        margin: 5% 0;
-        display: flex;
+        margin: 10% 0;
         justify-content: center;
+        display: flex;
+        p{
+         color: $grey;
+        }  
       }
     }
   }
+  
+  @media screen and (min-width: 425px) {
+   body{
+    footer{
+      .footer_footer{
+        .footer__footer__navbar{
+          width: 50%;
+          background-color: aqua;
+        }
+      }
+    }
+  }
+} 
+   
   

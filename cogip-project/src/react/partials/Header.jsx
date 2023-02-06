@@ -2,12 +2,16 @@ import { useState } from 'react'
 
 
 function Header() {
+
 // state, données
+
   const [isOpen, setIsOpen] = useState(false)
+
 //comportements
 
   const handleClick = () => {
     setIsOpen(!isOpen)};
+
 //render
 
   return  <div className= "header">

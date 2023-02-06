@@ -3,6 +3,7 @@
 //variable 
 $yellow : rgba(249, 222, 78, 1);
 $white : rgba(255, 255, 255, 1);
+$grey:rgba(115, 115, 115, 1);
 $lightgrey: rgba(245, 245, 245, 1);
 $black: rgba(0, 0, 0, 1);
 $lightblue: rgba(123, 185, 252, 1);
@@ -13,9 +14,10 @@ $lightblue: rgba(123, 185, 252, 1);
     text-decoration: none;
     box-sizing: border-box;
     list-style: none;
-    color: $black;
     font-family: 'Inter', sans-serif;
+    color: $black;
 }
+
 
 body{
     font-weight: 600;

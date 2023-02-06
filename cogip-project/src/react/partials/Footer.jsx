@@ -34,21 +34,22 @@ function Footer() {
   </div>
 
   <div className="footer_footer">
-      <section className="footer__footer__navbar">
-          <nav>
-            <a href="#">home</a>
-            <a href="#">invoices</a>
-            <a href="#">companies</a>
-            <a href="#">contacts</a>
-            <a href="#">privacy policy</a>
-          </nav>
-      </section>
-  </div>
-
-    <section class="copyright">
-        <p>Copyright © 2022 • COGIP Inc.</p>
-    </section>
-
+      <section className="footer_footer_navbar">
+            <nav>
+                <a href="#">home</a>
+                <a href="#">invoices</a>
+                <a href="#">companies</a>
+                <a href="#">contacts</a>
+                <a href="#">privacy policy</a>
+            </nav>
+        </section>
+        <section className="copyright">
+                <p>Copyright © 2022 • COGIP Inc.</p>
+            </section>
+    </div>
+    <div>
+        <p>Test</p>
+    </div>
 </footer>;
 }
 export default Footer

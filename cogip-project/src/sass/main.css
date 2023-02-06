@@ -6,8 +6,8 @@
   text-decoration: none;
   box-sizing: border-box;
   list-style: none;
-  color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
+  color: rgb(0, 0, 0);
 }
 
 body {
@@ -136,8 +136,9 @@ body .menu :nth-child(3) {
 }
 
 @media screen and (min-width: 425px) {
-  * {
+  body {
     font-size: calc(70% + 0.5vw);
+    overflow-x: hidden;
   }
   body header .header {
     display: flex;
@@ -145,8 +146,9 @@ body .menu :nth-child(3) {
     justify-content: space-between;
   }
   body header .header .logo {
-    width: 15%;
+    width: 12%;
     margin: 0;
+    transform: translateX(40%);
   }
   body header .header .navbar {
     display: flex;
@@ -159,6 +161,12 @@ body .menu :nth-child(3) {
     width: -moz-fit-content;
     width: fit-content;
     transform: none;
+  }
+  body header .header .navbar a {
+    padding: 2%;
+  }
+  body header .header .navbar a:hover {
+    outline: solid 1px rgb(0, 0, 0);
   }
   body header .header .navbar a:nth-child(n+2) {
     margin-left: 10%;
@@ -176,6 +184,7 @@ body .menu :nth-child(3) {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+    border-radius: 10px;
     margin-right: 5%;
   }
   body header .header .hamburger-lines {
@@ -184,19 +193,24 @@ body .menu :nth-child(3) {
   body header .herosection {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: left;
   }
   body header .herosection .herosection__title {
-    width: 45%;
+    width: 42%;
+    margin: 7.5% 10% 10%;
   }
   body header .herosection .herosection__title h1 {
-    font-size: calc(170% + 0.7vw);
+    font-size: calc(210% + 0.7vw);
     text-align: left;
   }
   body header .herosection img {
-    width: 45%;
-    transform: translateY(5%);
+    position: absolute;
+    width: 52%;
+    right: 0;
+    transform: translateY(-7.5%);
+  }
+  body header .herosectionImg2 {
+    width: 90%;
   }
 }
 * {
@@ -205,8 +219,8 @@ body .menu :nth-child(3) {
   text-decoration: none;
   box-sizing: border-box;
   list-style: none;
-  color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
+  color: rgb(0, 0, 0);
 }
 
 body {
@@ -277,30 +291,57 @@ body main .arrays__lastCompanies .spotlight {
 body main {
   width: 100vw;
 }
-body main #home_Main_Footer {
+body main .main_Footer {
   width: 90%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
 }
-body main #home_Main_Footer h1 {
+body main .main_Footer h1 {
   width: 90%;
   margin: 20% auto 30%;
 }
-body main #home_Main_Footer .home_Main_Footer_Img {
+body main .main_Footer .home_Main_Footer_Img {
   width: 100%;
 }
-body main #home_Main_Footer .home_Main_Footer_Img .rectangle {
+body main .main_Footer .home_Main_Footer_Img .rectangle {
   width: 100%;
   z-index: 1;
   left: 0;
 }
-body main #home_Main_Footer .home_Main_Footer_Img .phone {
+body main .main_Footer .home_Main_Footer_Img .phone {
   width: 60%;
   position: absolute;
   transform: translateX(-110%) translateY(-20%);
   z-index: 2;
 }
 
+@media screen and (min-width: 425px) {
+  body main .main_Footer {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+  }
+  body main .main_Footer h1 {
+    width: 65%;
+    font-size: calc(250% + 0.7vw);
+    text-align: left;
+    margin: 7.5% 0 10%;
+  }
+  body main .main_Footer .home_Main_Footer_Img {
+    width: 80%;
+    display: flex;
+  }
+  body main .main_Footer .home_Main_Footer_Img .rectangle {
+    width: 100%;
+    justify-content: right;
+    transform: translateX(10%);
+  }
+  body main .main_Footer .home_Main_Footer_Img .phone {
+    width: 32%;
+    transform: translateX(55%) translateY(-5%);
+  }
+}
 body {
   width: 100vw;
 }
@@ -327,6 +368,9 @@ body footer .footer .contacts {
 }
 body footer .footer .contacts .contact {
   margin: 0 0 0 20%;
+}
+body footer .footer .contacts .contact p {
+  color: rgb(115, 115, 115);
 }
 body footer .footer .contacts .contact :nth-child(n+2) {
   display: inline-block;
@@ -367,11 +411,12 @@ body footer .footer .contacts .socialmedia img {
 }
 body footer .footer .contacts .socialmedia p {
   display: inline-block;
+  color: rgb(115, 115, 115);
 }
 body footer .footer_footer {
-  width: 100%;
   border-top: 1px solid rgb(245, 245, 245);
   margin-top: 5%;
+  width: 100%;
 }
 body footer .footer_footer nav {
   display: flex;
@@ -379,8 +424,22 @@ body footer .footer_footer nav {
   justify-content: space-between;
   margin-top: 5%;
 }
+body footer .footer_footer nav a {
+  color: rgb(115, 115, 115);
+  text-transform: uppercase;
+}
 body footer .copyright {
-  margin: 5% 0;
-  display: flex;
+  margin: 10% 0;
   justify-content: center;
+  display: flex;
+}
+body footer .copyright p {
+  color: rgb(115, 115, 115);
+}
+
+@media screen and (min-width: 425px) {
+  body footer .footer_footer .footer__footer__navbar {
+    width: 50%;
+    background-color: aqua;
+  }
 }/*# sourceMappingURL=main.css.map */

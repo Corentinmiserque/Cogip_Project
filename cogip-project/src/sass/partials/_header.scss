@@ -9,6 +9,7 @@ body{
     font-size: calc(160% + 0.9vw);
     font-weight: 900;
     text-align: center;
+    
 }
   
     width: 30%;
@@ -145,18 +146,20 @@ body{
 
 
 @media screen and (min-width: 425px) {
-*{
-    font-size: calc(70% + 0.5vw);
-}
+
     body{
+      font-size: calc(70% + 0.5vw);
+      overflow-x: hidden;
         header{
             .header{
                 display: flex;
                 width: 90%;
                 justify-content: space-between;
                 .logo{
-                    width: 15%;
+                    width: 12%;
                     margin: 0;
+                    transform: translateX(40%);
+
                 }
                 .navbar{
                     display: flex;
@@ -167,7 +170,14 @@ body{
                     padding: 0;
                     width: fit-content;
                     transform: none;
+                    
                     a{
+                      padding: 2%;
+                      &:hover{
+                    
+                        outline: solid 1px $black;
+                       
+                      }
                         &:nth-child(n+2){
                         margin-left: 10%;
                         margin-top: 0;
@@ -182,6 +192,7 @@ body{
                     transform: none;
                     .signUp{
                         width: fit-content;
+                        border-radius: 10px;
                         margin-right: 5%;
                     }
                 }
@@ -192,20 +203,31 @@ body{
                .herosection{
                 width: 100%;
                 display: flex;
-                flex-direction: row;
-                justify-content: center;
+                justify-content: left;
+                
+                
+                
                 .herosection__title{
-                    width: 45%;
+                    width: 42%;
+                    margin: 7.5% 10% 10%;
+                    
+                    
                     h1{
-                        font-size: calc(170% + 0.7vw);
-                        text-align: left;
+                        font-size: calc(210% + 0.7vw);
+                        text-align: left; 
+                        
                     }
                 }
                 img{
-                    width: 45%;
-                    transform: translateY(5%);
+                  position: absolute;
+                  width: 52%;
+                  right: 0;
+                  transform: translateY(-7.5%)  ;
                 }
             }
+            .herosectionImg2{
+              width: 90%;
+          }
         }
     }
     }
