@@ -346,11 +346,12 @@ body {
   width: 100vw;
 }
 body footer {
-  width: 80vw;
+  width: 80%;
   margin: 10% auto 0;
   border-top: solid 2px rgb(249, 222, 78);
   font-size: calc(40% + 0.5vw);
   font-weight: 400;
+  max-width: 1440px;
 }
 body footer .footer {
   margin-top: 10%;
@@ -438,8 +439,72 @@ body footer .copyright p {
 }
 
 @media screen and (min-width: 425px) {
-  body footer .footer_footer .footer__footer__navbar {
-    width: 50%;
-    background-color: aqua;
+  body {
+    width: 100vw;
+  }
+  body footer {
+    width: 80vw;
+    margin: 10% auto 0;
+    border-top: solid 2px rgb(249, 222, 78);
+    font-size: calc(60% + 0.1vw);
+    font-weight: 400;
+  }
+  body footer .footer {
+    margin-top: 10%;
+    display: flex;
+    width: 100%;
+  }
+  body footer .footer .logo {
+    width: 20%;
+    height: 35%;
+    border: solid 3px rgb(249, 222, 78);
+    padding: 1% 2.5%;
+  }
+  body footer .footer .contacts {
+    width: 90%;
+  }
+  body footer .footer .contacts .contact {
+    margin: 0 0 0 20%;
+  }
+  body footer .footer .contacts .contact :nth-child(n+2) {
+    display: inline-block;
+    margin-top: 5%;
+  }
+  body footer .footer .contacts .contact :nth-child(3) {
+    margin-left: 2%;
+  }
+  body footer .footer .contacts .socialmedia {
+    width: 80%;
+    align-items: center;
+  }
+  body footer .footer .contacts .socialmedia img {
+    width: 3%;
+    margin-left: 4%;
+  }
+  body footer .footer .contacts .socialmedia p {
+    transform: translateY(-25%);
+  }
+  body footer .footer_footer {
+    border-top: 1px solid rgb(245, 245, 245);
+    margin-top: 5%;
+    width: 100%;
+  }
+  body footer .footer_footer nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 5%;
+  }
+  body footer .footer_footer nav a {
+    color: rgb(115, 115, 115);
+    text-transform: uppercase;
+  }
+  body footer .copyright {
+    margin: 10% 0;
+    justify-content: center;
+    display: flex;
+  }
+  body footer .copyright p {
+    color: rgb(115, 115, 115);
   }
 }/*# sourceMappingURL=main.css.map */

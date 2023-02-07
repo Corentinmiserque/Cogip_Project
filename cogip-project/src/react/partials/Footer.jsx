@@ -45,10 +45,8 @@ function Footer() {
         </section>
         <section className="copyright">
                 <p>Copyright © 2022 • COGIP Inc.</p>
+                <p>test</p>
             </section>
-    </div>
-    <div>
-        <p>Test</p>
     </div>
 </footer>;
 }
