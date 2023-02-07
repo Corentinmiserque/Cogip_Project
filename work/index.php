@@ -350,7 +350,3 @@ $router->delete('/contact/{id}', function ($id) {
 
 
 $router->run();
-
-
-?>
-
