@@ -1,39 +1,45 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
-function InvoicesTable() {
 
-  // state, données
-
+const InvoicesTable = () => {
   const [invoices, setInvoices] = useState([]);
 
-  //comportements
-
   useEffect(() => {
-    fetch("http://localhost/invoices/5")
-      .then(res => res.json())
+    axios.get("http://localhost:8001/invoices/5")
+      .then(res => res.data)
       .then(data => setInvoices(data))
       .catch(err => console.error(err));
   }, []);
 
-  //render
-
-  return <table>
-    <tr>
-      <th>Invoice Number</th>
-      <th>Date Due</th>
-      <th>Company</th>
-      <th>Created At</th>
-    </tr>
-    <tr>
-      <td>{invoices.ref}</td>
-      <td>{invoices.Date_due}</td>
-      <td>{invoices.Name_company}</td>
-      <td>{invoices.create_dat}</td>
-    </tr>
-  </table>
+  return (
+    <div className="array arrays__lastInvoices">
+      <h2>Last invoices</h2>
+      <section className="overflowArray">
+        <table>
+          <thead>
+            <tr>
+              <th>Invoice Number</th>
+              <th>Date Due</th>
+              <th>Company</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {invoices.map(invoice => (
+              <tr key={invoice.id}>
+                <td>{invoice.ref}</td>
+                <td>{new Date(invoice.Date_due).toLocaleDateString()}</td>
+                <td>{invoice.Name_company}</td>
+                <td>{new Date(invoice.create_dat).toLocaleDateString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  );
 };
 
 export default InvoicesTable;
-
-
 
