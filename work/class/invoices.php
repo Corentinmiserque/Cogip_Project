@@ -1,5 +1,4 @@
 <?php
-include "class.php";
 
 class invoices extends Dbh {
     public function get_invoices(){

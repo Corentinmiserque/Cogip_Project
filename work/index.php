@@ -1,7 +1,8 @@
 <?php
-
+include "class/class.php";
 include "class/invoices.php";
 include "class/companies.php";
+include "class/contacts.php";
 ///  Documentation ///
 /*
 
@@ -75,7 +76,7 @@ toutes les urls commencent par "http://localhost:8001" ce sont justes les termin
 13) methode : PATCH , terminaison :/invoice/{id} , body :  {ref=new_ref , id_company=:new_id_company,update_dat=new_update_dat},
 effet : modifie la facture correspondante à l'id
 
-14) methode : PATCH , terminaison :/companie/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
+14) methode : PATCH , terminaison :/company/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
 effet : modifie l'entreprise correspondante à l'id
 
 15) methode : PATCH , terminaison :/contact/{id} , body :  {name=new_name , phone=new_phone,email=new_email},
@@ -86,10 +87,6 @@ effet : modifie le contact correspondant à l'id
 17) methode : DELETE , terminaison : /invoice/{id} , effet : supprime la facture correspondante à l'id
 
 18) methode : DELETE , terminaison : /contact/{id} , effet : supprime le contact correspondant à l'id
-
-
-
-
 
 
 */
@@ -153,9 +150,66 @@ $router->delete('/invoice/{id}',function($id){
 });
 
 $router->get('/companies',function(){
-    $invoice = new companies();
-    $invoice->get_companies();
+    $company = new companies();
+    $company->get_companies();
 });
+
+$router->get('/companies/{number}',function($number){
+    $company = new companies();
+    $company->get_companiesNumber($number);
+});
+
+$router->get('/company/{id}',function($id){
+    $company = new companies();
+    $company->get_companiesID($id);
+});
+
+$router->post('/companies',function(){
+    $company = new companies();
+    $company->post_companies();
+});
+
+$router->patch('/company/{id}',function($id){
+    $company = new companies();
+    $company->patch_companie($id);
+});
+
+$router->delete('/company/{id}',function($id){
+    $company = new companies();
+    $company->delete_companie($id);
+});
+
+$router->get('/contacts',function(){
+    $contact = new contacts();
+    $contact->get_contacts();
+});
+
+$router->get('/contacts/{number}',function($number){
+    $contact = new contacts();
+    $contact->get_contactsNumber($number);
+});
+
+$router->get('/contact/{id}',function($id){
+    $contact = new contacts();
+    $contact->get_contactsID($id);
+});
+
+$router->post('/contacts',function(){
+    $contact = new contacts();
+    $contact->post_contacts();
+});
+
+$router->patch('/contact/{id}',function($id){
+    $contact = new contacts();
+    $contact->patch_contact($id);
+});
+
+$router->delete('/contact/{id}',function($id){
+    $contact = new contacts();
+    $contact->delete_contact($id);
+});
+
+
 
 
 /*
@@ -331,7 +385,7 @@ $router->patch('/invoice/{id}', function ($id) {
     });
 
 //API modifier une companie
-$router->patch('/companie/{id}', function ($id) {
+$router->patch('/company/{id}', function ($id) {
         $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
         $data = json_decode(file_get_contents('php://input'), true);
         $change=$pdo->prepare("UPDATE companies SET name=:name , tva=:tva,country=:country  WHERE id = $id ");

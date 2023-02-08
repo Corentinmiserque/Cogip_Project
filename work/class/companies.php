@@ -1,5 +1,4 @@
 <?php
-include "class.php";
 
 class companies extends Dbh {
     public function get_companies(){
@@ -14,10 +13,11 @@ class companies extends Dbh {
         echo json_encode($donnees);
     }
 
-    public function get_invoicesNumber($number){
-        $sql="SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
-        INNER JOIN companies
-        ON invoices.id_company = companies.id ORDER BY create_dat DESC LIMIT $number ";
+    public function get_companiesNumber($number){
+        $sql="SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+        FROM companies 
+        INNER JOIN types 
+        ON companies.type_id = types.id  ORDER BY create_dat DESC  LIMIT $number";
         $resultat=$this->connect()->prepare($sql);
         $resultat->execute();
         $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
@@ -25,10 +25,11 @@ class companies extends Dbh {
 
     }
 
-    public function get_invoicesID($id){
-        $sql="SELECT invoices.id , ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
-        INNER JOIN companies
-        ON invoices.id_company = companies.id WHERE invoices.id = $id";
+    public function get_companiesID($id){
+        $sql="SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+        FROM companies 
+        INNER JOIN types 
+        ON companies.type_id = types.id  WHERE companies.id = $id ";
         $resultat=$this->connect()->prepare($sql);
         $resultat->execute();
         $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
@@ -36,32 +37,34 @@ class companies extends Dbh {
 
     }
 
-    public function post_invoices(){
+    public function post_companies(){
         $data = json_decode(file_get_contents('php://input'), true);
-        $sql="INSERT INTO invoices (ref, id_company, create_dat) VALUES (:ref, :id_company, :create_dat)";
+        $sql="INSERT INTO companies (name, type_id, country, tva, create_dat) VALUES (:name, :type_id, :country, :tva, :create_dat)";
         $add=$this->connect()->prepare($sql);
-        $add->bindValue(':ref', $data["ref"]);
-        $add->bindValue(':id_company', $data["id_company"]);
+        $add->bindValue(':name', $data["name"]);
+        $add->bindValue(':type_id', $data["type_id"]);
+        $add->bindValue(':country', $data["country"]);
+        $add->bindValue(':tva', $data["tva"]);
         $add->bindValue(':create_dat', $data["create_dat"]);
         $add->execute();
         header('Content-Type: application/json');
         echo json_encode(['message' => 'Données reçues avec succès']);
     }
 
-    public function patch_invoice($id){
+    public function patch_companie($id){
         $data = json_decode(file_get_contents('php://input'), true);
-        $sql="UPDATE invoices SET ref=:ref , id_company=:id_company,update_dat=:update_dat  WHERE id = $id ";
+        $sql="UPDATE companies SET name=:name , tva=:tva,country=:country  WHERE id = $id ";
         $change=$this->connect()->prepare($sql);
-        $change->bindValue(':ref', $data["ref"]);
-        $change->bindValue(':id_company', $data["id_company"]);
-        $change->bindValue(':update_dat', $data["update_dat"]);
+        $change->bindValue(':name', $data["name"]);
+        $change->bindValue(':tva', $data["tva"]);
+        $change->bindValue(':country', $data["country"]);
         $change->execute();
         header('Content-Type: application/json');
         echo json_encode(['message' => 'Données modifiées avec succès']);
     }
 
-    public function delete_invoice($id){
-        $sql=" DELETE FROM invoices WHERE id = $id ";
+    public function delete_companie($id){
+        $sql=" DELETE FROM companies WHERE id = $id ";
         $resultat=$this->connect()->prepare($sql);
         $resultat->execute();
         $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);

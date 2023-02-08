@@ -9,15 +9,15 @@
 <body>
 
     <script>
-    data = { ref : "testmodif", id_company:"10", create_dat: "2023-02-01"};
-    let url = 'http://localhost:8001/companies';
+    data = { name : "Aurélien2", company_id:"3",email:"test2@test.com", phone:"555-555", create_dat: "2023-02-01"};
+    let url = 'http://localhost:8001/contact/12';
     let option = {
-        method: "GET",
-        /*body: JSON.stringify(data),
+        method: "PATCH",
+        body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json",
         },
-    */};
+    };
     fetch(url,option)
     .then((response) => {
       return response.json();
