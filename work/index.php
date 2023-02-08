@@ -1,4 +1,7 @@
 <?php
+
+include "class/invoices.php";
+include "class/companies.php";
 ///  Documentation ///
 /*
 
@@ -119,6 +122,43 @@ header("Content-Type: application/json");
 $router = new \Bramus\Router\Router();
 
 
+$router->get('/invoices',function(){
+    $invoice = new invoices();
+    $invoice->get_invoices();
+});
+
+$router->get('/invoices/{number}',function($number){
+    $invoice = new invoices();
+    $invoice->get_invoicesNumber($number);
+});
+
+$router->get('/invoice/{id}',function($id){
+    $invoice = new invoices();
+    $invoice->get_invoicesID($id);
+});
+
+$router->post('/invoices',function(){
+    $invoice = new invoices();
+    $invoice->post_invoices();
+});
+
+$router->patch('/invoice/{id}',function($id){
+    $invoice = new invoices();
+    $invoice->patch_invoice($id);
+});
+
+$router->delete('/invoice/{id}',function($id){
+    $invoice = new invoices();
+    $invoice->delete_invoice($id);
+});
+
+$router->get('/companies',function(){
+    $invoice = new companies();
+    $invoice->get_companies();
+});
+
+
+/*
 $router->get('/invoices', function () {
     $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
     $resultat=$pdo->prepare("SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
@@ -348,5 +388,5 @@ $router->delete('/contact/{id}', function ($id) {
                     
     });
 
-
+*/
 $router->run();

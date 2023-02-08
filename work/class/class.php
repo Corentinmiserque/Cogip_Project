@@ -14,6 +14,8 @@ class Dbh{
     }
 }
 
+
+/*
 class Test extends Dbh{
     public function getCompagnies(){
         $sql="SELECT * FROM companies";
@@ -43,5 +45,5 @@ class Test extends Dbh{
 
     }
 }
-
+*/
 ?>

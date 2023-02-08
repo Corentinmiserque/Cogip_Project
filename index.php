@@ -9,18 +9,24 @@
 <body>
 
     <script>
-        /*
-    data = { name : "test",  company_id: 1, email:"test.test@test.com", phone:"00000000000", create_dat: "2023-02-02"}
-    let url = 'http://localhost:8001/invoices';
+    data = { ref : "testmodif", id_company:"10", create_dat: "2023-02-01"};
+    let url = 'http://localhost:8001/companies';
     let option = {
-        method: "POST",
-        body: JSON.stringify(data),
+        method: "GET",
+        /*body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json",
         },
+    */};
     fetch(url,option)
-    };*/
-    let url='http://localhost:8001/invoices'
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data)
+    }) 
+    /*
+    let url='http://localhost:8001/invoice/5'
     fetch(url,{method:"GET"}) 
     .then((response) => {
       return response.json();
@@ -28,6 +34,7 @@
     .then((data) => {
       console.log(data)
     }) 
+    */
     </script>
 
 </body>
