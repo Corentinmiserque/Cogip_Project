@@ -119,91 +119,109 @@ header("Content-Type: application/json");
 $router = new \Bramus\Router\Router();
 
 
+//commande affichant toutes les factures en commencant par la plus  récente
 $router->get('/invoices',function(){
     $invoice = new invoices();
     $invoice->get_invoices();
 });
 
+//API selectionnant le nombre d'élément voulu de Invoices par plus récent
 $router->get('/invoices/{number}',function($number){
     $invoice = new invoices();
     $invoice->get_invoicesNumber($number);
 });
 
+//API selectionnant UNE FACTURE (SANS S invoice)
 $router->get('/invoice/{id}',function($id){
     $invoice = new invoices();
     $invoice->get_invoicesID($id);
 });
 
+//API ajouter une facture
 $router->post('/invoices',function(){
     $invoice = new invoices();
     $invoice->post_invoices();
 });
 
+//API modifier une facture
 $router->patch('/invoice/{id}',function($id){
     $invoice = new invoices();
     $invoice->patch_invoice($id);
 });
 
+//API Retirer UNE FACTURE ( INVOICE SANS S)
 $router->delete('/invoice/{id}',function($id){
     $invoice = new invoices();
     $invoice->delete_invoice($id);
 });
 
+//API selectionnant toute les companies par ordre Alphabet
 $router->get('/companies',function(){
     $company = new companies();
     $company->get_companies();
 });
 
+//API selectionnant un nombre précis de companies Par plus recent
 $router->get('/companies/{number}',function($number){
     $company = new companies();
     $company->get_companiesNumber($number);
 });
 
+//API selectionnant UNE COMPANY(AVEC UN Y)
 $router->get('/company/{id}',function($id){
     $company = new companies();
     $company->get_companiesID($id);
 });
 
+//API créant une nouvelle companie
 $router->post('/companies',function(){
     $company = new companies();
     $company->post_companies();
 });
 
+//API modifier une companie
 $router->patch('/company/{id}',function($id){
     $company = new companies();
     $company->patch_companie($id);
 });
 
+//API Retirer UNE COMPANY ( AVEC UN Y)
 $router->delete('/company/{id}',function($id){
     $company = new companies();
     $company->delete_companie($id);
 });
 
+//API selectionnant toute les contacts par odre alphabet
 $router->get('/contacts',function(){
     $contact = new contacts();
     $contact->get_contacts();
 });
 
+//API selectionnant un nombre précis de contacts par plus récent
 $router->get('/contacts/{number}',function($number){
     $contact = new contacts();
     $contact->get_contactsNumber($number);
 });
 
+//API selectionnant UNE COMPANY(AVEC UN Y)
 $router->get('/contact/{id}',function($id){
     $contact = new contacts();
     $contact->get_contactsID($id);
 });
 
+//API ajouter un contact
 $router->post('/contacts',function(){
     $contact = new contacts();
     $contact->post_contacts();
 });
 
+//API modifier un contact
 $router->patch('/contact/{id}',function($id){
     $contact = new contacts();
     $contact->patch_contact($id);
 });
 
+//API Retirer UN CONTACT ( SANS S)
 $router->delete('/contact/{id}',function($id){
     $contact = new contacts();
     $contact->delete_contact($id);
