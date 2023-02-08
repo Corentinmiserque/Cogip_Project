@@ -5,35 +5,41 @@ import Footer from './partials/footer'
 import Home_HeroSection from './partials/homepage/Home_HeroSection'
 import Header_Img from './partials/Header_Img'
 import Home_Main_Footer from './partials/homepage/Home_Main_Footer'
+import InvoicesTable from './partials/Invoice_array'
 
 ReactDOM.createRoot(document.getElementById('header')).render(
   <React.StrictMode>
-    <Header/>
+    <Header />
   </React.StrictMode>,
 
 )
 ReactDOM.createRoot(document.getElementById('home_HeroSection')).render(
   <React.StrictMode>
-    <Home_HeroSection/>
+    <Home_HeroSection />
   </React.StrictMode>,)
 
 ReactDOM.createRoot(document.getElementById('header_Img')).render(
   <React.StrictMode>
-    <Header_Img/>
+    <Header_Img />
   </React.StrictMode>,)
 
 ReactDOM.createRoot(document.getElementById('home_Main_Footer')).render(
   <React.StrictMode>
-    <Home_Main_Footer/>
+    <Home_Main_Footer />
   </React.StrictMode>,)
 
 ReactDOM.createRoot(document.getElementById('Footer')).render(
   <React.StrictMode>
-    <Footer/>
+    <Footer />
   </React.StrictMode>,
 
 )
+ReactDOM.createRoot(document.getElementById('Array')).render(
+  <React.StrictMode>
+    <InvoicesTable />
+  </React.StrictMode>,
 
+)
 
 
 

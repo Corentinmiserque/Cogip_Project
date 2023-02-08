@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 
 function InvoicesTable() {
 
-// state, données
+  // state, données
 
   const [invoices, setInvoices] = useState([]);
 
-//comportements
+  //comportements
 
   useEffect(() => {
     fetch("http://localhost/invoices/5")
@@ -15,22 +15,22 @@ function InvoicesTable() {
       .catch(err => console.error(err));
   }, []);
 
-//render
+  //render
 
-  return    <table>
-                <tr>
-                    <th>Invoice Number</th>
-                    <th>Date Due</th>
-                    <th>Company</th>
-                    <th>Created At</th>
-                </tr>
-                <tr>
-                    <td>{invoice.ref}</td>
-                    <td>{invoice.Date_due}</td>
-                    <td>{invoice.Name_company}</td>
-                    <td>{invoice.create_dat}</td>
-                </tr>
-            </table>
+  return <table>
+    <tr>
+      <th>Invoice Number</th>
+      <th>Date Due</th>
+      <th>Company</th>
+      <th>Created At</th>
+    </tr>
+    <tr>
+      <td>{invoices.ref}</td>
+      <td>{invoices.Date_due}</td>
+      <td>{invoices.Name_company}</td>
+      <td>{invoices.create_dat}</td>
+    </tr>
+  </table>
 };
 
 export default InvoicesTable;
