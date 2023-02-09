@@ -53,7 +53,7 @@ const ContactsTable = () => {
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
-    axios.get("http://localhost:8001/contacts/5")
+    axios.get("https://quentin.hugoorickx.tech/contacts/5")
       .then(res => res.data)
       .then(data => setContacts(data))
       .catch(err => console.error(err));

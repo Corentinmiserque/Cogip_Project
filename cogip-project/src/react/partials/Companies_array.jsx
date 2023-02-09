@@ -6,7 +6,7 @@ const CompaniesTable = () => {
     const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8001/companies/5")
+        axios.get("https://quentin.hugoorickx.tech/companies/5")
             .then(res => res.data)
             .then(data => setCompanies(data))
             .catch(err => console.error(err));
@@ -54,7 +54,7 @@ const CompaniesTable = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    axios.get("http://localhost:8001/companies/5")
+    axios.get("https://quentin.hugoorickx.tech/companies/5")
       .then(res => res.data)
       .then(data => setCompanies(data))
       .catch(err => console.error(err));

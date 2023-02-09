@@ -50,7 +50,7 @@ const InvoicesTable = () => {
   const [sortType, setSortType] = useState("asc");
 
   useEffect(() => {
-    axios.get("http://localhost:8001/invoices")
+    axios.get("https://quentin.hugoorickx.tech/invoices")
       .then(res => res.data)
       .then(data => setInvoices(data))
       .catch(err => console.error(err));
