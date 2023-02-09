@@ -6,7 +6,7 @@ const InvoicesTable = () => {
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8001/invoices/5")
+    axios.get("https://quentin.hugoorickx.tech/invoices/5")
       .then(res => res.data)
       .then(data => setInvoices(data))
       .catch(err => console.error(err));

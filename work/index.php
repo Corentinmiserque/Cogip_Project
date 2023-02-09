@@ -10,7 +10,7 @@ OBJECTIF:
 
 L'objectif de cette API est de permettre de récupérer différentes informations(contacts,factures,entreprises,...) pour le projet COGIP
 
-COMMENT INSTALLER L'API:
+COMMENT INSTALLER L'API localement:
 
 Mettre le dossier work de le projet cogip,
 Dans phpmyadmin , créer une nouvelle base de données nommée : "cogip"
