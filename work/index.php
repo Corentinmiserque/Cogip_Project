@@ -17,6 +17,9 @@ Dans phpmyadmin , créer une nouvelle base de données nommée : "cogip"
 importer le script cogip.sql dans la base de donnée cogip
 lancer la commande suivante dans le terminal à chaque fois que vous utilisez l'api : "php -S localhost:8001 -t work/"
 
+COMMENT UTILISER L'API EN REMOTE:
+Remplacer localhost:8001 par https://quentin.hugoorickx.tech/
+
 COMMENT UTILISER L'API : 
 
 Pour utiliser l'api dans js, il faut utiliser la fonction "fetch(url,option)" avec l'url correspondante (voir si dessous pour avoir les urls).
