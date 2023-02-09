@@ -72,7 +72,7 @@ toutes les urls commencent par "http://localhost:8001" ce sont justes les termin
 13) methode : PATCH , terminaison :/invoice/{id} , body :  {ref=new_ref , id_company=:new_id_company,update_dat=new_update_dat},
 effet : modifie la facture correspondante à l'id
 
-14) methode : PATCH , terminaison :/companie/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
+14) methode : PATCH , terminaison :/company/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
 effet : modifie l'entreprise correspondante à l'id
 
 15) methode : PATCH , terminaison :/contact/{id} , body :  {name=new_name , phone=new_phone,email=new_email},
@@ -85,12 +85,14 @@ effet : modifie le contact correspondant à l'id
 18) methode : DELETE , terminaison : /contact/{id} , effet : supprime le contact correspondant à l'id
 
 
-
-
-
-
 */
 /// début du code ///
+//ajout des classes
+include "class/class.php";
+include "class/invoices.php";
+include "class/companies.php";
+include "class/contacts.php";
+//connexion à l'api
 if (isset($_SERVER['HTTP_ORIGIN'])) {
         // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
         // you want to allow, and if so:
@@ -118,235 +120,115 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 header("Content-Type: application/json");
 $router = new \Bramus\Router\Router();
 
+//gestion des routes
 
-$router->get('/invoices', function () {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
-    INNER JOIN companies
-    ON invoices.id_company = companies.id
-    ORDER BY invoices.create_dat DESC ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+//commande affichant toutes les factures en commencant par la plus  récente
+$router->get('/invoices',function(){
+    $invoice = new invoices();
+    $invoice->get_invoices();
 });
-
-
 
 //API selectionnant le nombre d'élément voulu de Invoices par plus récent
-$router->get('/invoices/{number}', function ($number) {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
-    INNER JOIN companies
-    ON invoices.id_company = companies.id ORDER BY create_dat DESC LIMIT $number ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+$router->get('/invoices/{number}',function($number){
+    $invoice = new invoices();
+    $invoice->get_invoicesNumber($number);
 });
+
 //API selectionnant UNE FACTURE (SANS S invoice)
-$router->get('/invoice/{id}', function ($id) {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT invoices.id , ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
-    INNER JOIN companies
-    ON invoices.id_company = companies.id WHERE invoices.id = $id  ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+$router->get('/invoice/{id}',function($id){
+    $invoice = new invoices();
+    $invoice->get_invoicesID($id);
+});
+
+//API ajouter une facture
+$router->post('/invoices',function(){
+    $invoice = new invoices();
+    $invoice->post_invoices();
+});
+
+//API modifier une facture
+$router->patch('/invoice/{id}',function($id){
+    $invoice = new invoices();
+    $invoice->patch_invoice($id);
+});
+
+//API Retirer UNE FACTURE ( INVOICE SANS S)
+$router->delete('/invoice/{id}',function($id){
+    $invoice = new invoices();
+    $invoice->delete_invoice($id);
 });
 
 //API selectionnant toute les companies par ordre Alphabet
 $router->get('/companies',function(){
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
-    FROM companies 
-    INNER JOIN types 
-    ON companies.type_id = types.id 
-    ORDER BY companies.name ASC");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
+    $company = new companies();
+    $company->get_companies();
 });
 
 //API selectionnant un nombre précis de companies Par plus recent
-$router->get('/companies/{number}', function ($number) {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
-    FROM companies 
-    INNER JOIN types 
-    ON companies.type_id = types.id  ORDER BY create_dat DESC  LIMIT $number ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+$router->get('/companies/{number}',function($number){
+    $company = new companies();
+    $company->get_companiesNumber($number);
 });
 
 //API selectionnant UNE COMPANY(AVEC UN Y)
-$router->get('/company/{id}', function ($id) {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
-    FROM companies 
-    INNER JOIN types 
-    ON companies.type_id = types.id  WHERE companies.id = $id ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+$router->get('/company/{id}',function($id){
+    $company = new companies();
+    $company->get_companiesID($id);
+});
+
+//API créant une nouvelle companie
+$router->post('/companies',function(){
+    $company = new companies();
+    $company->post_companies();
+});
+
+//API modifier une companie
+$router->patch('/company/{id}',function($id){
+    $company = new companies();
+    $company->patch_companie($id);
+});
+
+//API Retirer UNE COMPANY ( AVEC UN Y)
+$router->delete('/company/{id}',function($id){
+    $company = new companies();
+    $company->delete_companie($id);
 });
 
 //API selectionnant toute les contacts par odre alphabet
 $router->get('/contacts',function(){
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
-    INNER JOIN companies
-    ON contacts.company_id = companies.id
-    ORDER BY contacts.name ASC");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
+    $contact = new contacts();
+    $contact->get_contacts();
 });
 
 //API selectionnant un nombre précis de contacts par plus récent
-$router->get('/contacts/{number}', function ($number) {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
-    INNER JOIN companies
-    ON contacts.company_id = companies.id ORDER BY create_dat DESC  LIMIT $number ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+$router->get('/contacts/{number}',function($number){
+    $contact = new contacts();
+    $contact->get_contactsNumber($number);
 });
 
-//API selectionnant UN CONTACT (sans s)
-$router->get('/contact/{id}', function ($id) {
-    $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-    $resultat=$pdo->prepare("SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat    FROM contacts 
-    INNER JOIN companies
-    ON contacts.company_id = companies.id WHERE contacts.id = $id ");
-    $resultat->execute();
-    $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($donnees);
-    
+//API selectionnant UNE COMPANY(AVEC UN Y)
+$router->get('/contact/{id}',function($id){
+    $contact = new contacts();
+    $contact->get_contactsID($id);
 });
-
-
-//API créant une nouvelle companie
-$router->post('/companies', function() {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $add = $pdo->prepare("INSERT INTO companies (name, type_id, country, tva, create_dat) VALUES (:name, :type_id, :country, :tva, :create_dat)");
-        $add->bindValue(':name', $data["name"]);
-        $add->bindValue(':type_id', $data["type_id"]);
-        $add->bindValue(':country', $data["country"]);
-        $add->bindValue(':tva', $data["tva"]);
-        $add->bindValue(':create_dat', $data["create_dat"]);
-        $add->execute();
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Données reçues avec succès']);
-    });
-      
-//API ajouter une facture
-$router->post('/invoices', function() {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $add = $pdo->prepare("INSERT INTO invoices (ref, id_company, create_dat) VALUES (:ref, :id_company, :create_dat)");
-        $add->bindValue(':ref', $data["ref"]);
-        $add->bindValue(':id_company', $data["id_company"]);
-        $add->bindValue(':create_dat', $data["create_dat"]);
-        $add->execute();
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Données reçues avec succès']);
-    });
-
 
 //API ajouter un contact
-$router->post('/contacts', function() {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $add = $pdo->prepare("INSERT INTO contacts (name, company_id, email, phone, create_dat) VALUES (:name, :company_id, :email, :phone, :create_dat)");
-        $add->bindValue(':name', $data["name"]);
-        $add->bindValue(':company_id', $data["company_id"]);
-        $add->bindValue('email', $data["email"]);
-        $add->bindValue('phone', $data["phone"]);
-        $add->bindValue(':create_dat', $data["create_dat"]);
-        $add->execute();
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Données reçues avec succès']);
-    });
-
-//API modifier une facture
-$router->patch('/invoice/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $change=$pdo->prepare("UPDATE invoices SET ref=:ref , id_company=:id_company,update_dat=:update_dat  WHERE id = $id ");
-        $change->bindValue(':ref', $data["ref"]);
-        $change->bindValue(':id_company', $data["id_company"]);
-        $change->bindValue(':update_dat', $data["update_dat"]);
-        $change->execute();
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Données modifiées avec succès']);
-            
-    });
-
-//API modifier une companie
-$router->patch('/companie/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $change=$pdo->prepare("UPDATE companies SET name=:name , tva=:tva,country=:country  WHERE id = $id ");
-        $change->bindValue(':name', $data["name"]);
-        $change->bindValue(':tva', $data["tva"]);
-        $change->bindValue(':country', $data["country"]);
-        $change->execute();
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Données modifiées avec succès']);
-            
-    });
+$router->post('/contacts',function(){
+    $contact = new contacts();
+    $contact->post_contacts();
+});
 
 //API modifier un contact
-$router->patch('/contact/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $change=$pdo->prepare("UPDATE contacts SET name=:name , phone=:phone,email=:email  WHERE id = $id ");
-        $change->bindValue(':name', $data["name"]);
-        $change->bindValue(':phone', $data["phone"]);
-        $change->bindValue(':email', $data["email"]);
-        $change->execute();
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Données modifiées avec succès']);
-            
-    });
+$router->patch('/contact/{id}',function($id){
+    $contact = new contacts();
+    $contact->patch_contact($id);
+});
 
-//API Retirer UNE COMPANY ( AVEC UN Y)
-$router->delete('/company/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare(" DELETE FROM companies WHERE id = $id ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-                    
-    });
-        
-//API Retirer UNE FACTURE ( INVOICE SANS S)
-$router->delete('/invoice/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare(" DELETE FROM invoices WHERE id = $id ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-                    
-    });
-        
 //API Retirer UN CONTACT ( SANS S)
-$router->delete('/contact/{id}', function ($id) {
-        $pdo = new PDO('mysql:host=localhost;dbname=cogip;charset=utf8', 'root', '');
-        $resultat=$pdo->prepare(" DELETE FROM contacts WHERE id = $id ");
-        $resultat->execute();
-        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($donnees);
-                    
-    });
+$router->delete('/contact/{id}',function($id){
+    $contact = new contacts();
+    $contact->delete_contact($id);
+});
 
 
 $router->run();
