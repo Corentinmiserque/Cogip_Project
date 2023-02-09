@@ -47,14 +47,17 @@ export default CompaniesTable;*/
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
 
 const CompaniesTable = () => {
   const [companies, setCompanies] = useState([]);
   const [sortType, setSortType] = useState({ key: '', order: '' });
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(10);
 
   useEffect(() => {
-    axios.get("https://quentin.hugoorickx.tech/companies/5")
+    axios.get("https://quentin.hugoorickx.tech/companies")
       .then(res => res.data)
       .then(data => setCompanies(data))
       .catch(err => console.error(err));
@@ -83,6 +86,14 @@ const CompaniesTable = () => {
       }
       return 0;
     });
+
+    const handlePageClick = (data) => {
+        setCurrentPage(data.selected);
+    };
+    const lastIndex = currentPage * perPage;
+    const firstIndex = lastIndex - perPage;
+    const currentCompanies = companies.slice(firstIndex, lastIndex);
+
 
   return (
     <div className="array arrays__lastCompanies">
@@ -116,13 +127,29 @@ const CompaniesTable = () => {
                 <td>{new Date(company.create_dat).toLocaleDateString()}</td>
               </tr>
             ))}
-          </tbody>
-        </table>
-      </section>
-    </div>
-  );
+                 </tbody>
+                </table>
+            </section>
+            <ReactPaginate
+                previousLabel={"previous"}
+                nextLabel={"next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(companies.length / perPage)}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+            />
+        </div>
+    );
 };
 
 export default CompaniesTable;
+
+
+
 
 
