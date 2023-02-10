@@ -5,14 +5,16 @@ import Footer from './partials/footer'
 import Home_HeroSection from './partials/homepage/Home_HeroSection'
 import Header_Img from './partials/Header_Img'
 import Home_Main_Footer from './partials/homepage/Home_Main_Footer'
+
 import LastInvoicesTable from './partials/LastInvoicesArray'
 import LastContactsTable from  './partials/LastContacts_array'
 import LastCompaniesTable from  './partials/LastCompanies_array'
-import InvoicesPage_Array from './partials/Invoicespage/Invoicespage_Array'
-import ContactsPage_Array from './partials/ContactsPage_Array'
-import CompaniesPage_Array from './partials/CompagniesPage_Array'
-import Homepage from './partials/homepage/homepage'
+
 import InvoicesPageTable from './partials/Invoicespage/Invoicespage_Array'
+import ContactsPageTable from './partials/Contactspage_Array'
+import CompaniesPageTable from './partials/Compagniespage_Array'
+import Homepage from './partials/homepage/homepage'
+
 
 
 ReactDOM.createRoot(document.getElementById('homepage')).render(
@@ -21,9 +23,20 @@ ReactDOM.createRoot(document.getElementById('homepage')).render(
   </React.StrictMode>,
 )
 
-ReactDOM.createRoot(document.getElementById('invoice')).render(
+ReactDOM.createRoot(document.getElementById('companies')).render(
   <React.StrictMode>
-    <CompaniesPage_Array />
+    <CompaniesPageTable />
   </React.StrictMode>,
 )
 
+ReactDOM.createRoot(document.getElementById('contacts')).render(
+  <React.StrictMode>
+    <ContactsPageTable />
+  </React.StrictMode>,
+)
+
+ReactDOM.createRoot(document.getElementById('invoices')).render(
+  <React.StrictMode>
+    <InvoicesPageTable />
+  </React.StrictMode>,
+)
