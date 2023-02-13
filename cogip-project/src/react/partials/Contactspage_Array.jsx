@@ -30,9 +30,18 @@ new Date(contact.create_dat).toLocaleDateString().includes(searchTerm)
 ))
 .sort((a, b) => {
 let result = 0;
-if (sortField === "create_dat") {
-result = a.create_dat - b.create_dat;
+if (sortField === "Name_contact") {
+  result = a.Name_contact.localeCompare(b.Name_contact);
+} else if (sortField === "phone") {
+  result = a.phone.localeCompare(b.phone);
+} else if (sortField === "email") {
+  result = a.email.localeCompare(b.email);
+} else if (sortField === "Name_company") {
+  result = a.Name_company.localeCompare(b.Name_company);
+} else if (sortField === "create_dat") {
+  result = a.create_dat - b.create_dat;
 }
+
 
 if (sortOrder === "desc") {
   result = result * -1;
