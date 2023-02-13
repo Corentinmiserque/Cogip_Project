@@ -1,13 +1,13 @@
 // components
 import React from "react";
-import Header from "../Header";
+import Header from "../Compoments/Header";
 import Home_HeroSection from "./Home_HeroSection";
-import Header_Img from "../Header_Img";
-import LastInvoicesTable from "../LastInvoicesArray";
-import LastContactsTable from "../LastContacts_array";
-import LastCompaniesTable from "../LastCompanies_array";
+import Header_Img from "../Compoments/Header_Img";
+import LastInvoicesTable from "../Compoments/LastInvoicesArray";
+import LastContactsTable from "../Compoments/LastContacts_array"
+import LastCompaniesTable from "../Compoments/LastCompanies_array"
 import Home_Main_Footer from "./Home_Main_Footer";
-import Footer from "../footer";
+import Footer from "../Compoments/Footer";
 
 
 

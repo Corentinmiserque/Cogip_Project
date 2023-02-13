@@ -1,8 +1,8 @@
 
-import Header from "../Header";
-import Header_Img from "../Header_Img";
+import Header from "../Compoments/Header";
+import Header_Img from "../Compoments/Header_Img";
 import ContactsPageTable from "./Contactspage_Array";
-import Footer from "../footer";
+import Footer from "../Compoments/Footer";
 
 
 function Contactspage(){
