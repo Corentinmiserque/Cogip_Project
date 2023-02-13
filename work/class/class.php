@@ -2,9 +2,9 @@
 
 class Dbh{
     private $host="localhost";
-    private $user="u716273791_cogip_quentin";
-    private $pwd="bHIN:d1J/";
-    private $dbName="u716273791_cogip_quentin";
+    private $user="root";
+    private $pwd="";
+    private $dbName="cogip";
 
     protected function connect(){
         $dsn='mysql:host=' . $this ->host . ';dbname='. $this->dbName;

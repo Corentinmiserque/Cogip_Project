@@ -36,11 +36,12 @@ class invoices extends Dbh {
 
     public function post_invoices(){
         $data = json_decode(file_get_contents('php://input'), true);
-        $sql="INSERT INTO invoices (ref, id_company, create_dat) VALUES (:ref, :id_company, :create_dat)";
+        $sql="INSERT INTO invoices (ref, id_company, create_dat,update_dat) VALUES (:ref, :id_company, :create_dat,:update_dat)";
         $add=$this->connect()->prepare($sql);
         $add->bindValue(':ref', $data["ref"]);
         $add->bindValue(':id_company', $data["id_company"]);
         $add->bindValue(':create_dat', $data["create_dat"]);
+        $add->bindValue(':update_dat', $data["update_dat"]);
         $add->execute();
         header('Content-Type: application/json');
         echo json_encode(['message' => 'Données reçues avec succès']);

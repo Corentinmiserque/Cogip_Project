@@ -1,8 +1,4 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 ///  Documentation ///
 /*
 
@@ -10,15 +6,12 @@ OBJECTIF:
 
 L'objectif de cette API est de permettre de récupérer différentes informations(contacts,factures,entreprises,...) pour le projet COGIP
 
-COMMENT INSTALLER L'API localement:
+COMMENT INSTALLER L'API:
 
 Mettre le dossier work de le projet cogip,
 Dans phpmyadmin , créer une nouvelle base de données nommée : "cogip"
 importer le script cogip.sql dans la base de donnée cogip
 lancer la commande suivante dans le terminal à chaque fois que vous utilisez l'api : "php -S localhost:8001 -t work/"
-
-COMMENT UTILISER L'API EN REMOTE:
-Remplacer localhost:8001 par https://quentin.hugoorickx.tech/
 
 COMMENT UTILISER L'API : 
 
@@ -70,26 +63,42 @@ toutes les urls commencent par "http://localhost:8001" ce sont justes les termin
 
 9) methode : GET , terminaison :/contact/{id} , effet : selectionne le contact correspondant à l'id
 
-10) methode : POST , terminaison :/companies , body: {name : "companies_name", type_id : "entreprise", country : "companies_country", tva : "companies_tva", create_dat : "companies_create_dat"} , effet : ajoute une entreprise
+10) methode : GET , terminaison :/contactsbycompany/{id} , effet : affiche tout les contacts de l'entreprise lié à l'id
 
-11) methode : POST , terminaison :/invoices , body: {ref: "invoice_ref" , id_company:"invoice_id_company", creat_dat:"invoice_creat_dat"} , effet : ajoute une facture
+11) methode : POST , terminaison :/companies , body: {name : "companies_name", type_id : "entreprise", country : "companies_country", tva : "companies_tva", create_dat : "companies_create_dat"} , effet : ajoute une entreprise
 
-12) methode : POST , terminaison :/contacts , body: {name:"contact_name", company_id : "contact_company", email: "contact_email", phone : "contact_phone", create_dat : "contact_create_dat"} , effet : ajoute un contact
+12) methode : POST , terminaison :/invoices , body: {ref: "invoice_ref" , id_company:"invoice_id_company", creat_dat:"invoice_creat_dat"} , effet : ajoute une facture
 
-13) methode : PATCH , terminaison :/invoice/{id} , body :  {ref=new_ref , id_company=:new_id_company,update_dat=new_update_dat},
+13) methode : POST , terminaison :/contacts , body: {name:"contact_name", company_id : "contact_company", email: "contact_email", phone : "contact_phone", create_dat : "contact_create_dat"} , effet : ajoute un contact
+
+14) methode : PATCH , terminaison :/invoice/{id} , body :  {ref=new_ref , id_company=:new_id_company,update_dat=new_update_dat},
 effet : modifie la facture correspondante à l'id
 
-14) methode : PATCH , terminaison :/company/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
+15) methode : PATCH , terminaison :/company/{id} , body :  {name=new_name , tva=new_tva,country=new_country},
 effet : modifie l'entreprise correspondante à l'id
 
-15) methode : PATCH , terminaison :/contact/{id} , body :  {name=new_name , phone=new_phone,email=new_email},
+16) methode : PATCH , terminaison :/contact/{id} , body :  {name=new_name , phone=new_phone,email=new_email},
 effet : modifie le contact correspondant à l'id
 
-16) methode : DELETE , terminaison : /company/{id} , effet : supprime l'entreprise correspondante à l'id
+17) methode : DELETE , terminaison : /company/{id} , effet : supprime l'entreprise correspondante à l'id
 
-17) methode : DELETE , terminaison : /invoice/{id} , effet : supprime la facture correspondante à l'id
+18) methode : DELETE , terminaison : /invoice/{id} , effet : supprime la facture correspondante à l'id
 
-18) methode : DELETE , terminaison : /contact/{id} , effet : supprime le contact correspondant à l'id
+19) methode : DELETE , terminaison : /contact/{id} , effet : supprime le contact correspondant à l'id
+
+20) methode : GET , terminaison : /users , effet : affiche tout les utilisateurs
+
+21) methode : GET , terminaison : /user/{id} , effet : affiche l'utilisateur lié à l'id
+
+22) methode : POST , terminaison : /users , body : { first_name : new_first_name, role_id:new_role_id,last_name:new_last_name,email:new_email,password:new_password,creat_dat:new_creat_dat,update_dat:new_date} effet : ajoute un utilisateur
+
+23) methode : patch , terminaison : /user/{id} , body : { first_name : new_first_name, role_id:new_role_id,last_name:new_last_name,email:new_email,password:new_password,update_dat:new_date} effet : modifie l'utilisateur correspondant à l'id
+
+24) methode : DELETE , terminaison : /user/{id}, effet : supprime l'utilisateur correspondant à l'id
+
+25) methode : GET , terminaison : /roles , effet : affiche tout les roles
+
+26) methode : GET , terminaison : /role/{id} , effet : affoche le role correspondant à l'id
 
 
 */
@@ -99,6 +108,8 @@ include "class/class.php";
 include "class/invoices.php";
 include "class/companies.php";
 include "class/contacts.php";
+include "class/users.php";
+include "class/roles.php";
 //connexion à l'api
 if (isset($_SERVER['HTTP_ORIGIN'])) {
         // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
@@ -219,6 +230,12 @@ $router->get('/contact/{id}',function($id){
     $contact->get_contactsID($id);
 });
 
+//API liste des contacts d'une entremprise
+$router->get('/contactsbycompany/{id}',function($id){
+    $user = new contacts();
+    $user->get_contactsbycompany($id);
+});
+
 //API ajouter un contact
 $router->post('/contacts',function(){
     $contact = new contacts();
@@ -235,6 +252,49 @@ $router->patch('/contact/{id}',function($id){
 $router->delete('/contact/{id}',function($id){
     $contact = new contacts();
     $contact->delete_contact($id);
+});
+
+//API Affiche tout les utilisateurs
+$router->get('/users',function(){
+    $user = new users();
+    $user->get_users();
+});
+
+//API Affiche un utilisateur précis (avec son id)
+$router->get('/user/{id}',function($id){
+    $user = new users();
+    $user->get_userID($id);
+});
+
+//API Ajouter un utilisateur
+$router->post('/users',function(){
+    $user = new users();
+    $user->post_users();
+});
+
+
+//API Modifier un utilisateur
+$router->patch('/user/{id}',function($id){
+    $user = new users();
+    $user->patch_userID($id);
+});
+
+
+//API Supprimer un utilisateur
+$router->delete('/user/{id}',function($id){
+    $user = new users();
+    $user->delete_userID($id);
+});
+
+//API Afficher tout les roles
+$router->get('/roles',function(){
+    $user = new roles();
+    $user->get_roles();
+});
+
+$router->get('/role/{id}',function($id){
+    $user = new roles();
+    $user->get_roleID($id);
 });
 
 

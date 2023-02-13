@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 02 fév. 2023 à 10:26
--- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 13 fév. 2023 à 09:58
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 
 --
 -- Base de données : `cogip`
+
 --
 
 -- --------------------------------------------------------
@@ -27,18 +28,15 @@ SET time_zone = "+00:00";
 -- Structure de la table `companies`
 --
 
-DROP TABLE IF EXISTS `companies`;
-CREATE TABLE IF NOT EXISTS `companies` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `type_id` int NOT NULL,
-  `country` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `tva` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `tva` varchar(50) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `type_id` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `companies`
@@ -63,18 +61,15 @@ INSERT INTO `companies` (`id`, `name`, `type_id`, `country`, `tva`, `create_dat`
 -- Structure de la table `contacts`
 --
 
-DROP TABLE IF EXISTS `contacts`;
-CREATE TABLE IF NOT EXISTS `contacts` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `company_id` int NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `company_id` (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `contacts`
@@ -99,16 +94,13 @@ INSERT INTO `contacts` (`id`, `name`, `company_id`, `email`, `phone`, `create_da
 -- Structure de la table `invoices`
 --
 
-DROP TABLE IF EXISTS `invoices`;
-CREATE TABLE IF NOT EXISTS `invoices` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `ref` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_company` int NOT NULL,
+CREATE TABLE `invoices` (
+  `id` int(11) NOT NULL,
+  `ref` varchar(50) NOT NULL,
+  `id_company` int(11) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_company` (`id_company`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `invoices`
@@ -133,23 +125,21 @@ INSERT INTO `invoices` (`id`, `ref`, `id_company`, `create_dat`, `update_dat`) V
 -- Structure de la table `permissions`
 --
 
-DROP TABLE IF EXISTS `permissions`;
-CREATE TABLE IF NOT EXISTS `permissions` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `permissions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `create_dat`, `update_dat`) VALUES
-(1, 'full', '2023-02-02 09:57:22', '2023-02-02 09:57:22'),
-(2, 'denied', '2023-02-02 09:59:04', '2023-02-02 09:59:04'),
-(3, 'incomplete', '2023-02-02 10:17:41', '2023-02-02 10:17:41');
+(1, 'Complete_access', '2023-02-02 09:57:22', '2023-02-02 09:57:22'),
+(2, 'restricted_access', '2023-02-02 09:59:04', '2023-02-02 09:59:04'),
+(3, 'view_acces', '2023-02-02 10:17:41', '2023-02-02 10:17:41');
 
 -- --------------------------------------------------------
 
@@ -157,22 +147,20 @@ INSERT INTO `permissions` (`id`, `name`, `create_dat`, `update_dat`) VALUES
 -- Structure de la table `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `create_dat`, `update_dat`) VALUES
-(1, 'guest', '2023-02-02 09:51:58', '2023-02-02 09:51:58'),
-(2, 'connected', '2023-02-02 09:52:31', '2023-02-02 09:52:31'),
+(1, 'connected', '2023-02-02 09:51:58', '2023-02-02 09:51:58'),
+(2, 'Moderator', '2023-02-02 09:52:31', '2023-02-02 09:52:31'),
 (3, 'administrator', '2023-02-02 09:53:04', '2023-02-02 09:53:04');
 
 -- --------------------------------------------------------
@@ -181,24 +169,20 @@ INSERT INTO `roles` (`id`, `name`, `create_dat`, `update_dat`) VALUES
 -- Structure de la table `roles_permission`
 --
 
-DROP TABLE IF EXISTS `roles_permission`;
-CREATE TABLE IF NOT EXISTS `roles_permission` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `permission_id` int NOT NULL,
-  `role_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `permission_id` (`permission_id`),
-  KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `roles_permission` (
+  `id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `roles_permission`
 --
 
 INSERT INTO `roles_permission` (`id`, `permission_id`, `role_id`) VALUES
-(1, 2, 1),
-(2, 3, 2),
-(3, 1, 3);
+(1, 1, 3),
+(2, 2, 2),
+(3, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -206,14 +190,12 @@ INSERT INTO `roles_permission` (`id`, `permission_id`, `role_id`) VALUES
 -- Structure de la table `types`
 --
 
-DROP TABLE IF EXISTS `types`;
-CREATE TABLE IF NOT EXISTS `types` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `types`
@@ -229,28 +211,135 @@ INSERT INTO `types` (`id`, `name`, `create_dat`, `update_dat`) VALUES
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `role_id` int NOT NULL,
-  `last_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `create_dat` datetime NOT NULL,
-  `update_dat` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `update_dat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `role_id`, `last_name`, `email`, `password`, `create_dat`, `update_dat`) VALUES
-(1, 'Jean-Christian', 3, 'Ranu', 'ranu.jean-christian@gmail.com', 'password', '2023-02-02 10:19:11', '2023-02-02 10:19:11'),
-(2, 'Aurélien', 2, 'Mariaule', 'mariaule.aurelien@gmail.com', 'password', '2023-02-02 10:20:43', '2023-02-02 10:20:43'),
-(3, 'Peter', 2, 'Gregory', 'peter.gregory@raviga.com', 'password', '2023-02-02 10:22:02', '2023-02-02 10:22:02');
+(1, 'Jean-Christian', 3, 'Ranu', 'ranu.jean-christian@gmail.com', 'Ranu', '2023-02-02 10:19:11', '2023-02-02 10:19:11'),
+(2, 'Muriel', 2, 'Roulin', 'Muriel.roulin@gmail.com', 'Roulin', '2023-02-02 10:20:43', '2023-02-02 10:20:43'),
+(3, 'Peter', 1, 'Gregory', 'peter.gregory@raviga.com', 'Gregory', '2023-02-02 10:22:02', '2023-02-02 10:22:02');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type_id` (`type_id`);
+
+--
+-- Index pour la table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `company_id` (`company_id`);
+
+--
+-- Index pour la table `invoices`
+--
+ALTER TABLE `invoices`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_company` (`id_company`);
+
+--
+-- Index pour la table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `roles_permission`
+--
+ALTER TABLE `roles_permission`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `permission_id` (`permission_id`),
+  ADD KEY `role_id` (`role_id`);
+
+--
+-- Index pour la table `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `invoices`
+--
+ALTER TABLE `invoices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT pour la table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `roles_permission`
+--
+ALTER TABLE `roles_permission`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `types`
+--
+ALTER TABLE `types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées

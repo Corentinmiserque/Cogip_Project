@@ -34,6 +34,17 @@ class contacts extends Dbh {
 
     }
 
+    public function get_contactsbycompany($id){
+        $sql="SELECT contacts.id, contacts.name AS Name_contact, email, phone, companies.name AS Name_company, contacts.create_dat,company_id    FROM contacts 
+        INNER JOIN companies
+        ON contacts.company_id = companies.id WHERE company_id = $id ";
+        $resultat=$this->connect()->prepare($sql);
+        $resultat->execute();
+        $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($donnees);
+
+    }
+
     public function post_contacts(){
         $data = json_decode(file_get_contents('php://input'), true);
         $sql="INSERT INTO contacts (name, company_id, email, phone, create_dat) VALUES (:name, :company_id, :email, :phone, :create_dat)";
