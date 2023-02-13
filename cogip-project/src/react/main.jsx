@@ -1,42 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Header from './partials/Header'
 import Footer from './partials/footer'
-import Home_HeroSection from './partials/homepage/Home_HeroSection'
+import Home_HeroSection from './partials/Homepage/Home_HeroSection'
 import Header_Img from './partials/Header_Img'
-import Home_Main_Footer from './partials/homepage/Home_Main_Footer'
+import Home_Main_Footer from './partials/Homepage/Home_Main_Footer'
 
 import LastInvoicesTable from './partials/LastInvoicesArray'
 import LastContactsTable from  './partials/LastContacts_array'
 import LastCompaniesTable from  './partials/LastCompanies_array'
 
-import InvoicesPageTable from './partials/Invoicespage/Invoicespage_Array'
-import ContactsPageTable from './partials/Contactspage_Array'
-import CompaniesPageTable from './partials/Compagniespage_Array'
-import Homepage from './partials/homepage/homepage'
+import Homepage from './partials/Homepage/homepage';
+import Invoicespage from './partials/Invoicespage/Invoicespage';
+import Contactspage from './partials/Contactspage/Contactspage';
 
 
 
-ReactDOM.createRoot(document.getElementById('homepage')).render(
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Homepage />,
+    errorElement: <Homepage />,
+  },
+  {
+    path: `/invoices`,
+    element: <Invoicespage/>,
+  },
+  {
+    path: `/contacts`,
+    element: <Contactspage />,
+  },
+  
+
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Homepage />
-  </React.StrictMode>,
-)
-
-ReactDOM.createRoot(document.getElementById('companies')).render(
-  <React.StrictMode>
-    <CompaniesPageTable />
-  </React.StrictMode>,
-)
-
-ReactDOM.createRoot(document.getElementById('contacts')).render(
-  <React.StrictMode>
-    <ContactsPageTable />
-  </React.StrictMode>,
-)
-
-ReactDOM.createRoot(document.getElementById('invoices')).render(
-  <React.StrictMode>
-    <InvoicesPageTable />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

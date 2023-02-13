@@ -1,7 +1,7 @@
 
 import Header from "../Header";
 import Header_Img from "../Header_Img";
-import InvoicesPageTable from "./Invoicespage_Array";
+import CompaniesPageTable from "./Companiespage_Array"
 import Footer from "../footer";
 
 

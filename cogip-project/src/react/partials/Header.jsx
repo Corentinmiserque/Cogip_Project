@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import InvoicesPageTable from './Invoicespage/Invoicespage_Array';
-import Homepage from './homepage/homepage';
+import Homepage from './Homepage/homepage';
 
 
 
@@ -23,9 +24,9 @@ function Header() {
         <img className="logo" src ="./src/img/logo.svg" alt="logo" />
 
         <nav className={`navbar ${isOpen ? "navbarDisplay" : ""}`}>
-        
-          <a href="#">Companies</a>
-          <a href="#">Contacts</a>
+          <Link to={`/`}> Home</Link>
+          <Link to="/invoices">Invoices</Link>
+          <Link to="/contacts">Contacts</Link>
         </nav>
 
         <section className={`login ${isOpen ? "loginDisplay" : ""}`}>
