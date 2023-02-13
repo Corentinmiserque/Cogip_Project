@@ -157,7 +157,6 @@ body .menu :nth-child(3) {
     background-color: transparent;
     position: relative;
     padding: 0;
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     transform: none;
@@ -181,7 +180,6 @@ body .menu :nth-child(3) {
     transform: none;
   }
   body header .header .login .signUp {
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     border-radius: 10px;
@@ -381,19 +379,19 @@ body footer .footer .contacts .contact :nth-child(3) {
   margin-left: 5%;
 }
 body footer .footer .contacts .contact .localisation {
-  background: url("../../../public/localisation.svg");
+  background: url("../../../public/img/localisation.svg");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 7.5%;
 }
 body footer .footer .contacts .contact .phonenumber {
-  background: url("../../../public/phoneNumber.svg");
+  background: url("../../../public/img/phoneNumber.svg");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 7.5%;
 }
 body footer .footer .contacts .contact .fax {
-  background: url("../../../public/fax.svg");
+  background: url("../../../public/img/fax.svg");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 7.5%;

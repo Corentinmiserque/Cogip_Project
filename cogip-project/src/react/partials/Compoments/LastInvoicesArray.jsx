@@ -6,16 +6,13 @@ import { Link } from "react-router-dom";
     const [invoices, setInvoices] = useState([]);
   
     useEffect(() => {
-      axios({
-        method: "get",
-        url: "https://quentin.hugoorickx.tech/invoices/5",
-        responseType: "json",
-      })
-        .then((res) => setInvoices(res.data))
-        .catch(err => console.error(err));
-        
-    }, []);
-console.log(invoices)
+      axios.get("https://quentin.hugoorickx.tech/invoices/5")
+      .then(res => res.data)
+      .then(data => setInvoices(data))
+      .catch(err => setError(err.message));
+      }, []);
+      
+
   return (
     <div className="array arrays__lastInvoices">
       <h2>Last invoices</h2>
@@ -35,7 +32,6 @@ console.log(invoices)
                 <td>{invoice.ref}</td>
                 <td>{new Date(invoice.Date_due).toLocaleDateString()}</td>
                 <td><Link to={`/company/${invoice.IDCOMPANY}`}>{invoice.Name_company}</Link></td>
-                {console.log(invoice.IDCOMPANY)};
                 <td>{new Date(invoice.create_dat).toLocaleDateString()}</td>
               </tr>
             ))}

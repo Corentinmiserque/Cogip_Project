@@ -5,7 +5,7 @@ function Header_Img() {
     
     
     //render
-      return<img className="herosectionImg2"src="./src/img/herosectionImg2.svg" alt="heroSectionImg1" />
+      return<img className="herosectionImg2"src="../public/img/herosectionImg2.svg" alt="heroSectionImg1" />
         
         }
 

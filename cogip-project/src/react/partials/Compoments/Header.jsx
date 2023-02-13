@@ -20,7 +20,7 @@ function Header() {
   return (
     
       <div className= "header">
-       <Link to={`/`}><img className="logo" src="./src/img/logo.svg" alt="logo"/></Link>
+       <Link to={`/`}><img className="logo" src="../public/img/logo.svg" alt="logo"/></Link>
 
         <nav className={`navbar ${isOpen ? "navbarDisplay" : ""}`}>
           <Link to={`/`}> Home</Link>

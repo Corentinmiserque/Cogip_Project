@@ -11,7 +11,7 @@ function Footer() {
   return <footer>
   <div className="footer">
 
-    <img className="logo"src="./src/img/logo.svg" alt="logo_border"/>
+    <img className="logo"src="../public/img/logo.svg" alt="logo_border"/>
 
     <div className="contacts">
 
@@ -23,14 +23,14 @@ function Footer() {
 
         <section className="socialmedia">
             <p>Social media </p>
-            <a href="#"><img src="./src/img/Facebook.svg" alt="facebook"/></a>
-            <a href="#"><img src="./src/img/Twitter.svg" alt="twitter"/></a>
-            <a href="#"><img src="./src/img/LinkedIn.svg" alt="linkedin"/></a>
-            <a href="#"><img src="./src/img//Youtube.svg" alt="youtube"/></a>
-            <a href="#"><img src="./src/img/Instagram.svg" alt="instagram"/></a>
-            <a href="#"><img src="./src/img/GooglePlus.svg" alt="google+"/></a>
-            <a href="#"><img src="./src/img/pinterest.svg" alt="pinterest"/></a>
-            <a href="#"><img src="./src/img//RSS.svg" alt="flux rss"/></a>
+            <a href="#"><img src="../public/img/Facebook.svg" alt="facebook"/></a>
+            <a href="#"><img src="../public/img/Twitter.svg" alt="twitter"/></a>
+            <a href="#"><img src="../public/img/LinkedIn.svg" alt="linkedin"/></a>
+            <a href="#"><img src="../public/img//Youtube.svg" alt="youtube"/></a>
+            <a href="#"><img src="../public/img/Instagram.svg" alt="instagram"/></a>
+            <a href="#"><img src="../public/img/GooglePlus.svg" alt="google+"/></a>
+            <a href="#"><img src="../public/img/pinterest.svg" alt="pinterest"/></a>
+            <a href="#"><img src="../public/img//RSS.svg" alt="flux rss"/></a>
         </section>
 
     </div>  

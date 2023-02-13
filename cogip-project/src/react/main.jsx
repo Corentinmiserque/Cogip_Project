@@ -7,8 +7,8 @@ import Homepage from './partials/Homepage/Homepage';
 import Invoicespage from './partials/Invoicespage/Invoicespage';
 import Contactspage from './partials/Contactspage/Contactspage';
 import Companiespage from './partials/Companiespage/Companiespage';
-import CompanyDetails from './partials/Show_Invoicespage/Show_Invoicespage';
-
+import ShowInvoicesArray from './partials/Show_Invoicespage/Show_InvoicesArray';
+import Show_Invoicespage from './partials/Show_Invoicespage/Show_Invoicespage';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,11 @@ const router = createBrowserRouter([
   },
   {
     path: `/company/:id`,
-    element: <CompanyDetails />,
+    element: <Show_Invoicespage />,
+  },
+  {
+    path: `/ShowInvoicesArray/:id`,
+    element: <ShowInvoicesArray />,
   },
 
 ]);

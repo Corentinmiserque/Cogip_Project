@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const LastContactsTable = () => {
   const [contacts, setContacts] = useState([]);
@@ -31,7 +32,7 @@ const LastContactsTable = () => {
                 <td>{contact.Name_contact}</td>
                 <td>{contact.phone}</td>
                 <td>{contact.email}</td>
-                <td>{contact.Name_company}</td>
+                <td><Link to={`/company/${contact.IDCOMPANY}`}>{contact.Name_company}</Link></td>
                 <td>{new Date(contact.create_dat).toLocaleDateString()}</td>
               </tr>
             ))}
