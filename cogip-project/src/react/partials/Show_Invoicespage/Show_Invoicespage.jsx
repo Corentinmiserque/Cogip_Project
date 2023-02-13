@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
-const CompanyDetails = ({ id }) => {
-  const [company, setCompany] = useState({});
+const CompanyDetails = () => {
+    const {id} = useParams();
+   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://quentin.hugoorickx.tech/companies/company/${id}`)
-      .then(res => res.data)
-      .then(data => setCompany(data))
+    axios.get(`https://quentin.hugoorickx.tech/company/${id}`)
+      .then((res) => setCompanies(res.data))
       .catch(err => console.error(err));
-  }, [id]);
-
+  }, []);
+console.log(companies)
   return (
     <div className="company-details">
+        {companies.map(company => (
+      <div>
       <h2>{company.Name_company}</h2>
       <section>
         <p><b>Name:</b> {company.Name_company}</p>
@@ -20,11 +23,14 @@ const CompanyDetails = ({ id }) => {
         <p><b>Country:</b> {company.country}</p>
         <p><b>Type:</b> {company.Name_type}</p>
       </section>
+      </div>
+         ))}
     </div>
   );
 };
 
 export default CompanyDetails;
+
 
 
 

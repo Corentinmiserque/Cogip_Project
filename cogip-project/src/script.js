@@ -1,4 +1,4 @@
-let url='http://localhost:8001/invoices'
+let url='https://quentin.hugoorickx.tech/invoice/1'
 fetch(url,{method:"GET"}) 
 .then((response) => {
   return response.json();
