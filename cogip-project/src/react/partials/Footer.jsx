@@ -1,3 +1,6 @@
+
+import { Link } from 'react-router-dom'
+
 function Footer() {
 // state, données
 
@@ -36,10 +39,10 @@ function Footer() {
   <div className="footer_footer">
       <section className="footer_footer_navbar">
             <nav>
-                <a href="#">home</a>
-                <a href="#">invoices</a>
-                <a href="#">companies</a>
-                <a href="#">contacts</a>
+                <Link to={`/`}> Home</Link>
+                <Link to="/invoices">Invoices</Link>
+                <Link to="/contacts">Contacts</Link>
+                <Link to="/companies">Companies</Link>
                 <a href="#">privacy policy</a>
             </nav>
         </section>
