@@ -7,7 +7,7 @@ import Homepage from './partials/Homepage/Homepage';
 import Invoicespage from './partials/Invoicespage/Invoicespage';
 import Contactspage from './partials/Contactspage/Contactspage';
 import Companiespage from './partials/Companiespage/Companiespage';
-
+import CompanyDetails from './partials/Show_Invoicespage/Show_Invoicespage';
 
 
 const router = createBrowserRouter([
@@ -28,7 +28,10 @@ const router = createBrowserRouter([
   path: `/companies`,
     element: <Companiespage />,
   },
-  
+  {
+    path: `/companies/:id`,
+    element: <CompanyDetails />,
+  },
 
 ]);
 
