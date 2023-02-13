@@ -5,7 +5,7 @@ import CompaniesPageTable from "./Companiespage_Array"
 import Footer from "../footer";
 
 
-function Invoicespage(){
+function Companiespage(){
 
     return(
       <div>
@@ -16,7 +16,7 @@ function Invoicespage(){
         <main>
         <div className="arrays">
           <section className="overflowArray">
-          <InvoicesPageTable/>
+          <CompaniesPageTable/>
           </section>
           </div>
         </main>
@@ -25,4 +25,4 @@ function Invoicespage(){
     );
 
 }
-export default Invoicespage
+export default Companiespage

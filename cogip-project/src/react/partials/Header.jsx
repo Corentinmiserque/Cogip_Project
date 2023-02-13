@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import InvoicesPageTable from './Invoicespage/Invoicespage_Array';
 import Homepage from './Homepage/homepage';
 
@@ -27,6 +27,7 @@ function Header() {
           <Link to={`/`}> Home</Link>
           <Link to="/invoices">Invoices</Link>
           <Link to="/contacts">Contacts</Link>
+          <Link to="/companies">Companies</Link>
         </nav>
 
         <section className={`login ${isOpen ? "loginDisplay" : ""}`}>

@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Header from './partials/Header'
@@ -12,10 +12,10 @@ import LastInvoicesTable from './partials/LastInvoicesArray'
 import LastContactsTable from  './partials/LastContacts_array'
 import LastCompaniesTable from  './partials/LastCompanies_array'
 
-import Homepage from './partials/Homepage/homepage';
+import Homepage from './partials/Homepage/Homepage';
 import Invoicespage from './partials/Invoicespage/Invoicespage';
 import Contactspage from './partials/Contactspage/Contactspage';
-
+import Companiespage from './partials/Companiespage/Companiespage';
 
 
 
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: `/contacts`,
     element: <Contactspage />,
+  },
+  {
+  path: `/companies`,
+    element: <Companiespage />,
   },
   
 
