@@ -13,7 +13,7 @@ function DashboardInvoicesMain(){
     }, []);
     
     return (
-        <form action="./Formulaire/Form_PHP/formInvoices.php" method="post">
+        <form action="../../../../../../Formulaire/Form_PHP/formInvoices.php" method="post">
             <label htmlFor="ref">Reference:</label>
             <input type="text" id="ref" name="ref" /><br /><br />
     
