@@ -29,7 +29,7 @@ const LastContactsTable = () => {
           <tbody>
             {contacts.map(contact => (
               <tr key={contact.id}>
-                <td>{contact.Name_contact}</td>
+                <td><Link to={`/contactpage/${contact.IDCOMPANY}`}>{contact.Name_contact}</Link></td>
                 <td>{contact.phone}</td>
                 <td>{contact.email}</td>
                 <td><Link to={`/invoicepage/${contact.IDCOMPANY}`}>{contact.Name_company}</Link></td>
