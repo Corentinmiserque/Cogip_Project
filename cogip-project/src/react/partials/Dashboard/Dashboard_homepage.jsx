@@ -1,7 +1,9 @@
 import TotalCompanies from "./Dashboard_Homepage/TotalCompanies";
 import TotalContacts from "./Dashboard_Homepage/TotalContacts";
 import TotalInvoices from "./Dashboard_Homepage/TotalInvoices";
-
+import DashboardLastInvoicesTable from "./Dashboard_Homepage/Dashboard_LastInvoice";
+import DashboardLastCompaniesTable from "./Dashboard_Homepage/Dashboard_LastCompanies";
+import DashboardLastContactsTable from "./Dashboard_Homepage/Dashboard_LastContacts";
 function Dashboard_Homepage(){
     return (
         <>
@@ -10,6 +12,9 @@ function Dashboard_Homepage(){
           <TotalCompanies/>
           <TotalContacts/>
           <TotalInvoices/>
+          <DashboardLastInvoicesTable/>
+          <DashboardLastCompaniesTable/>
+          <DashboardLastContactsTable/>
         </div>
         </>
     );

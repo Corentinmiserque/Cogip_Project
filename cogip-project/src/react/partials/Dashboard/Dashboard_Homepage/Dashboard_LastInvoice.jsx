@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-  const LastInvoicesTable = () => {
+  const DashboardLastInvoicesTable = () => {
     const [invoices, setInvoices] = useState([]);
   
     useEffect(() => {
@@ -16,22 +16,21 @@ import { Link } from "react-router-dom";
   return (
     <div className="arrays__lastInvoices">
       <h2>Last invoices</h2>
-      <img src="../public/img/blocknote.svg" alt="blocknote" />
       <section className="overflowArray">
         <table>
           <thead>
             <tr>
               <th>Invoice Number</th>
+              <th>Date</th>
               <th>Company</th>
-              <th>Created At</th>
             </tr>
           </thead>
           <tbody>
             {invoices.map(invoice => (
               <tr key={invoice.id}>
                 <td>{invoice.ref}</td>
-                <td>{invoice.Name_company}</td>
                 <td>{new Date(invoice.create_dat).toLocaleDateString()}</td>
+                <td>{invoice.Name_company}</td>
               </tr>
             ))}
           </tbody>
@@ -42,4 +41,4 @@ import { Link } from "react-router-dom";
 };
 
 
-export default LastInvoicesTable;
+export default DashboardLastInvoicesTable;
