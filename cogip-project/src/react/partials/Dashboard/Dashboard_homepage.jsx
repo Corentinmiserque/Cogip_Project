@@ -4,6 +4,8 @@ import TotalInvoices from "./Dashboard_Homepage/TotalInvoices";
 import DashboardLastInvoicesTable from "./Dashboard_Homepage/Dashboard_LastInvoice";
 import DashboardLastCompaniesTable from "./Dashboard_Homepage/Dashboard_LastCompanies";
 import DashboardLastContactsTable from "./Dashboard_Homepage/Dashboard_LastContacts";
+import { Link } from 'react-router-dom'
+
 function Dashboard_Homepage(){
     return (
         <>
@@ -15,6 +17,7 @@ function Dashboard_Homepage(){
           <DashboardLastInvoicesTable/>
           <DashboardLastCompaniesTable/>
           <DashboardLastContactsTable/>
+          <Link to="/dashboard_Invoicepage">Invoices</Link>
         </div>
         </>
     );

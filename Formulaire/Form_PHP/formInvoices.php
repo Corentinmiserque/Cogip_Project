@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 echo "
 <script>     
 data = { ref : '$ref' ,  id_company : '$id_company' , create_dat: '$create_dat' , update_dat: '$update_dat'}
-let url='http://localhost:8001/invoices';
+let url='https://quentin.hugoorickx.tech/invoices';
 let option = {
   method: 'POST',
   body: JSON.stringify(data),
@@ -39,7 +39,7 @@ fetch(url,option)
 </script>";
 
 }
-header("Refresh:0; url=../Form_Html/addFormInvoices.html");
+header("Refresh:0; url=../../cogip-project/src/react/partials/Dashboard/Dashboard_Invoicepage/Dashboard_InvoiceMain.jsx");
 }
 
 ?>
