@@ -7,9 +7,10 @@ const LastCompaniesTable = () => {
 
   useEffect(() => {
     axios.get("https://quentin.hugoorickx.tech/companies/5")
-      .then(res => setCompanies(res.data))
-      .catch(err => console.error(err));
-  }, []);
+    .then(res => res.data)
+    .then(data => setCompanies(data))
+    .catch(err => console.error(err));
+}, []);
 
   return (
     <div className="array arrays__lastCompanies">
@@ -28,7 +29,7 @@ const LastCompaniesTable = () => {
           <tbody>
             {companies.map(company => (
               <tr key={company.id}>
-                <td><Link to={`/company/${company.IDCOMPANY}`}>{company.Name_company}</Link></td>
+                <td><Link to={`/invoicepage/${company.id}`}>{company.Name_company}</Link></td>
                 <td>{company.tva}</td>
                 <td>{company.country}</td>
                 <td>{company.Name_type}</td>

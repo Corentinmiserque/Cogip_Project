@@ -3,17 +3,15 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 
 const ShowInvoicesArray = () => {
-    const {id} = useParams();
-    const [invoices, setInvoices] = useState([]);
+const { id } = useParams();
+const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
     axios.get(`https://quentin.hugoorickx.tech/company/${id}`)
-      .then((res) => setInvoices(res.data))
-      .catch(err => console.error(err));
-  }, []);
+    .then((res) => setInvoices(res.data))
+    .catch(err => console.error(err));
+}, []);
 
-  const lastFiveInvoices = invoices.slice(-5).reverse();
-  {console.log=(invoices)}
   return (
     <main>
     <div className="arrays">
@@ -30,7 +28,7 @@ const ShowInvoicesArray = () => {
             </tr>
           </thead>
           <tbody>
-          {lastFiveInvoices.map(invoice => (
+          {invoices.map(invoice => (
             <tr key={invoice.id}>
               <td>{invoice.ref || '-'}</td>
               <td>{invoice.Date_due ? new Date(invoice.Date_due).toLocaleDateString() : '-'}</td>
