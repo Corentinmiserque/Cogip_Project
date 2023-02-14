@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
 import ShowInvoicesArray from "./Show_InvoicesArray";
+import ShowInvoicesContactsPeople from "./Show_InvoicePeople";
 
 const CompanyDetails = () => {
   const {id} = useParams();
@@ -26,9 +27,7 @@ const CompanyDetails = () => {
           </section>
         </div>
       ))}
-      <div className="contact">
-        <h2>Contact people</h2>
-      </div> 
+      <ShowInvoicesContactsPeople /> 
       <ShowInvoicesArray />
     </div>
   );

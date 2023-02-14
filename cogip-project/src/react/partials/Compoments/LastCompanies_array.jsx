@@ -15,6 +15,7 @@ const LastCompaniesTable = () => {
   return (
     <div className="array arrays__lastCompanies">
       <h2>Last companies</h2>
+      <img src="../public/img/spotlight.svg" alt="spotlight" /> 
       <section className="overflowArray">
         <table>
           <thead>

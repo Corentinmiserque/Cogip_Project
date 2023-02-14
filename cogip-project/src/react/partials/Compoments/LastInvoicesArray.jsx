@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
   return (
     <div className="array arrays__lastInvoices">
       <h2>Last invoices</h2>
+      <img src="../public/img/blocknote.svg" alt="blocknote" />
       <section className="overflowArray">
         <table>
           <thead>
