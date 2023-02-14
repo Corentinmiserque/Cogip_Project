@@ -14,10 +14,15 @@ const ShowInvoicesContactsPeople = () => {
 
   return (
     <main>
-          <h2>Contacts People</h2>
-            {contacts.map(contact => (
-              <p key={contact.id}>{contact.Name_contact}</p>
-            ))}
+      <h2>Contacts People</h2>
+      <div className="ContactPeople">
+        {contacts.map(contact => (
+          <div key={contact.IDCOMPANY}>
+            <p>{contact.Name_contact}</p>
+            <img src="../public/img/profil-contact.png" alt="profil-contact" />
+          </div>
+        ))}
+      </div>
     </main>
   );
 };
