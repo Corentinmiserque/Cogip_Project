@@ -61,10 +61,10 @@ const InvoicesPageTable = () => {
   return (
     <div className="array arrays__lastContacts">
       <div className="title">
-      <h2 className="underline">All Invoices</h2>
-      <input className="search" type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search invoices" />
+        <h2 className="underline">All Invoices</h2>
+        <input className="search" type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search" />
+        {error && <p className="error">{error}</p>}
       </div>
-      {error && <p className="error">{error}</p>}
       <section className="overflowArray">
         <table>
           <thead>

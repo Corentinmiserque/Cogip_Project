@@ -14,8 +14,11 @@ function Show_Invoicespage() {
         <Header />
         <Header_Img />
       </header>
+      <main>
       <CompanyDetails/>
+      </main>
       <Footer />
+
     </>
   );
 }

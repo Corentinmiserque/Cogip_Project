@@ -15,7 +15,7 @@ const ShowInvoicesContactsPeople = () => {
   return (
     <main>
       <h2>Contacts People</h2>
-      <div className="ContactPeople">
+      <div className="contactpeople">
         {contacts.map(contact => (
           <div key={contact.IDCOMPANY}>
             <p>{contact.Name_contact}</p>

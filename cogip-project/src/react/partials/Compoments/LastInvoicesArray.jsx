@@ -31,7 +31,7 @@ import { Link } from "react-router-dom";
               <tr key={invoice.id}>
                 <td>{invoice.ref}</td>
                 <td>{new Date(invoice.Date_due).toLocaleDateString()}</td>
-                <td><Link to={`/invoicepage/${invoice.IDCOMPANY}`}>{invoice.Name_company}</Link></td>
+                <td><Link to={`/showcompany/${invoice.IDCOMPANY}`}>{invoice.Name_company}</Link></td>
                 <td>{new Date(invoice.create_dat).toLocaleDateString()}</td>
               </tr>
             ))}

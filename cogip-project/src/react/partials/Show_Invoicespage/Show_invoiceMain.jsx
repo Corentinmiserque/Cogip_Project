@@ -15,10 +15,10 @@ const CompanyDetails = () => {
   }, []);
 
   return (
-    <div className="company-details">
+    <div className=" show companyDetails">
       {companies.map(company => (
         <div key={company.id}>
-          <h2>{company.Name_company}</h2>
+          <h2 className="underline">{company.Name_company}</h2>
           <section>
             <p>Name: {company.Name_company}</p>
             <p>TVA Number: {company.tva}</p>

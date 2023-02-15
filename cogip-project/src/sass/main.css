@@ -57,7 +57,7 @@ body header .header .navbar {
   transform: translateY(-100%);
 }
 body header .header .navbar a {
-  padding: 2%;
+  font-size: 3vw;
 }
 body header .header .navbar a:nth-child(n+2) {
   margin-top: 8%;
@@ -66,13 +66,15 @@ body header .header .navbarDisplay {
   transform: translateY(0);
 }
 body header .header .login {
-  width: 10vw;
+  width: 3vw;
   text-align: center;
   font-size: 80%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  transform: translateX(7vw);
+  z-index: 0;
+  transform: translateX(15vw);
+  font-size: 3vw;
 }
 body header .header .login :hover {
   color: rgba(0, 0, 0, 0.7);
@@ -81,7 +83,7 @@ body header .header .login .signUp {
   background-color: white;
   padding: 0.25em 0.5em;
   border-radius: 5px;
-  margin-left: 5vw;
+  margin-left: 2vw;
 }
 body header .header .loginDisplay {
   display: none;
@@ -152,6 +154,7 @@ body .menu :nth-child(3) {
     transform: translateX(40%);
   }
   body header .header .navbar {
+    width: 50vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -161,7 +164,7 @@ body .menu :nth-child(3) {
     width: -moz-fit-content;
     width: fit-content;
     transform: none;
-    transform: translateX(9vw);
+    z-index: 4;
   }
   body header .header .navbar a {
     font-size: 1.8vw;
@@ -175,17 +178,17 @@ body .menu :nth-child(3) {
     margin-top: 0;
   }
   body header .header .login {
-    width: 500%;
+    width: 21vw;
     font-size: 1.8vw;
     margin: 0;
     flex-direction: row;
-    justify-content: right;
+    z-index: 4;
     position: relative;
     transform: none;
   }
   body header .header .login .signUp {
     border-radius: 10px;
-    margin-right: 2vw;
+    margin-right: 1vw;
   }
   body header .header .hamburger-lines {
     display: none;
@@ -208,6 +211,7 @@ body .menu :nth-child(3) {
     width: 55vw;
     right: 0;
     transform: translateY(-5vw);
+    z-index: 0;
   }
   body header .herosectionImg2 {
     width: 90%;
@@ -258,7 +262,8 @@ body main .arrays .search {
   padding: 1vw 0;
   margin-bottom: 5vw;
   width: 40vw;
-  border: solid 2px rgb(115, 115, 115);
+  border: solid 1px rgb(115, 115, 115);
+  text-indent: 1vw;
 }
 body main .arrays table {
   font-size: 100%;
@@ -283,6 +288,7 @@ body main .arrays th .tri {
   font-weight: 900;
   transform: rotate 0deg;
   margin-left: 2vw;
+  font-size: 3.5vw;
 }
 body main .arrays th .tri.activetri {
   transform: rotate(180deg);
@@ -362,27 +368,34 @@ body main .arrays__lastCompanies .spotlight {
   body main .arrays .array .title {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 100;
+    width: 100%;
     height: 20vw;
   }
   body main .arrays .array .title h2 {
-    margin: 2rem 0;
+    margin: 5vw 0;
+    margin-left: 0;
+  }
+  body main .arrays .array .title .underline {
     font-size: 4.5vw;
-    transform: translateX(-10vw);
   }
   body main .arrays .array .title .underline::before {
     width: 20vw;
     height: 2vw;
-    transform: translateY(2.7vw) translateX(12vw);
+    transform: translateY(3.2vw) translateX(12vw);
+  }
+  body main .arrays .array .title .underlinecompanies::before {
+    width: 27vw;
+    transform: translateY(3.2vw) translateX(12vw);
   }
   body main .arrays .array .title .search {
     width: 20vw;
     padding: 0;
-    height: 4vw;
-    transform: translateX(10vw) translateY(8vw);
+    height: 3vw;
+    transform: translateY(7.5vw);
     font-size: 1.7vw;
+    margin-right: 0;
   }
   body main .arrays table {
     font-size: 1.8vw;
@@ -391,6 +404,10 @@ body main .arrays__lastCompanies .spotlight {
   }
   body main .arrays th {
     width: 20vw;
+  }
+  body main .arrays th .tri {
+    font-size: 1.5vw;
+    margin-left: 1vw;
   }
   body main .arrays tr:nth-child(even) {
     background-color: rgb(245, 245, 245);
@@ -412,14 +429,14 @@ body main .arrays__lastCompanies .spotlight {
     padding: 0vw 0.5vw;
   }
   body main .array5column table {
-    width: 250%;
+    width: 50vw;
   }
   body main .arrays__lastInvoices .blocknote {
     width: 10vw;
     transform: translateY(-50%);
   }
   body main .arrays__lastCompanies .spotlight {
-    width: 10vw;
+    width: 7.5vw;
     transform: translateY(-60%);
     left: 0;
   }
@@ -642,5 +659,78 @@ body footer .copyright p {
   }
   body footer .copyright p {
     color: rgb(115, 115, 115);
+  }
+}
+body main .show {
+  text-align: center;
+  width: 90vw;
+  margin: auto;
+}
+body main .show .underline {
+  margin-bottom: 5vw;
+}
+body main .show .underline::before {
+  content: "";
+  position: absolute;
+  width: 60dvw;
+  height: 4dvw;
+  background-color: rgb(249, 222, 78);
+  z-index: -1;
+  transform: translateY(5dvw) translateX(5dvw);
+}
+body main .show .contactpeople {
+  text-align: center;
+  width: 80%;
+  margin: 10dvw;
+}
+body main .show .contactpeople p {
+  text-align: left;
+  font-size: 5dvw;
+  font-weight: 400;
+}
+body main .show .profil-img {
+  width: 100%;
+  text-align: center;
+}
+body main .show .profil-img img {
+  width: 40dvw;
+  border-radius: 50%;
+  height: 40dvw;
+  background-color: rgb(245, 245, 245);
+}
+
+@media screen and (min-width: 425px) {
+  body main .show .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  body main .show .info .contactpeople {
+    width: 40dvw;
+    margin: 10dvw 0;
+  }
+  body main .show .info .contactpeople .underline {
+    font-size: 3.5dvw;
+    margin-bottom: 3dvw;
+    text-align: left;
+  }
+  body main .show .info .contactpeople .underline::before {
+    width: 30dvw;
+    height: 2dvw;
+    transform: translateY(2.5dvw) translateX(2dvw);
+  }
+  body main .show .info .contactpeople p {
+    font-size: 1.5dvw;
+    font-weight: 600;
+    margin: 0;
+  }
+  body main .show .info .profil-img {
+    width: 45dvw;
+    display: flex;
+    justify-content: right;
+  }
+  body main .show .info .profil-img img {
+    width: 15dvw;
+    height: 15dvw;
   }
 }/*# sourceMappingURL=main.css.map */

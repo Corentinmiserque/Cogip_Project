@@ -31,7 +31,7 @@ const LastCompaniesTable = () => {
           <tbody>
             {companies.map(company => (
               <tr key={company.id}>
-                <td><Link to={`/invoicepage/${company.id}`}>{company.Name_company}</Link></td>
+                <td><Link to={`/showcompany/${company.id}`}>{company.Name_company}</Link></td>
                 <td>{company.tva}</td>
                 <td>{company.country}</td>
                 <td>{company.Name_type}</td>

@@ -1,0 +1,89 @@
+body{
+    main{
+        .show{
+            text-align: center;
+            width: 90vw;
+            margin: auto;
+
+            .underline{
+                margin-bottom: 5vw;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 60dvw;
+                    height: 4dvw;
+                    background-color: $yellow;
+                    z-index: -1;
+                    transform: translateY(5dvw) translateX(5dvw);
+                }
+            }
+            .contactpeople{
+                text-align: center;
+                width: 80%;
+                margin: 10dvw;
+                p{
+                    text-align: left;
+                    font-size: 5dvw;
+                    font-weight: 400;
+                }
+            }
+            .profil-img{
+                width: 100%;
+                text-align: center;
+                img{
+                    width: 40dvw;
+                    border-radius: 50%;
+                    height: 40dvw;
+                    background-color: $lightgrey;
+                }
+           
+                
+            }
+           
+        }
+    }
+}
+@media screen and (min-width: 425px) {
+    body{
+        main{
+            .show{
+          
+                .info{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .contactpeople{
+                        width: 40dvw;
+                        margin: 10dvw 0;
+                        
+                        .underline{
+                            font-size: 3.5dvw;
+                            margin-bottom: 3dvw;
+                            text-align: left;
+                            &::before{
+                                width: 30dvw;
+                                height: 2dvw;
+                                transform: translateY(2.5dvw)translateX(2dvw);
+                            }
+                        }
+                        p{
+                            font-size: 1.5dvw;
+                            font-weight: 600;
+                            margin: 0;
+                        }
+                    }
+                    .profil-img{
+                        width: 45dvw;
+                        display: flex;
+                        justify-content: right;
+                        img{
+                            width: 15dvw;
+                            height: 15dvw;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

@@ -14,22 +14,25 @@ const ContactsDetails = () => {
   }, []);
 
   return (
-        <div className="contactsDetails">
+      <div className=" show contactsDetails">
           {contacts.map(contact=> (
-            <div key={contact.id}>
-              <h2>{contact.Name_contact}</h2>
-              <section className="contactpeople">
-                <p>Name: {contact.Name_contact}</p>
-                <p>Phone: {contact.phone}</p>
-                <p>Mail: {contact.email}</p>
-                <p>Company: {contact.Name_company}</p>
-              </section>
-              <section className="profil-img">
-                <img src="../public/img/profil-contact.png" alt="profil-img" />
-              </section>
-            </div>
+            <div className="info" key={contact.id}>
+              
+    
+                <section className="contactpeople">
+                <h2 className="underline">{contact.Name_contact}</h2>
+                  <p>Name: {contact.Name_contact}</p>
+                  <p>Phone: {contact.phone}</p>
+                  <p>Mail: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+                  <p>Company: {contact.Name_company}</p>
+                </section>
+                <section className="profil-img">
+                  <img src="../public/img/profil-contact.png" alt="profil-img" />
+                </section>
+              </div>
+       
           ))}
-    </div>
+      </div> 
   );
 };
 

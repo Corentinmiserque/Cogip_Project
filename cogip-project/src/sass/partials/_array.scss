@@ -32,7 +32,9 @@ body{
                 padding: 1vw 0;
                 margin-bottom: 5vw;
                 width: 40vw;
-                border: solid 2px $grey;
+                border: solid 1px $grey;
+                text-indent: 1vw;
+                
             }
             table {
                 font-size:100%;
@@ -56,6 +58,7 @@ body{
                     font-weight: 900;
                     transform: rotate (0deg);
                     margin-left: 2vw;
+                    font-size: 3.5vw;
                     &.activetri{
                             transform: rotate(180deg);
                     }
@@ -147,44 +150,61 @@ body{
                 .array {
                     width: 100%;
                     margin-bottom: 5vw;
-                    .title{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-around;
-                        align-items: center; 
-                        width: 100;
-                        height: 20vw;
-                        h2{
-                            margin: 2rem 0;
-                            font-size: 4.5vw;
-                            transform: translateX(-10vw);
-                            
+                    .title {
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      align-items: center;
+                      width: 100%;
+                      height: 20vw;
+                      
+                      h2 {
+                        margin: 5vw 0;
+                        margin-left: 0; 
+                      }
+                      
+                      .underline {
+                        font-size: 4.5vw;
+                        &::before {
+                          width: 20vw;
+                          height: 2vw;
+                          transform: translateY(3.2vw) translateX(12vw);
                         }
-                        .underline{
-                            &::before{
-                                width: 20vw;
-                        height: 2vw;
-                        transform: translateY(2.7vw) translateX(12vw);
-                    } 
-                    }
-                    .search{
+                      }
+                      .underlinecompanies {
+                        &::before {
+                          width: 27vw;
+                          transform: translateY(3.2vw) translateX(12vw);
+                        }
+                      }
+                      
+                      
+                      .search {
                         width: 20vw;
                         padding: 0;
-                        height: 4vw;
-                        transform: translateX(10vw) translateY(8vw);
+                        height: 3vw;
+                       transform: translateY(7.5vw);
                         font-size: 1.7vw;
+                        margin-right: 0;
+
+                      }
                     }
-                    }
+                    
                         
                     }
                     table {
                         font-size:1.8vw;
                         border-collapse: collapse;
-                        width: 100%  
+                        width: 100% 
                       }
                       th {
                         width: 20vw;
+                        .tri{
+                          font-size: 1.5vw;
+                          margin-left: 1vw;
+                        }
                       }
+                    
                       tr:nth-child(even) {
                         background-color: $lightgrey;
                       }
@@ -210,7 +230,7 @@ body{
                     }
                     .array5column{
                         table{
-                            width: 250%;
+                            width: 50vw;
                         }
                     }
                     .arrays__lastInvoices{
@@ -221,9 +241,8 @@ body{
                     }
                     .arrays__lastCompanies{
                         .spotlight{
-                            width: 10vw;
+                            width: 7.5vw;
                             transform: translateY(-60%);
-                            
                             left: 0;
                         }
                     }

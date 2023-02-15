@@ -30,10 +30,10 @@ const LastContactsTable = () => {
           <tbody>
             {contacts.map(contact => (
               <tr key={contact.id}>
-                <td><Link to={`/contactpage/${contact.IDCOMPANY}`}>{contact.Name_contact}</Link></td>
+               <td><Link to={`/showcontact/${contact.id}`}>{contact.Name_contact}</Link></td>
                 <td>{contact.phone}</td>
                 <td>{contact.email}</td>
-                <td><Link to={`/invoicepage/${contact.IDCOMPANY}`}>{contact.Name_company}</Link></td>
+                <td><Link to={`/showcompany/${contact.IDCOMPANY}`}>{contact.Name_company}</Link></td>
                 <td>{new Date(contact.create_dat).toLocaleDateString()}</td>
               </tr>
             ))}

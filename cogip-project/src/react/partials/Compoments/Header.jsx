@@ -20,8 +20,8 @@ function Header() {
       <nav className={`navbar ${isOpen ? "navbarDisplay" : ""}`}>
         <Link to="/">Home</Link>
         <Link to="/invoices">Invoices</Link>
-        <Link to="/contacts">Contacts</Link>
         <Link to="/companies">Companies</Link>
+        <Link to="/contacts">Contacts</Link>
       </nav>
 
       <section className={`login ${isOpen ? "loginDisplay" : ""}`}>
