@@ -30,11 +30,12 @@ body{
         align-items: center;
         margin: 0 5%;
         padding-top: 5%;
+      
+          .logo{
+            width: 50%;
+            height: auto;
+          }
         
-        .logo{
-          width: 25%;
-          height: auto;
-        }
   
         .navbar{
           display: flex;
@@ -64,13 +65,13 @@ body{
         }
   
         .login{
-          width: 35%;
+          width: 10vw;
           text-align: center;
           font-size:80% ;
           display: flex;
           flex-direction: row-reverse;
           align-items: center;
-          transform: translateX(30%);
+          transform: translateX(7vw);
           
           :hover{  
             color:rgba(0, 0, 0, 0.7);
@@ -80,7 +81,7 @@ body{
             background-color: white;
             padding: 0.25em 0.5em;
             border-radius: 5px;
-            margin-left: 5%;
+            margin-left: 5vw;
           }
         }
         .loginDisplay{
@@ -156,8 +157,9 @@ body{
                 width: 90%;
                 justify-content: space-between;
                 .logo{
-                    width: 12%;
+                    width: 10vw;
                     margin: 0;
+                    margin-left: 2vw;
                     transform: translateX(40%);
 
                 }
@@ -170,8 +172,10 @@ body{
                     padding: 0;
                     width: fit-content;
                     transform: none;
+                    transform: translateX(9vw);
                     
                     a{
+                      font-size: 1.8vw;
                       padding: 2%;
                       &:hover{
                     
@@ -179,21 +183,21 @@ body{
                        
                       }
                         &:nth-child(n+2){
-                        margin-left: 10%;
+                        margin-left: 1.5vw;
                         margin-top: 0;
                     }}
                 }
                 .login{
-                    width: 20%;
+                  width: 500%;
+                   font-size: 1.8vw;
                     margin: 0;
                     flex-direction: row;
                     justify-content: right;
                     position: relative;
                     transform: none;
                     .signUp{
-                        width: fit-content;
                         border-radius: 10px;
-                        margin-right: 5%;
+                        margin-right: 2vw;
                     }
                 }
                .hamburger-lines{
@@ -213,16 +217,16 @@ body{
                     
                     
                     h1{
-                        font-size: calc(210% + 0.7vw);
+                        font-size: 4vw;
                         text-align: left; 
                         
                     }
                 }
                 img{
                   position: absolute;
-                  width: 52%;
+                  width: 55vw;
                   right: 0;
-                  transform: translateY(-7.5%)  ;
+                  transform: translateY(-5vw)  ;
                 }
             }
             .herosectionImg2{

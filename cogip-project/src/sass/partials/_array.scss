@@ -6,20 +6,33 @@ body{
         display: flex;
         margin: 0 auto;
         flex-direction: column;  
-        .spotlight{
-            width: 25%;
-        }
-        img{
-            width: 20%;
-            position: absolute;
-        }
+
         .array {
             width: 100%;
             margin-bottom: 15%;
             }
             h2{
                 margin: 2rem 0;
-                font-size: calc(150% + 0.1vw);
+                font-size: 7vw;
+            }
+            .underline{
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 40vw;
+                    height: 4vw;
+                    background-color: $yellow;
+                    z-index: -1;
+                    transform: translateY(5vw) translateX(5vw);
+                }
+        
+            }
+            .search{
+                border-radius: 5px;
+                padding: 1vw 0;
+                margin-bottom: 5vw;
+                width: 40vw;
+                border: solid 2px $grey;
             }
             table {
                 font-size:100%;
@@ -31,6 +44,23 @@ body{
                 border: none;
                 padding: 0.5em;
                 text-align: left;
+                .sortButtons {
+                    display: inline-block;
+                    align-items: center;
+                  }
+                .tri{
+                    color: $black;
+                    background-color: transparent;
+                    border: none;
+                    display: flex;
+                    font-weight: 900;
+                    transform: rotate (0deg);
+                    margin-left: 2vw;
+                    &.activetri{
+                            transform: rotate(180deg);
+                    }
+                  }
+                
               }
               tr:nth-child(even) {
                 background-color: $lightgrey;
@@ -39,7 +69,44 @@ body{
                 border: none;
                 padding: 0.5em;
                 text-align: left;
-              } 
+              }
+              .pagination {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+              }
+              
+              .pagination ul {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+              }
+              
+              .pagination li {
+                margin: 0 1vw;
+                cursor: pointer;
+              }
+              
+              .pagination li a {
+                text-decoration: none;
+                display: inline-block;
+                border: solid 1px $grey;
+                padding: 0vw 1.5vw;
+                border-radius: 3px;
+              }
+              
+              .pagination li.active a {
+                background-color: transparent;
+                border: solid 1px $yellow;
+                color: $yellow;
+              }
+              
+              .pagination li a:hover {
+                background-color:$grey;
+                color: #fff;
+              }
+              
               .overflowArray{
                 overflow-x: auto;
               }
@@ -49,20 +116,117 @@ body{
                     width: 250%;
                 }
             }
-            .arrays__lastContacts{
+            .arrays__lastInvoices{
                 .blocknote{
-                    width: 25%;
+                    width: 15vw;
                     position: absolute;
                     right: 0;
+                    transform: translateY(-70%);
                 } 
             }
             .arrays__lastCompanies{
                 .spotlight{
-                    width: 17%;
-                    transform: translateY(-40%);
+                    width: 15vw;
+                    transform: translateY(-70%);
                     position: absolute;
                     left: 0;
                 }
             }
         }
     }
+    @media screen and (min-width: 425px) {
+        body{
+            main{
+                width: 100vw;
+                .arrays{
+                width: 85%;
+                display: flex;
+                margin: 0 auto;
+                flex-direction: column;  
+        
+                .array {
+                    width: 100%;
+                    margin-bottom: 5vw;
+                    .title{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center; 
+                        width: 100;
+                        height: 20vw;
+                        h2{
+                            margin: 2rem 0;
+                            font-size: 4.5vw;
+                            transform: translateX(-10vw);
+                            
+                        }
+                        .underline{
+                            &::before{
+                                width: 20vw;
+                        height: 2vw;
+                        transform: translateY(2.7vw) translateX(12vw);
+                    } 
+                    }
+                    .search{
+                        width: 20vw;
+                        padding: 0;
+                        height: 4vw;
+                        transform: translateX(10vw) translateY(8vw);
+                        font-size: 1.7vw;
+                    }
+                    }
+                        
+                    }
+                    table {
+                        font-size:1.8vw;
+                        border-collapse: collapse;
+                        width: 100%  
+                      }
+                      th {
+                        width: 20vw;
+                      }
+                      tr:nth-child(even) {
+                        background-color: $lightgrey;
+                      }
+                      td {
+                    
+                        border: none;
+                        padding: 0.5em;
+                        text-align: left;
+                      } 
+                      .overflowArray{
+                        overflow-x: none;
+                      }
+                      .pagination li {
+                        margin: 0 0.5vw;
+                        cursor: pointer;
+                        font-size: 1.5vw;
+                      }
+                      .pagination li a {
+                        
+                        padding: 0vw 0.5vw;
+                        
+                      }
+                    }
+                    .array5column{
+                        table{
+                            width: 250%;
+                        }
+                    }
+                    .arrays__lastInvoices{
+                        .blocknote{
+                            width: 10vw;
+                            transform: translateY(-50%);
+                        } 
+                    }
+                    .arrays__lastCompanies{
+                        .spotlight{
+                            width: 10vw;
+                            transform: translateY(-60%);
+                            
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }

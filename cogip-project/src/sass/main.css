@@ -39,7 +39,7 @@ body header .header {
   padding-top: 5%;
 }
 body header .header .logo {
-  width: 25%;
+  width: 50%;
   height: auto;
 }
 body header .header .navbar {
@@ -66,13 +66,13 @@ body header .header .navbarDisplay {
   transform: translateY(0);
 }
 body header .header .login {
-  width: 35%;
+  width: 10vw;
   text-align: center;
   font-size: 80%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  transform: translateX(30%);
+  transform: translateX(7vw);
 }
 body header .header .login :hover {
   color: rgba(0, 0, 0, 0.7);
@@ -81,7 +81,7 @@ body header .header .login .signUp {
   background-color: white;
   padding: 0.25em 0.5em;
   border-radius: 5px;
-  margin-left: 5%;
+  margin-left: 5vw;
 }
 body header .header .loginDisplay {
   display: none;
@@ -146,8 +146,9 @@ body .menu :nth-child(3) {
     justify-content: space-between;
   }
   body header .header .logo {
-    width: 12%;
+    width: 10vw;
     margin: 0;
+    margin-left: 2vw;
     transform: translateX(40%);
   }
   body header .header .navbar {
@@ -160,19 +161,22 @@ body .menu :nth-child(3) {
     width: -moz-fit-content;
     width: fit-content;
     transform: none;
+    transform: translateX(9vw);
   }
   body header .header .navbar a {
+    font-size: 1.8vw;
     padding: 2%;
   }
   body header .header .navbar a:hover {
     outline: solid 1px rgb(0, 0, 0);
   }
   body header .header .navbar a:nth-child(n+2) {
-    margin-left: 10%;
+    margin-left: 1.5vw;
     margin-top: 0;
   }
   body header .header .login {
-    width: 20%;
+    width: 500%;
+    font-size: 1.8vw;
     margin: 0;
     flex-direction: row;
     justify-content: right;
@@ -180,10 +184,8 @@ body .menu :nth-child(3) {
     transform: none;
   }
   body header .header .login .signUp {
-    width: -moz-fit-content;
-    width: fit-content;
     border-radius: 10px;
-    margin-right: 5%;
+    margin-right: 2vw;
   }
   body header .header .hamburger-lines {
     display: none;
@@ -198,14 +200,14 @@ body .menu :nth-child(3) {
     margin: 7.5% 10% 10%;
   }
   body header .herosection .herosection__title h1 {
-    font-size: calc(210% + 0.7vw);
+    font-size: 4vw;
     text-align: left;
   }
   body header .herosection img {
     position: absolute;
-    width: 52%;
+    width: 55vw;
     right: 0;
-    transform: translateY(-7.5%);
+    transform: translateY(-5vw);
   }
   body header .herosectionImg2 {
     width: 90%;
@@ -234,20 +236,29 @@ body main .arrays {
   margin: 0 auto;
   flex-direction: column;
 }
-body main .arrays .spotlight {
-  width: 25%;
-}
-body main .arrays img {
-  width: 20%;
-  position: absolute;
-}
 body main .arrays .array {
   width: 100%;
   margin-bottom: 15%;
 }
 body main .arrays h2 {
   margin: 2rem 0;
-  font-size: calc(150% + 0.1vw);
+  font-size: 7vw;
+}
+body main .arrays .underline::before {
+  content: "";
+  position: absolute;
+  width: 40vw;
+  height: 4vw;
+  background-color: rgb(249, 222, 78);
+  z-index: -1;
+  transform: translateY(5vw) translateX(5vw);
+}
+body main .arrays .search {
+  border-radius: 5px;
+  padding: 1vw 0;
+  margin-bottom: 5vw;
+  width: 40vw;
+  border: solid 2px rgb(115, 115, 115);
 }
 body main .arrays table {
   font-size: 100%;
@@ -260,6 +271,22 @@ body main .arrays th {
   padding: 0.5em;
   text-align: left;
 }
+body main .arrays th .sortButtons {
+  display: inline-block;
+  align-items: center;
+}
+body main .arrays th .tri {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border: none;
+  display: flex;
+  font-weight: 900;
+  transform: rotate 0deg;
+  margin-left: 2vw;
+}
+body main .arrays th .tri.activetri {
+  transform: rotate(180deg);
+}
 body main .arrays tr:nth-child(even) {
   background-color: rgb(245, 245, 245);
 }
@@ -268,24 +295,135 @@ body main .arrays td {
   padding: 0.5em;
   text-align: left;
 }
+body main .arrays .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+body main .arrays .pagination ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body main .arrays .pagination li {
+  margin: 0 1vw;
+  cursor: pointer;
+}
+body main .arrays .pagination li a {
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px rgb(115, 115, 115);
+  padding: 0vw 1.5vw;
+  border-radius: 3px;
+}
+body main .arrays .pagination li.active a {
+  background-color: transparent;
+  border: solid 1px rgb(249, 222, 78);
+  color: rgb(249, 222, 78);
+}
+body main .arrays .pagination li a:hover {
+  background-color: rgb(115, 115, 115);
+  color: #fff;
+}
 body main .arrays .overflowArray {
   overflow-x: auto;
 }
 body main .array5column table {
   width: 250%;
 }
-body main .arrays__lastContacts .blocknote {
-  width: 25%;
+body main .arrays__lastInvoices .blocknote {
+  width: 15vw;
   position: absolute;
   right: 0;
+  transform: translateY(-70%);
 }
 body main .arrays__lastCompanies .spotlight {
-  width: 17%;
-  transform: translateY(-40%);
+  width: 15vw;
+  transform: translateY(-70%);
   position: absolute;
   left: 0;
 }
 
+@media screen and (min-width: 425px) {
+  body main {
+    width: 100vw;
+  }
+  body main .arrays {
+    width: 85%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  body main .arrays .array {
+    width: 100%;
+    margin-bottom: 5vw;
+  }
+  body main .arrays .array .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100;
+    height: 20vw;
+  }
+  body main .arrays .array .title h2 {
+    margin: 2rem 0;
+    font-size: 4.5vw;
+    transform: translateX(-10vw);
+  }
+  body main .arrays .array .title .underline::before {
+    width: 20vw;
+    height: 2vw;
+    transform: translateY(2.7vw) translateX(12vw);
+  }
+  body main .arrays .array .title .search {
+    width: 20vw;
+    padding: 0;
+    height: 4vw;
+    transform: translateX(10vw) translateY(8vw);
+    font-size: 1.7vw;
+  }
+  body main .arrays table {
+    font-size: 1.8vw;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  body main .arrays th {
+    width: 20vw;
+  }
+  body main .arrays tr:nth-child(even) {
+    background-color: rgb(245, 245, 245);
+  }
+  body main .arrays td {
+    border: none;
+    padding: 0.5em;
+    text-align: left;
+  }
+  body main .arrays .overflowArray {
+    overflow-x: none;
+  }
+  body main .arrays .pagination li {
+    margin: 0 0.5vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+  }
+  body main .arrays .pagination li a {
+    padding: 0vw 0.5vw;
+  }
+  body main .array5column table {
+    width: 250%;
+  }
+  body main .arrays__lastInvoices .blocknote {
+    width: 10vw;
+    transform: translateY(-50%);
+  }
+  body main .arrays__lastCompanies .spotlight {
+    width: 10vw;
+    transform: translateY(-60%);
+    left: 0;
+  }
+}
 body main {
   width: 100vw;
 }
