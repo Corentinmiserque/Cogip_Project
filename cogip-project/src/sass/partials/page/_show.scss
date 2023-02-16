@@ -1,0 +1,152 @@
+body{
+    main{
+        .show{
+            width: 90vw;
+            margin: auto;
+            overflow: hidden;
+
+            .underline{
+                margin-bottom: 5vw;
+                text-align: left;
+                font-size: 7vw;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 50dvw;
+                    height: 4dvw;
+                    background-color: $yellow;
+                    z-index: -1;
+                    transform: translateY(5dvw) translateX(3dvw);
+                }
+            }
+            .contactpeople{
+                text-align: center;
+                width: 80%;
+                margin: 0
+                p{
+                    text-align: left;
+                    font-size: 4dvw;
+                    font-weight: 400;
+                }
+            }
+            .profil-img{
+                width: 100%;
+                text-align: center;
+                img{
+                    width: 40dvw;
+                    border-radius: 50%;
+                    height: 40dvw;
+                    background-color: $lightgrey;
+                }     
+            }  
+        }
+    }
+    .peoples{
+        width: 80dvw;
+        padding: 10dvw 0;
+        margin-left: 10dvw;
+        border-bottom: solid 1px $lightgrey;
+        border-top: solid 1px $lightgrey;
+        h2{
+            margin-bottom: 5dvw;
+                text-align: left;
+                font-size: 7dvw;
+        }
+        .blocknote{
+            width: 15dvw;
+            transform: translateY(-10vw);
+            position: absolute;
+            right: 0;
+        }
+        .people{
+            background-color: $lightgrey;
+            display: flex;
+            flex-direction: row;
+            width: 35dvw;
+            height: 17.5dvw;
+            align-items: center;
+            border-radius: 10px;
+            img{
+               width: 12.5dvw;
+               height: 12.5dvw;
+               margin-left: 2dvw;
+            }
+            p{
+                font-size: 3.5dvw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 425px) {
+    body{
+        main{
+            .show{
+          
+                .info{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .contactpeople{
+                        width: 40dvw;
+                        margin: 10dvw 4vw;
+                        
+                        .underline{
+                            font-size: 3.8dvw;
+                            margin-bottom: 3dvw;
+                            text-align: left;
+                            &::before{
+                                width: 30dvw;
+                                height: 2dvw;
+                                transform: translateY(2.5dvw)translateX(2dvw);
+                            }
+                        }
+                        p{
+                            font-size: 1.5dvw;
+                            font-weight: 600;
+                            margin: 0;
+                            text-align: left;
+                        }
+                    }
+                    .profil-img{
+                        width: 37.5dvw;
+                        display: flex;
+                        justify-content: right;
+                        img{
+                            width: 17.5dvw;
+                            height: 17.5dvw;
+                        }
+                    }
+                }
+                
+            }
+        }
+        .peoples{
+            width: 80dvw;
+            padding: 5dvw 0;
+            margin-left: 3dvw;
+            h2{
+                margin-bottom: 5dvw;
+                    text-align: left;
+                    font-size: 3.8dvw;
+            }
+            .blocknote{
+                width: 10dvw;
+                transform: none;
+            }
+            .people{
+                width: 20dvw;
+                height: 10dvw;
+               
+                img{
+                   width: 5dvw;
+                   height: 5dvw;
+                   margin-left: 2dvw;
+                }
+                p{
+                    font-size: 2dvw;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

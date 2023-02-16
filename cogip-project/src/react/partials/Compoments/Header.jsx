@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
-  // state, données
+// state, données
   const [isOpen, setIsOpen] = useState(false);
 
-  // comportements
+// comportements
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
-  // render
+// render
   return (
     <div className="header">
       <Link to="/">

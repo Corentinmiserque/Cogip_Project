@@ -2,22 +2,22 @@ body {
     width: 100vw;
     footer {
       width: 80%;
-      margin: 10% auto 0;
-      border-top: solid 2px $yellow;
+      margin: 5% auto 0;
+      border-top: solid 1px $yellow;
       font-size: calc(40% + 0.5vw);
       font-weight: 400;
       max-width: 1440px;
       
       .footer {
-        margin-top: 10%;
+        margin-top: 5%;
         display: flex;
         width: 100%;
         
         .logo {
-          width: 25%;
+          width: 15vw;
           height: 35%;
-          border: solid 3px $yellow;
-          padding: 2.5%;
+          border: solid 2px $yellow;
+          padding: 1vw;
           }
           .contacts{
             width: 90%;
@@ -25,6 +25,7 @@ body {
                 margin: 0 0 0 20%;
                 p{
                   color: $grey;
+                  font-size: 2vw;
                 }
                 :nth-child(n+2){
                     display: inline-block;
@@ -58,9 +59,10 @@ body {
                 flex-direction: row;
                 margin-left: 20%;
                 margin-top: 5%;
+                font-size: 2dvw;
                 
                 img{
-                width: 5%;
+                width: 3vw;
                 margin-left: 2%;
                 display: inline-block;
                 }
@@ -103,8 +105,8 @@ body {
       width: 100vw;
       footer {
         width: 80vw;
-        margin: 10% auto 0;
-        border-top: solid 2px $yellow;
+        margin: 5% auto 0;
+        border-top: solid 1px $yellow;
         font-size: calc(60% + 0.1vw);
         font-weight: 400;
        
@@ -121,8 +123,12 @@ body {
             }
             .contacts{
               width: 90%;
+              margin-left: 30%;
               .contact{   
                   margin: 0 0 0 20%;
+                  p{
+                    font-size: 1.2vw;
+                  }
                   :nth-child(n+2){
                       display: inline-block;
                       margin-top: 5%;
@@ -135,11 +141,12 @@ body {
                 width: 80%;
                 align-items: center;
                   img{
-                    width: 3%;
+                    width: 4%;
                     margin-left: 4%;
                   }
                   p{
                     transform: translateY(-25%);
+                    font-size: 1.2vw;
                   }
               }
           }

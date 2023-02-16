@@ -9,8 +9,9 @@ import Contactspage from './partials/Contactspage/Contactspage';
 import Companiespage from './partials/Companiespage/Companiespage';
 import Show_Invoicespage from './partials/Show_Invoicespage/Show_Invoicespage';
 import Show_Contactspage from './partials/Show_Contactspage/Show_Contactspage';
-import Dashboard_Homepage from './partials/Dashboard/Dashboard_homepage';
+import Dashboard_Homepage from './partials/Dashboard/Dashboard_Homepage/Dashboard_homepage';
 import DashboardInvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Invoicespage';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
   path: `/dashboard_Invoicepage`,
   element: <DashboardInvoicespage/>,
 },
+
 
 ]);
 

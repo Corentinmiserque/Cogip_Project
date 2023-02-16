@@ -15,9 +15,11 @@ const CompanyDetails = () => {
   }, []);
 
   return (
+    <main>
     <div className=" show companyDetails">
       {companies.map(company => (
-        <div key={company.id}>
+        <div className="info"  key={company.id}>
+          <section className="contactpeople">
           <h2 className="underline">{company.Name_company}</h2>
           <section>
             <p>Name: {company.Name_company}</p>
@@ -25,11 +27,13 @@ const CompanyDetails = () => {
             <p>Country: {company.country}</p>
             <p>Type: {company.Name_type}</p>
           </section>
+          </section>
         </div>
       ))}
       <ShowInvoicesContactsPeople /> 
       <ShowInvoicesArray />
     </div>
+    </main>
   );
 };
 

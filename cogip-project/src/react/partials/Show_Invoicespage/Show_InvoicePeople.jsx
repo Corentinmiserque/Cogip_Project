@@ -13,17 +13,16 @@ const ShowInvoicesContactsPeople = () => {
   }, [id]);
 
   return (
-    <main>
-      <h2>Contacts People</h2>
-      <div className="contactpeople">
+  <div className="peoples">
+      <h2>Contact people</h2>
+      <img className="blocknote" src="../public/img/blocknote.svg" alt="blocknote" />
         {contacts.map(contact => (
-          <div key={contact.IDCOMPANY}>
-            <p>{contact.Name_contact}</p>
+          <div className="people" key={contact.IDCOMPANY}>
             <img src="../public/img/profil-contact.png" alt="profil-contact" />
+            <p>{contact.Name_contact}</p>
           </div>
         ))}
       </div>
-    </main>
   );
 };
 

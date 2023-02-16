@@ -29,7 +29,7 @@ import { Link } from "react-router-dom";
           <tbody>
             {invoices.map(invoice => (
               <tr key={invoice.id}>
-                <td>{invoice.ref}</td>
+                <td><Link to={`/ShowInvoicesArray2/${invoice.id}`}>{invoice.ref}</Link></td>
                 <td>{new Date(invoice.Date_due).toLocaleDateString()}</td>
                 <td><Link to={`/showcompany/${invoice.IDCOMPANY}`}>{invoice.Name_company}</Link></td>
                 <td>{new Date(invoice.create_dat).toLocaleDateString()}</td>

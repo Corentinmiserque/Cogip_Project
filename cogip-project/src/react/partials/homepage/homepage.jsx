@@ -8,6 +8,7 @@ import LastContactsTable from "../Compoments/LastContacts_array"
 import LastCompaniesTable from "../Compoments/LastCompanies_array"
 import Home_Main_Footer from "./Home_Main_Footer";
 import Footer from "../Compoments/Footer";
+import "../../../sass/main.css/"
 
 
 

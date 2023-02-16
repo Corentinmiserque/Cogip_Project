@@ -24,6 +24,7 @@ body{
                     background-color: $yellow;
                     z-index: -1;
                     transform: translateY(5vw) translateX(5vw);
+                    font-size: 7vw;
                 }
         
             }
@@ -160,7 +161,8 @@ body{
                       
                       h2 {
                         margin: 5vw 0;
-                        margin-left: 0; 
+                        margin-left: 0;
+                        font-size: 4vw; 
                       }
                       
                       .underline {

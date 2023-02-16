@@ -128,13 +128,13 @@ body header .herosectionImg2 {
   height: auto;
 }
 body .menu :first-child {
-  transform: translateY(1.8vw) rotate(135deg);
+  transform: rotate(135deg);
 }
 body .menu :nth-child(2) {
   opacity: 0;
 }
 body .menu :nth-child(3) {
-  transform: translateY(-1.8vw) rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 @media screen and (min-width: 425px) {
@@ -256,6 +256,7 @@ body main .arrays .underline::before {
   background-color: rgb(249, 222, 78);
   z-index: -1;
   transform: translateY(5vw) translateX(5vw);
+  font-size: 7vw;
 }
 body main .arrays .search {
   border-radius: 5px;
@@ -376,6 +377,7 @@ body main .arrays__lastCompanies .spotlight {
   body main .arrays .array .title h2 {
     margin: 5vw 0;
     margin-left: 0;
+    font-size: 4vw;
   }
   body main .arrays .array .title .underline {
     font-size: 4.5vw;
@@ -500,22 +502,22 @@ body {
 }
 body footer {
   width: 80%;
-  margin: 10% auto 0;
-  border-top: solid 2px rgb(249, 222, 78);
+  margin: 5% auto 0;
+  border-top: solid 1px rgb(249, 222, 78);
   font-size: calc(40% + 0.5vw);
   font-weight: 400;
   max-width: 1440px;
 }
 body footer .footer {
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   width: 100%;
 }
 body footer .footer .logo {
-  width: 25%;
+  width: 15vw;
   height: 35%;
-  border: solid 3px rgb(249, 222, 78);
-  padding: 2.5%;
+  border: solid 2px rgb(249, 222, 78);
+  padding: 1vw;
 }
 body footer .footer .contacts {
   width: 90%;
@@ -525,6 +527,7 @@ body footer .footer .contacts .contact {
 }
 body footer .footer .contacts .contact p {
   color: rgb(115, 115, 115);
+  font-size: 2vw;
 }
 body footer .footer .contacts .contact :nth-child(n+2) {
   display: inline-block;
@@ -557,9 +560,10 @@ body footer .footer .contacts .socialmedia {
   flex-direction: row;
   margin-left: 20%;
   margin-top: 5%;
+  font-size: 2dvw;
 }
 body footer .footer .contacts .socialmedia img {
-  width: 5%;
+  width: 3vw;
   margin-left: 2%;
   display: inline-block;
 }
@@ -597,8 +601,8 @@ body footer .copyright p {
   }
   body footer {
     width: 80vw;
-    margin: 10% auto 0;
-    border-top: solid 2px rgb(249, 222, 78);
+    margin: 5% auto 0;
+    border-top: solid 1px rgb(249, 222, 78);
     font-size: calc(60% + 0.1vw);
     font-weight: 400;
   }
@@ -615,9 +619,13 @@ body footer .copyright p {
   }
   body footer .footer .contacts {
     width: 90%;
+    margin-left: 30%;
   }
   body footer .footer .contacts .contact {
     margin: 0 0 0 20%;
+  }
+  body footer .footer .contacts .contact p {
+    font-size: 1.2vw;
   }
   body footer .footer .contacts .contact :nth-child(n+2) {
     display: inline-block;
@@ -631,11 +639,12 @@ body footer .copyright p {
     align-items: center;
   }
   body footer .footer .contacts .socialmedia img {
-    width: 3%;
+    width: 4%;
     margin-left: 4%;
   }
   body footer .footer .contacts .socialmedia p {
     transform: translateY(-25%);
+    font-size: 1.2vw;
   }
   body footer .footer_footer {
     border-top: 1px solid rgb(245, 245, 245);
@@ -662,31 +671,31 @@ body footer .copyright p {
   }
 }
 body main .show {
-  text-align: center;
   width: 90vw;
   margin: auto;
+  overflow: hidden;
 }
 body main .show .underline {
   margin-bottom: 5vw;
+  text-align: left;
+  font-size: 7vw;
 }
 body main .show .underline::before {
   content: "";
   position: absolute;
-  width: 60dvw;
+  width: 50dvw;
   height: 4dvw;
   background-color: rgb(249, 222, 78);
   z-index: -1;
-  transform: translateY(5dvw) translateX(5dvw);
+  transform: translateY(5dvw) translateX(3dvw);
 }
 body main .show .contactpeople {
   text-align: center;
   width: 80%;
-  margin: 10dvw;
-}
-body main .show .contactpeople p {
-  text-align: left;
-  font-size: 5dvw;
-  font-weight: 400;
+  margin: 0 p;
+  margin-text-align: left;
+  margin-font-size: 4dvw;
+  margin-font-weight: 400;
 }
 body main .show .profil-img {
   width: 100%;
@@ -698,6 +707,41 @@ body main .show .profil-img img {
   height: 40dvw;
   background-color: rgb(245, 245, 245);
 }
+body .peoples {
+  width: 80dvw;
+  padding: 10dvw 0;
+  margin-left: 10dvw;
+  border-bottom: solid 1px rgb(245, 245, 245);
+  border-top: solid 1px rgb(245, 245, 245);
+}
+body .peoples h2 {
+  margin-bottom: 5dvw;
+  text-align: left;
+  font-size: 7dvw;
+}
+body .peoples .blocknote {
+  width: 15dvw;
+  transform: translateY(-10vw);
+  position: absolute;
+  right: 0;
+}
+body .peoples .people {
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: row;
+  width: 35dvw;
+  height: 17.5dvw;
+  align-items: center;
+  border-radius: 10px;
+}
+body .peoples .people img {
+  width: 12.5dvw;
+  height: 12.5dvw;
+  margin-left: 2dvw;
+}
+body .peoples .people p {
+  font-size: 3.5dvw;
+}
 
 @media screen and (min-width: 425px) {
   body main .show .info {
@@ -707,10 +751,10 @@ body main .show .profil-img img {
   }
   body main .show .info .contactpeople {
     width: 40dvw;
-    margin: 10dvw 0;
+    margin: 10dvw 4vw;
   }
   body main .show .info .contactpeople .underline {
-    font-size: 3.5dvw;
+    font-size: 3.8dvw;
     margin-bottom: 3dvw;
     text-align: left;
   }
@@ -723,14 +767,45 @@ body main .show .profil-img img {
     font-size: 1.5dvw;
     font-weight: 600;
     margin: 0;
+    text-align: left;
   }
   body main .show .info .profil-img {
-    width: 45dvw;
+    width: 37.5dvw;
     display: flex;
     justify-content: right;
   }
   body main .show .info .profil-img img {
-    width: 15dvw;
-    height: 15dvw;
+    width: 17.5dvw;
+    height: 17.5dvw;
   }
+  body .peoples {
+    width: 80dvw;
+    padding: 5dvw 0;
+    margin-left: 3dvw;
+  }
+  body .peoples h2 {
+    margin-bottom: 5dvw;
+    text-align: left;
+    font-size: 3.8dvw;
+  }
+  body .peoples .blocknote {
+    width: 10dvw;
+    transform: none;
+  }
+  body .peoples .people {
+    width: 20dvw;
+    height: 10dvw;
+  }
+  body .peoples .people img {
+    width: 5dvw;
+    height: 5dvw;
+    margin-left: 2dvw;
+  }
+  body .peoples .people p {
+    font-size: 2dvw;
+    text-align: center;
+  }
+}
+body .dashboardheader {
+  background-color: white;
 }/*# sourceMappingURL=main.css.map */

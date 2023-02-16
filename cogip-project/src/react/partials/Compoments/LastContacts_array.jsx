@@ -32,7 +32,7 @@ const LastContactsTable = () => {
               <tr key={contact.id}>
                <td><Link to={`/showcontact/${contact.id}`}>{contact.Name_contact}</Link></td>
                 <td>{contact.phone}</td>
-                <td>{contact.email}</td>
+                <td><a href={`mailto:${contact.email}`}>{contact.email}</a></td>
                 <td><Link to={`/showcompany/${contact.IDCOMPANY}`}>{contact.Name_company}</Link></td>
                 <td>{new Date(contact.create_dat).toLocaleDateString()}</td>
               </tr>

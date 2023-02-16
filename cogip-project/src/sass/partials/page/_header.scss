@@ -136,13 +136,13 @@ body{
     }
     .menu {
       :first-child {
-        transform: translateY(1.8vw) rotate(135deg);
+        transform:  rotate(135deg);
       }
       :nth-child(2) {
         opacity: 0;
       }
       :nth-child(3) {
-        transform: translateY(-1.8vw) rotate(-135deg);
+        transform: rotate(-135deg);
       }
     } 
 }
