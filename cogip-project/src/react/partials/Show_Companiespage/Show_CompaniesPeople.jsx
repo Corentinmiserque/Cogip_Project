@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 
-const ShowInvoicesContactsPeople = () => {
+const ShowCompaniesContactsPeople = () => {
   const { id } = useParams();
   const [contacts, setContacts] = useState([]);
 
@@ -26,4 +26,4 @@ const ShowInvoicesContactsPeople = () => {
   );
 };
 
-export default ShowInvoicesContactsPeople;
+export default ShowCompaniesContactsPeople;

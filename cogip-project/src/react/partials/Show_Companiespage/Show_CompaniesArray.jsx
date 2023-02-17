@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 
-const ShowInvoicesArray = () => {
+const ShowCompaniesArray = () => {
   const { id } = useParams();
   const [invoices, setInvoices] = useState([]);
 
@@ -48,6 +48,6 @@ const ShowInvoicesArray = () => {
   );
 };
 
-export default ShowInvoicesArray;
+export default ShowCompaniesArray;
 
 

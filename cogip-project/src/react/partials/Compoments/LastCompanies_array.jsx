@@ -12,6 +12,7 @@ const LastCompaniesTable = () => {
     .catch(err => console.error(err));
 }, []);
 
+
   return (
     <div className="array arrays__lastCompanies">
       <img className="spotlight" src="../public/img/spotlight.svg" alt="spotlight" /> 

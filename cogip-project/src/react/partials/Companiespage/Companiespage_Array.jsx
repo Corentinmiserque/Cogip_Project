@@ -106,7 +106,6 @@ const CompaniesPageTable = () => {
   {displayedCompanies.map(company => (
     <tr key={company.id}>
         <td><Link to={`/showcompany/${company.id}`}>{company.Name_company}</Link></td>
-                <td>{company.tva}</td>
       <td>{company.tva}</td>
       <td>{company.country}</td>
       <td>{company.Name_type}</td>
@@ -118,7 +117,7 @@ const CompaniesPageTable = () => {
 </section>
 <ReactPaginate
   previousLabel={"<"}
-  nextLabel={""}
+  nextLabel={">"}
   breakLabel={"..."}
   breakClassName={"break-me"}
   pageCount={Math.ceil(sortedCompanies.length / perPage)}

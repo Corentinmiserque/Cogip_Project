@@ -1,5 +1,180 @@
-@import "./variables";
+@import "../_variables";
 
 body{
-    background-color: aqua;
+    .dashboardheader{
+        background-color: $lightlavander;
+        width: 100dvw;
+        height: 100dvh;
+        .hamburger-dashboard{
+            background-color: $lightlavander;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 10dvw;
+            z-index: 0;
+            position: relative;
+            span{
+                width: 15%;
+                height: 4%;
+                background-color: $lavander;
+                margin-top: 5%;
+                margin-left: 10%;
+            }
+        }
+        .hamburger-dashboard_active{
+            background-color: $white;
+            z-index: 1;
+            :nth-child(1){
+                transform: translateY(2.9vw) rotate(135deg);
+            }
+            :nth-child(2){
+                opacity: 0 ;
+            }
+            :nth-child(3){
+                transform: translateY(-2.9vw) rotate(-135deg);
+            }
+        }
+        .allheader{
+            width: 50%;
+            background-color: $white;
+            transform: translateX(-100%);
+            position: absolute;
+            z-index: 4;
+            .profil{
+                display: flex;
+                flex-direction: column;
+                border-bottom: solid 2px $lightgrey;
+                padding-bottom: 20%;
+                align-items: center;
+                img{
+                    margin: auto;
+                    width: 75%;
+                    height: 75%;
+                    background: $lightlavander;
+                    border-radius: 50%;
+                }
+                h2{
+                    text-align: center;
+                    font-size: 5dvw;
+                    margin-top: 10%;
+                    width: 50%;
+                }
+            }
+            .nav{
+                border-bottom: solid 2px $lightgrey;
+                width: 100%;
+                padding-bottom: 20%;
+                nav{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 15%;
+                    
+                    a{
+                        margin-top: 10%;
+                        padding-left: 20%;
+                        font-size: 3.5vw;
+                        font-weight: 400;
+                    }
+                    :nth-child(1){
+                        background: url(../../../../public/img/Icon_dashboard.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                    :nth-child(2){
+                        background: url(../../../../public/img/Icon_Invoices.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                    :nth-child(3){
+                        background: url(../../../../public/img/Icon_Companies.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                    :nth-child(4){
+                        background: url(../../../../public/img/Icon_contact.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+            .logout{
+                width: 100%;
+                height: 400%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 2.5% 0;
+                align-items: center;
+                img{
+                    background-color: $lightlavander;
+                    border-radius: 50%;
+                    width: 15%;
+                    height: 15%;
+                    transform: translate(20%);
+                }
+                button{
+                    width: 25%;
+                    background-color:transparent;
+                    border: none;
+                    font-size: 3vw;
+                    color:$lavander;
+                    transform: translateX(-35%);
+                }
+            }
+        }
+        .allheader_active{
+            transform: none;
+        }
+        .dashboard_herosection{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            transform: translateY(-90%);
+            h3{
+                font-size: 6vw;
+            }
+            h4{
+                font-size: 3vw;
+                font-weight: 400;
+            }
+            &_containers{
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                &_container1{
+                    width: 100%;
+                    background-color: $lavander;
+                    border-radius: 5px;
+                    text-align: center;
+                    justify-content: center;
+                    h2{
+                        margin-top: 2.5%;
+                        width: 90%;
+                        color: $white;
+                        font-size: 9vw;   
+                    }
+                    p{
+                        width: 90%;
+                        color: $white;
+                        font-size: 4vw;
+                        font-weight: 400;
+                        text-align: justify;
+                        margin: 5% auto;
+                    }
+                    
+                }
+                &_container2{
+                    width: 100%;
+                    margin: 0 10%;
+                   
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
 }

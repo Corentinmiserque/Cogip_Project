@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
-import ShowInvoicesArray from "./Show_InvoicesArray";
-import ShowInvoicesContactsPeople from "./Show_InvoicePeople";
+import ShowCompaniesArray from "./Show_CompaniesArray";
+import ShowCompaniesContactsPeople from "./Show_CompaniesPeople";
 
 const CompanyDetails = () => {
   const {id} = useParams();
@@ -30,8 +30,8 @@ const CompanyDetails = () => {
           </section>
         </div>
       ))}
-      <ShowInvoicesContactsPeople /> 
-      <ShowInvoicesArray />
+      <ShowCompaniesContactsPeople /> 
+      <ShowCompaniesArray />
     </div>
     </main>
   );

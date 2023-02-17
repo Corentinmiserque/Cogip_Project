@@ -1,5 +1,6 @@
 // components
 import React from "react";
+import { useEffect } from "react";
 import Header from "../Compoments/Header";
 import Home_HeroSection from "./Home_HeroSection";
 import Header_Img from "../Compoments/Header_Img";
@@ -14,6 +15,17 @@ import "../../../sass/main.css/"
 
 
 function Homepage() {
+  
+  //states
+
+  //comportements
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  //render
+
   return (
     <>
       <header>

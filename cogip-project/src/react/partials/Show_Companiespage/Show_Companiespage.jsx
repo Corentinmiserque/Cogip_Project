@@ -2,14 +2,14 @@
 import { useEffect } from "react";
 import Header from "../Compoments/Header";
 import Header_Img from "../Compoments/Header_Img";
+import CompanyDetails from "./Show_CompaniesMain";
 import Footer from "../Compoments/Footer";
-import ContactsDetails from "./Show_contactsMain";
 
 
 
 
-function Show_Contactspage() {
-  //state
+function Show_Companiespage() {
+//state
 
 //comportements
 
@@ -25,11 +25,23 @@ useEffect(() => {
         <Header_Img />
       </header>
       <main>
-        <ContactsDetails/>
-        </main>
+      <CompanyDetails/>
+      </main>
       <Footer />
+
     </>
   );
 }
 
-export default Show_Contactspage;
+export default Show_Companiespage;
+    
+
+
+
+
+
+
+
+
+
+

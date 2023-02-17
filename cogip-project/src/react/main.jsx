@@ -7,10 +7,12 @@ import Homepage from './partials/Homepage/Homepage';
 import Invoicespage from './partials/Invoicespage/Invoicespage';
 import Contactspage from './partials/Contactspage/Contactspage';
 import Companiespage from './partials/Companiespage/Companiespage';
-import Show_Invoicespage from './partials/Show_Invoicespage/Show_Invoicespage';
+import Show_Companiespage from './partials/Show_Companiespage/Show_Companiespage';
 import Show_Contactspage from './partials/Show_Contactspage/Show_Contactspage';
 import Dashboard_Homepage from './partials/Dashboard/Dashboard_Homepage/Dashboard_homepage';
 import DashboardInvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Invoicespage';
+import Editinvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Editpage';
+import Show_Invoicespage from './partials/Show_Invoicespage/Show_Invoicespage';
 
 const router = createBrowserRouter([
   {
@@ -32,11 +34,15 @@ const router = createBrowserRouter([
   },
   {
     path: `/showcompany/:id`,
-    element: <Show_Invoicespage />,
+    element: <Show_Companiespage />,
   },
   {
   path: `/showcontact/:id`,
   element: <Show_Contactspage />,
+},
+{
+  path: `/showinvoices/:id`,
+  element: <Show_Invoicespage />,
 },
 {
   path: `/dashboard_Homepage`,
@@ -46,7 +52,11 @@ const router = createBrowserRouter([
   path: `/dashboard_Invoicepage`,
   element: <DashboardInvoicespage/>,
 },
-
+{
+  path: `/editinvoicepage/:id`,
+  element: <Editinvoicespage/>,
+},
+  
 
 ]);
 
