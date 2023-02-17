@@ -33,7 +33,7 @@ function Dashboard_Header() {
                             <nav>
                                 <Link to="/dashboard_Homepage">Dashboard</Link>
                                 <Link to="/dashboard_Invoicepage">Invoices</Link>
-                                <a href="#">Companies</a>
+                                <Link to="/dashboard_Companiespage">Companies</Link>
                                 <a href="#">Contacts</a>
                             </nav>
                         </section>

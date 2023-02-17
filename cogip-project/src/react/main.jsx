@@ -7,12 +7,16 @@ import Homepage from './partials/Homepage/Homepage';
 import Invoicespage from './partials/Invoicespage/Invoicespage';
 import Contactspage from './partials/Contactspage/Contactspage';
 import Companiespage from './partials/Companiespage/Companiespage';
+
 import Show_Companiespage from './partials/Show_Companiespage/Show_Companiespage';
 import Show_Contactspage from './partials/Show_Contactspage/Show_Contactspage';
+import Show_Invoicespage from './partials/Show_Invoicespage/Show_Invoicespage';
+
 import Dashboard_Homepage from './partials/Dashboard/Dashboard_Homepage/Dashboard_homepage';
 import DashboardInvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Invoicespage';
+import DashboardCompaniespage from './partials/Dashboard/Dashboard_Companiespage/Dashboard_Companiespage';
+
 import Editinvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Editpage';
-import Show_Invoicespage from './partials/Show_Invoicespage/Show_Invoicespage';
 
 const router = createBrowserRouter([
   {
@@ -56,7 +60,10 @@ const router = createBrowserRouter([
   path: `/editinvoicepage/:id`,
   element: <Editinvoicespage/>,
 },
-  
+{
+  path: `/dashboard_Companiespage`,
+  element: <DashboardCompaniespage/>,
+},
 
 ]);
 

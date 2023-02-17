@@ -1,4 +1,4 @@
-let url='https://quentin.hugoorickx.tech/invoice/1'
+let url='https://quentin.hugoorickx.tech/company/1'
 fetch(url,{method:"GET"}) 
 .then((response) => {
   return response.json();

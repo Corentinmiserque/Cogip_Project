@@ -30,13 +30,15 @@ function DashboardInvoicesMain() {
         'Content-Type': 'application/json',
       },
     };
-    fetch(url, options).then(() => {
+    axios.post('https://quentin.hugoorickx.tech/invoices', data)
+    .then(() => {
       window.location.href = "/dashboard_Invoicepage";
-    });
+    })
+    .catch(err => console.error(err));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}id="form" method="post">
       <label htmlFor="ref">Reference:</label>
       <input type="text" id="ref" name="ref" /><br /><br />
 
