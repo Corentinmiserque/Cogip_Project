@@ -188,7 +188,7 @@ body .dashboard .dashboardheader .allheader_active {
   body .dashboard .dashboardheader .allheader .nav {
     border-bottom: solid 2px rgb(245, 245, 245);
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     padding-bottom: 20%;
   }
   body .dashboard .dashboardheader .allheader .nav nav {
@@ -264,7 +264,7 @@ body .dashboard_main .dashboard_herosection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  margin: 5% 0 0;
   transform: translateY(-90%);
 }
 body .dashboard_main .dashboard_herosection h3 {
@@ -376,7 +376,7 @@ body .dashboard_main_all_statistics_statistic .totalcontacts {
   body .dashboard_main .dashboard_herosection {
     width: 100%;
     margin: 2.5% 0 0;
-    transform: translateX(-40%);
+    transform: translateX(-35%);
   }
   body .dashboard_main .dashboard_herosection h3 {
     font-size: 2vw;
@@ -424,7 +424,7 @@ body .dashboard_main_all_statistics_statistic .totalcontacts {
   body .dashboard_main .dashboard_herosection_containers_container2 img {
     position: relative;
     width: 120%;
-    transform: translateX(0%) translateY(-45%);
+    transform: translateX(0%) translateY(-50%);
   }
   body .dashboard_main_all_statistics {
     background-color: rgb(255, 255, 255);
@@ -543,8 +543,8 @@ body .dashboard_main_all_arrays_overflow table {
   }
 }
 body .dashboard_main_form {
-  margin-left: 18%;
-  width: 64%;
+  margin-left: 0;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
@@ -583,7 +583,7 @@ body .dashboard_main_form .save {
 
 @media screen and (min-width: 425px) {
   body .dashboard_main_form {
-    margin-left: 0%;
+    margin: auto;
     width: 71vw;
     font-size: 4vw;
   }
@@ -607,9 +607,182 @@ body .dashboard_main_form .save {
     text-align: left;
     margin: 2.5% 5%;
     color: rgb(115, 115, 115);
-    font-size: 1.5vw;
   }
   body .dashboard_main_form .save {
     text-indent: 0%;
+  }
+}
+body .dashboard_main_allarrays {
+  width: 90vw;
+  background-color: white;
+  margin-top: 5%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+}
+body .dashboard_main_allarrays .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid rgb(245, 245, 245);
+}
+body .dashboard_main_allarrays .title h2 {
+  width: 50%;
+  text-align: left;
+  margin: 5%;
+  font-size: 5vw;
+}
+body .dashboard_main_allarrays .title .search {
+  width: 30%;
+  height: 10%;
+  transform: translateX(25%);
+}
+body .dashboard_main_allarrays_overflow {
+  overflow: auto;
+  font-size: 3.5vw;
+  width: auto;
+}
+body .dashboard_main_allarrays_overflow .tri {
+  font-size: 3vw;
+  background-color: transparent;
+  border: none;
+}
+body .dashboard_main_allarrays_overflow .delete {
+  width: 5vw;
+  height: 5vw;
+  background: url(../../../../public/img/delete.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+}
+body .dashboard_main_allarrays_overflow .edit {
+  width: 5vw;
+  height: 5vw;
+  background: url(../../../../public/img/edit.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+}
+body .dashboard_main_allarrays .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 5%;
+}
+body .dashboard_main_allarrays .pagination ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body .dashboard_main_allarrays .pagination li {
+  margin: 0 1vw;
+  cursor: pointer;
+}
+body .dashboard_main_allarrays .pagination li a {
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px rgb(115, 115, 115);
+  padding: 0vw 1.5vw;
+  border-radius: 3px;
+}
+body .dashboard_main_allarrays .pagination li.active a {
+  background-color: transparent;
+  border: solid 1px rgb(150, 152, 214);
+  color: rgb(150, 152, 214);
+}
+body .dashboard_main_allarrays .pagination li a:hover {
+  background-color: rgb(115, 115, 115);
+  color: #fff;
+}
+
+@media screen and (min-width: 425px) {
+  body .dashboard_main_allarrays {
+    width: 71vw;
+    background-color: white;
+    margin-top: 5%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+  }
+  body .dashboard_main_allarrays .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  body .dashboard_main_allarrays .title h2 {
+    width: 50%;
+    text-align: left;
+    margin: 5%;
+    font-size: 2vw;
+  }
+  body .dashboard_main_allarrays .title .search {
+    width: 30%;
+    height: 10%;
+    transform: translateX(25%);
+    font-size: 1.5vw;
+    padding: 0.5%;
+  }
+  body .dashboard_main_allarrays_overflow {
+    font-size: 1.4vw;
+    width: auto;
+    font-weight: 400;
+  }
+  body .dashboard_main_allarrays_overflow table {
+    width: 70vw;
+    margin-top: 5%;
+  }
+  body .dashboard_main_allarrays_overflow .tri {
+    font-size: 1vw;
+    background-color: transparent;
+    border: none;
+  }
+  body .dashboard_main_allarrays_overflow .delete {
+    width: 2vw;
+    height: 2vw;
+    background: url(../../../../public/img/delete.avif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+  }
+  body .dashboard_main_allarrays_overflow .edit {
+    width: 2vw;
+    height: 2vw;
+    background: url(../../../../public/img/edit.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+  }
+  body .dashboard_main_allarrays .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 5%;
+  }
+  body .dashboard_main_allarrays .pagination ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  body .dashboard_main_allarrays .pagination li {
+    margin: 0 1vw;
+    cursor: pointer;
+    font-size: 1.2vw;
+  }
+  body .dashboard_main_allarrays .pagination li a {
+    text-decoration: none;
+    display: inline-block;
+    border: solid 1px rgb(115, 115, 115);
+    padding: 0vw 0.5vw;
+    border-radius: 3px;
+  }
+  body .dashboard_main_allarrays .pagination li.active a {
+    background-color: transparent;
+    border: solid 1px rgb(150, 152, 214);
+    color: rgb(150, 152, 214);
+  }
+  body .dashboard_main_allarrays .pagination li a:hover {
+    background-color: rgb(245, 245, 251);
+    color: rgb(150, 152, 214);
+    border: 1px solid rgb(150, 152, 214);
   }
 }/*# sourceMappingURL=dashboard.css.map */

@@ -39,7 +39,7 @@ function Dashboard_Header() {
                         </section>
                         <section className="logout">
                             <img src="/img/profil-contact.png" alt="Profile" />
-                            <button>Logout</button>
+                            <Link to="/"><button>Logout</button></Link>
                         </section>
                     </div>
                     </>     

@@ -11,7 +11,7 @@ body{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: auto;
+                margin: 5% 0 0;
                 transform: translateY(-90%);
                 h3{
                     font-size: 6vw;
@@ -130,7 +130,7 @@ body{
                 .dashboard_herosection{
                     width: 100%;
                     margin: 2.5% 0 0;
-                    transform: translateX(-40%);
+                    transform: translateX(-35%);
                     h3{
                         font-size: 2vw;
                     }
@@ -178,7 +178,7 @@ body{
                             img{
                                 position: relative;
                                 width: 120%;
-                                transform: translateX(0%) translateY(-45%);
+                                transform: translateX(0%) translateY(-50%);
                             }
                         }
                     }

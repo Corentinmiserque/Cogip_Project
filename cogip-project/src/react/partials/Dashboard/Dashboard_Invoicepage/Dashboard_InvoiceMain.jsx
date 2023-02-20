@@ -21,6 +21,13 @@ function DashboardInvoicesMain() {
     const id_company = formData.get("id_company");
     const update_dat = formData.get("update_dat");
     const create_dat = date.toISOString();
+    
+    // Vérification des champs avant de soumettre le formulaire
+    if (!ref || !id_company || !update_dat) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    
     const data = { ref: ref, id_company: id_company, create_dat: create_dat, update_dat: update_dat };
     let url = 'https://quentin.hugoorickx.tech/invoices';
     let options = {

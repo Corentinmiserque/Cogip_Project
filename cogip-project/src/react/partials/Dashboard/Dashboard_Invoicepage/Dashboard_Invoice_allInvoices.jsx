@@ -11,7 +11,6 @@ const InvoicesPageTable = () => {
   const [perPage] = useState(10);
   const [error, setError] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const { id } = useParams();
 
   useEffect(() => {
     axios.get("https://quentin.hugoorickx.tech/invoices")
@@ -54,29 +53,30 @@ const InvoicesPageTable = () => {
   };
 
   const handleDeleteInvoice = (id) => {
-    axios.delete(`https://quentin.hugoorickx.tech/invoice/${id}`)
-      .then(res => {
-        const updatedInvoices = invoices.filter(invoice => invoice.id !== id);
-        setInvoices(updatedInvoices);
-      })
-      .catch(err => setError(err.message));
+    const confirmDelete = window.confirm("Are you sure you want to delete this invoice?");
+  
+    if (confirmDelete) {
+      axios.delete(`https://quentin.hugoorickx.tech/invoice/${id}`)
+        .then(res => {
+          const updatedInvoices = invoices.filter(invoice => invoice.id !== id);
+          setInvoices(updatedInvoices);
+        })
+        .catch(err => setError(err.message));
+    }
   };
 
   const lastIndex = currentPage * perPage + perPage;
   const firstIndex = currentPage * perPage;
   const displayedInvoices = sortedInvoices.slice(firstIndex, lastIndex);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
   return (
-    <div className="dasboard_main_allarrays">
+    <div className="dashboard_main_allarrays">
       <div className="title">
         <h2 className="underline">All Invoices</h2>
         <input className="search" type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search" />
         {error && <p className="error">{error}</p>}
       </div>
-      <section className="overflowArray">
+      <section className="dashboard_main_allarrays_overflow">
         <table>
           <thead>
             <tr>
@@ -102,8 +102,8 @@ const InvoicesPageTable = () => {
                 <td>{new Date(invoice.Date_due).toLocaleDateString()}</td>
                 <td>{invoice.Name_company}</td>
                 <td>{new Date(invoice.create_dat).toLocaleDateString()}</td>
-                <td><button onClick={() => handleDeleteInvoice(invoice.id)}>delete</button></td>
-                <td><Link to={`/editinvoicepage/${invoice.id}`}><button>Edit</button></Link></td>
+                <td><button className="delete" onClick={() => handleDeleteInvoice(invoice.id)}></button></td>
+                <td><Link to={`/editinvoicepage/${invoice.id}`}><button className="edit"></button></Link></td>
               </tr>
             ))}
           </tbody>       
@@ -123,9 +123,6 @@ const InvoicesPageTable = () => {
     activeClassName={"active"}
   />
   </div>
-
-
-  
   );
   };
   export default InvoicesPageTable;

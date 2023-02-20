@@ -73,13 +73,13 @@ const DashboardCompaniesAllCompanies = () => {
 ;
 
   return (
-    <div className="array arrays__lastCompanies">
-      <div className="title">
+    <div className="dashboard_main_allarrays">
+    <div className="title">
         <h2 className="underline underlinecompanies">All Companies</h2>
         <input className="search" type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search" />
         {error && <p className="error">{error}</p>}
       </div>
-      <section className="overflowArray">
+      <section className="dashboard_main_allarrays_overflow">
         <table>
           <thead>
             <tr>
@@ -120,8 +120,8 @@ const DashboardCompaniesAllCompanies = () => {
       <td>{company.country}</td>
       <td>{company.Name_type}</td>
       <td>{new Date(company.create_dat).toLocaleDateString()}</td>
-      <td><button onClick={() => handleDeleteCompanies(company.id)}>delete</button></td>
-      <td><Link to={`/editcompaniespage/${company.id}`}><button>Edit</button></Link></td>
+      <td><button className="delete" onClick={() => handleDeleteCompanies(company.id)}></button></td>
+      <td><Link to={`/editcompaniespage/${company.id}`}><button className="edit"></button></Link></td>
     </tr>
   ))}
 </tbody>

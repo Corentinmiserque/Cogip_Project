@@ -23,39 +23,52 @@ function Editinvoices (){
       const id_company = formData.get("id_company");
       const update_dat = formData.get("update_dat");
       const create_dat = date.toISOString();
-      const data = { ref: ref, id_company: id_company, create_dat: create_dat, update_dat: update_dat };
-      let url = `https://quentin.hugoorickx.tech/invoice/${id}`;
-      let options = {
-        method: 'PATCH',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      fetch(url, options).then(() => {
-        window.location.href = "/dashboard_Invoicepage";
-      });
+      
+      // Vérifie que tous les champs sont remplis avant de soumettre le formulaire
+      if (!ref || !id_company || !update_dat) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      
+      // Demande une confirmation avant de soumettre le formulaire
+      const confirmSubmit = window.confirm("Are you sure you want to edit this invoice?");
+      
+      if (confirmSubmit) {
+        const data = { ref: ref, id_company: id_company, create_dat: create_dat, update_dat: update_dat };
+        let url = `https://quentin.hugoorickx.tech/invoice/${id}`;
+        let options = {
+          method: 'PATCH',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        fetch(url, options).then(() => {
+          window.location.href = "/dashboard_Invoicepage";
+        });
+      }
     };
-  
+    
     return (
-        <div className="form-edit">
-     <form onSubmit={handleSubmit}>
-        <label htmlFor="ref">Reference:</label>
-        <input type="text" id="ref" name="ref" /><br /><br />
+      
+     <form className="dashboard_main_form" onSubmit={handleSubmit}>
+      <p>Edit Invoice</p>
+        <label htmlFor="ref"></label>
+        <input type="text" id="ref" name="ref" placeholder="Référence"/>
   
-        <label htmlFor="id_company">Company</label>
+        <label htmlFor="id_company"></label>
         <select id="id_company" name="id_company">
           {companies.map(company => (
             <option key={company.id} value={company.id}>{company.Name_company}</option>
           ))}
-        </select><br /><br />
+        </select>
   
-        <label htmlFor="update_dat">Dates Due</label>
-        <input type="date" name="update_dat" id="update_dat" /><br /><br />
+        <label htmlFor="update_dat"></label>
+        <input type="date" name="update_dat" id="update_dat" />
   
-        <input type="submit" value="Submit" />
+        <input className="save" type="submit" value="Save" />
       </form>
-        </div>
+    
     );
 }
 
