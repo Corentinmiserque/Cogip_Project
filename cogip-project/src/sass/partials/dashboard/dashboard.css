@@ -495,6 +495,10 @@ body .dashboard_main_all_arrays_overflow table {
   margin: 0 0 5% 5%;
   text-align: left;
 }
+body .dashboard_main_all_arrays_overflow .sortButtons {
+  display: inline-block;
+  align-items: center;
+}
 
 @media screen and (min-width: 425px) {
   body .dashboard_main_all {
@@ -580,6 +584,13 @@ body .dashboard_main_form .save {
   text-align: left;
   text-indent: 2.5%;
 }
+body .dashboard_main_form .error {
+  font-size: 1.5vw;
+  text-align: left;
+  color: rgb(150, 152, 214);
+  margin-left: 5%;
+  margin-top: 1%;
+}
 
 @media screen and (min-width: 425px) {
   body .dashboard_main_form {
@@ -640,6 +651,10 @@ body .dashboard_main_allarrays_overflow {
   overflow: auto;
   font-size: 3.5vw;
   width: auto;
+}
+body .dashboard_main_allarrays_overflow .sortButtons {
+  display: inline-block;
+  margin-left: 3%;
 }
 body .dashboard_main_allarrays_overflow .tri {
   font-size: 3vw;

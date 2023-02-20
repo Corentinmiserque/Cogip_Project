@@ -28,10 +28,15 @@ body{
                     overflow: auto;
                     font-size: 3.5vw;
                     width: auto;
+                    .sortButtons {
+                        display: inline-block;
+                        margin-left: 3%;
+                      }
                     .tri{
                         font-size: 3vw;
                         background-color: transparent;
-                        border: none;}
+                        border: none;
+                    }
                     .delete{
                         width: 5vw;
                         height: 5vw;
