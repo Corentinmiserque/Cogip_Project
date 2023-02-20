@@ -14,12 +14,16 @@ body {
   font-weight: 600;
 }
 
-body .dashboardheader {
+body .dashboard {
   background-color: rgb(245, 245, 251);
   width: 100dvw;
-  height: 100dvh;
+  overflow-x: hidden;
 }
-body .dashboardheader .hamburger-dashboard {
+body .dashboard .dashboardheader {
+  width: 100dvw;
+  background-color: rgb(245, 245, 251);
+}
+body .dashboard .dashboardheader .hamburger-dashboard {
   background-color: rgb(245, 245, 251);
   display: flex;
   flex-direction: column;
@@ -28,90 +32,90 @@ body .dashboardheader .hamburger-dashboard {
   z-index: 0;
   position: relative;
 }
-body .dashboardheader .hamburger-dashboard span {
+body .dashboard .dashboardheader .hamburger-dashboard span {
   width: 15%;
   height: 4%;
   background-color: rgb(150, 152, 214);
   margin-top: 5%;
   margin-left: 10%;
 }
-body .dashboardheader .hamburger-dashboard_active {
+body .dashboard .dashboardheader .hamburger-dashboard_active {
   background-color: rgb(255, 255, 255);
   z-index: 1;
 }
-body .dashboardheader .hamburger-dashboard_active :nth-child(1) {
+body .dashboard .dashboardheader .hamburger-dashboard_active :nth-child(1) {
   transform: translateY(2.9vw) rotate(135deg);
 }
-body .dashboardheader .hamburger-dashboard_active :nth-child(2) {
+body .dashboard .dashboardheader .hamburger-dashboard_active :nth-child(2) {
   opacity: 0;
 }
-body .dashboardheader .hamburger-dashboard_active :nth-child(3) {
+body .dashboard .dashboardheader .hamburger-dashboard_active :nth-child(3) {
   transform: translateY(-2.9vw) rotate(-135deg);
 }
-body .dashboardheader .allheader {
+body .dashboard .dashboardheader .allheader {
   width: 50%;
   background-color: rgb(255, 255, 255);
   transform: translateX(-100%);
   position: absolute;
   z-index: 4;
 }
-body .dashboardheader .allheader .profil {
+body .dashboard .dashboardheader .allheader .profil {
   display: flex;
   flex-direction: column;
   border-bottom: solid 2px rgb(245, 245, 245);
   padding-bottom: 20%;
   align-items: center;
 }
-body .dashboardheader .allheader .profil img {
+body .dashboard .dashboardheader .allheader .profil img {
   margin: auto;
   width: 75%;
   height: 75%;
   background: rgb(245, 245, 251);
   border-radius: 50%;
 }
-body .dashboardheader .allheader .profil h2 {
+body .dashboard .dashboardheader .allheader .profil h2 {
   text-align: center;
   font-size: 5dvw;
   margin-top: 10%;
   width: 50%;
 }
-body .dashboardheader .allheader .nav {
+body .dashboard .dashboardheader .allheader .nav {
   border-bottom: solid 2px rgb(245, 245, 245);
   width: 100%;
   padding-bottom: 20%;
 }
-body .dashboardheader .allheader .nav nav {
+body .dashboard .dashboardheader .allheader .nav nav {
   display: flex;
   flex-direction: column;
   margin-left: 15%;
 }
-body .dashboardheader .allheader .nav nav a {
+body .dashboard .dashboardheader .allheader .nav nav a {
   margin-top: 10%;
   padding-left: 20%;
   font-size: 3.5vw;
   font-weight: 400;
 }
-body .dashboardheader .allheader .nav nav :nth-child(1) {
+body .dashboard .dashboardheader .allheader .nav nav :nth-child(1) {
   background: url(../../../../public/img/Icon_dashboard.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .dashboardheader .allheader .nav nav :nth-child(2) {
+body .dashboard .dashboardheader .allheader .nav nav :nth-child(2) {
   background: url(../../../../public/img/Icon_Invoices.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .dashboardheader .allheader .nav nav :nth-child(3) {
+body .dashboard .dashboardheader .allheader .nav nav :nth-child(3) {
   background: url(../../../../public/img/Icon_Companies.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .dashboardheader .allheader .nav nav :nth-child(4) {
+body .dashboard .dashboardheader .allheader .nav nav :nth-child(4) {
   background: url(../../../../public/img/Icon_contact.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .dashboardheader .allheader .logout {
+body .dashboard .dashboardheader .allheader .logout {
   width: 100%;
   height: 400%;
   display: flex;
@@ -120,14 +124,14 @@ body .dashboardheader .allheader .logout {
   margin: 2.5% 0;
   align-items: center;
 }
-body .dashboardheader .allheader .logout img {
+body .dashboard .dashboardheader .allheader .logout img {
   background-color: rgb(245, 245, 251);
   border-radius: 50%;
   width: 15%;
   height: 15%;
   transform: translate(20%);
 }
-body .dashboardheader .allheader .logout button {
+body .dashboard .dashboardheader .allheader .logout button {
   width: 25%;
   background-color: transparent;
   border: none;
@@ -135,59 +139,105 @@ body .dashboardheader .allheader .logout button {
   color: rgb(150, 152, 214);
   transform: translateX(-35%);
 }
-body .dashboardheader .allheader_active {
+body .dashboard .dashboardheader .allheader_active {
   transform: none;
 }
-body .dashboardheader .dashboard_herosection {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  transform: translateY(-90%);
-}
-body .dashboardheader .dashboard_herosection h3 {
-  font-size: 6vw;
-}
-body .dashboardheader .dashboard_herosection h4 {
-  font-size: 3vw;
-  font-weight: 400;
-}
-body .dashboardheader .dashboard_herosection_containers {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-}
-body .dashboardheader .dashboard_herosection_containers_container1 {
-  width: 100%;
-  background-color: rgb(150, 152, 214);
-  border-radius: 5px;
-  text-align: center;
-  justify-content: center;
-}
-body .dashboardheader .dashboard_herosection_containers_container1 h2 {
-  margin-top: 2.5%;
-  width: 90%;
-  color: rgb(255, 255, 255);
-  font-size: 9vw;
-}
-body .dashboardheader .dashboard_herosection_containers_container1 p {
-  width: 90%;
-  color: rgb(255, 255, 255);
-  font-size: 4vw;
-  font-weight: 400;
-  text-align: justify;
-  margin: 5% auto;
-}
-body .dashboardheader .dashboard_herosection_containers_container2 {
-  width: 100%;
-  margin: 0 10%;
-}
-body .dashboardheader .dashboard_herosection_containers_container2 img {
-  width: 80%;
-}
 
+@media screen and (min-width: 425px) {
+  body .dashboard {
+    background-color: rgb(245, 245, 251);
+    width: 100dvw;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+  body .dashboard .dashboardheader {
+    width: 20dvw;
+    background-color: rgb(245, 245, 251);
+  }
+  body .dashboard .dashboardheader .hamburger-dashboard {
+    display: none;
+  }
+  body .dashboard .dashboardheader .allheader {
+    width: 100%;
+    transform: translateX(0);
+    position: relative;
+  }
+  body .dashboard .dashboardheader .allheader .profil {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 2px rgb(245, 245, 245);
+    padding-bottom: 20%;
+    align-items: center;
+  }
+  body .dashboard .dashboardheader .allheader .profil img {
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    margin-top: 5%;
+    background: rgb(245, 245, 251);
+    border-radius: 50%;
+  }
+  body .dashboard .dashboardheader .allheader .profil h2 {
+    text-align: center;
+    font-size: 2.5dvw;
+    margin-top: 10%;
+    width: 50%;
+  }
+  body .dashboard .dashboardheader .allheader .nav {
+    border-bottom: solid 2px rgb(245, 245, 245);
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 20%;
+  }
+  body .dashboard .dashboardheader .allheader .nav nav {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+  }
+  body .dashboard .dashboardheader .allheader .nav nav a {
+    margin-top: 10%;
+    padding-left: 20%;
+    font-size: 1.5vw;
+  }
+  body .dashboard .dashboardheader .allheader .nav nav a:hover {
+    font-weight: 600;
+  }
+  body .dashboard .dashboardheader .allheader .nav nav a:hover::after {
+    content: "";
+    width: 2.5%;
+    height: 2%;
+    background-color: rgb(150, 152, 214);
+    position: absolute;
+    left: 97.5%;
+  }
+  body .dashboard .dashboardheader .allheader .logout {
+    width: 100%;
+    height: 400%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2.5% 0;
+    align-items: center;
+  }
+  body .dashboard .dashboardheader .allheader .logout img {
+    background-color: rgb(245, 245, 251);
+    border-radius: 50%;
+    width: 15%;
+    height: 15%;
+    transform: translate(20%);
+    margin: 2.5%;
+  }
+  body .dashboard .dashboardheader .allheader .logout button {
+    width: 25%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5dvw;
+    color: rgb(150, 152, 214);
+    transform: translateX(-35%);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -200,4 +250,366 @@ body .dashboardheader .dashboard_herosection_containers_container2 img {
 
 body {
   font-weight: 600;
+}
+
+body .dashboard_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+}
+body .dashboard_main .dashboard_herosection {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  transform: translateY(-90%);
+}
+body .dashboard_main .dashboard_herosection h3 {
+  font-size: 6vw;
+}
+body .dashboard_main .dashboard_herosection h4 {
+  font-size: 3vw;
+  font-weight: 400;
+}
+body .dashboard_main .dashboard_herosection_containers {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+body .dashboard_main .dashboard_herosection_containers_container1 {
+  width: 100%;
+  background-color: rgb(150, 152, 214);
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+}
+body .dashboard_main .dashboard_herosection_containers_container1 h2 {
+  margin-top: 2.5%;
+  width: 90%;
+  color: rgb(255, 255, 255);
+  font-size: 9vw;
+}
+body .dashboard_main .dashboard_herosection_containers_container1 p {
+  width: 90%;
+  color: rgb(255, 255, 255);
+  font-size: 5vw;
+  font-weight: 400;
+  text-align: center;
+  margin: 5% auto;
+}
+body .dashboard_main .dashboard_herosection_containers_container2 {
+  width: 100%;
+  margin: 0 10%;
+}
+body .dashboard_main .dashboard_herosection_containers_container2 img {
+  width: 80%;
+}
+body .dashboard_main_all {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body .dashboard_main_all_statistics {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 90%;
+  margin: 5%;
+}
+body .dashboard_main_all_statistics h2 {
+  font-size: 7vw;
+  margin: 5% 0;
+}
+body .dashboard_main_all_statistics_statistic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 5%;
+}
+body .dashboard_main_all_statistics_statistic p {
+  color: rgb(255, 255, 255);
+  font-size: 3.2vw;
+}
+body .dashboard_main_all_statistics_statistic .totalinvoices {
+  background-color: rgb(77, 76, 172);
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+body .dashboard_main_all_statistics_statistic .totalcompanies {
+  background-color: rgb(150, 152, 214);
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .dashboard_main_all_statistics_statistic .totalcontacts {
+  background-color: rgb(255, 128, 139);
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (min-width: 425px) {
+  body .dashboard_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80vw;
+  }
+  body .dashboard_main .dashboard_herosection {
+    width: 100%;
+    margin: 2.5% 0 0;
+    transform: translateX(-40%);
+  }
+  body .dashboard_main .dashboard_herosection h3 {
+    font-size: 2vw;
+  }
+  body .dashboard_main .dashboard_herosection h4 {
+    font-size: 1vw;
+    font-weight: 400;
+  }
+  body .dashboard_main .dashboard_herosection_containers {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(150, 152, 214);
+    margin: 5% auto;
+    border-radius: 10px;
+  }
+  body .dashboard_main .dashboard_herosection_containers_container1 {
+    width: 60%;
+    background-color: rgb(150, 152, 214);
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    padding: 2.5% 0;
+    margin-left: 2.5%;
+  }
+  body .dashboard_main .dashboard_herosection_containers_container1 h2 {
+    margin-top: 2.5%;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-size: 3vw;
+  }
+  body .dashboard_main .dashboard_herosection_containers_container1 p {
+    width: 60%;
+    color: rgb(255, 255, 255);
+    font-size: 1.3vw;
+    font-weight: 300;
+    text-align: left;
+    margin: 5% 5%;
+  }
+  body .dashboard_main .dashboard_herosection_containers_container2 {
+    width: 35%;
+    height: 15vw;
+    margin: 0 10%;
+  }
+  body .dashboard_main .dashboard_herosection_containers_container2 img {
+    position: relative;
+    width: 120%;
+    transform: translateX(0%) translateY(-45%);
+  }
+  body .dashboard_main_all_statistics {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin: 5% 0;
+    width: auto;
+    transform: translateY(-1.6vw);
+  }
+  body .dashboard_main_all_statistics h2 {
+    font-size: 1.5vw;
+    text-align: left;
+    margin: 5% 5%;
+  }
+  body .dashboard_main_all_statistics_statistic {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 5%;
+  }
+  body .dashboard_main_all_statistics_statistic p {
+    color: rgb(255, 255, 255);
+    font-size: 0.9vw;
+  }
+  body .dashboard_main_all_statistics_statistic .totalinvoices {
+    background-color: rgb(77, 76, 172);
+    border-radius: 50%;
+    width: 5.5dvw;
+    height: 5.5dvw;
+  }
+  body .dashboard_main_all_statistics_statistic .totalcompanies {
+    background-color: rgb(150, 152, 214);
+    border-radius: 50%;
+    border-radius: 50%;
+    width: 5.5dvw;
+    height: 5.5dvw;
+  }
+  body .dashboard_main_all_statistics_statistic .totalcontacts {
+    background-color: rgb(255, 128, 139);
+    border-radius: 50%;
+    border-radius: 50%;
+    width: 5.5dvw;
+    height: 5.5dvw;
+  }
+}
+body .dashboard_main_all_arrays {
+  background-color: rgb(255, 255, 255);
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 3.8vw;
+  margin-bottom: 5%;
+}
+body .dashboard_main_all_arrays h2 {
+  font-size: 7vw;
+  margin: 5% 0;
+  padding-bottom: 5%;
+  border-bottom: solid 2px rgb(245, 245, 245);
+}
+body .dashboard_main_all_arrays_overflow {
+  width: 100%;
+  overflow-x: auto;
+}
+body .dashboard_main_all_arrays_overflow table {
+  width: 90%;
+  margin: 0 0 5% 5%;
+  text-align: left;
+}
+
+@media screen and (min-width: 425px) {
+  body .dashboard_main_all {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(2, 44%);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 2vw;
+    margin-left: 10%;
+    align-items: flex-start;
+  }
+  body .dashboard_main_all :nth-child(1) {
+    grid-area: 1/1/2/2;
+  }
+  body .dashboard_main_all :nth-child(2) {
+    grid-area: 1/2/2/3;
+  }
+  body .dashboard_main_all:nth-child(3) {
+    grid-area: 2/1/3/2;
+  }
+  body .dashboard_main_all :nth-child(4) {
+    grid-area: 2/2/3/3;
+  }
+  body .dashboard_main_all_arrays {
+    background-color: rgb(255, 255, 255);
+    font-size: 1vw;
+    margin-bottom: 5%;
+    font-weight: 400;
+    border-radius: 10px;
+    width: auto;
+  }
+  body .dashboard_main_all_arrays h2 {
+    font-size: 1.5vw;
+    margin: 5% 5%;
+    text-align: left;
+  }
+  body .dashboard_main_all_arrays table {
+    width: 90%;
+    font-size: 1vw;
+  }
+  body .dashboard_main_all_arrays table thead th {
+    padding-bottom: 3%;
+  }
+  body .dashboard_main_all_arrays table tbody td {
+    padding-bottom: 3%;
+  }
+}
+body .dashboard_main_form {
+  margin-left: 18%;
+  width: 64%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  font-size: 5vw;
+}
+body .dashboard_main_form p {
+  text-align: left;
+  margin: 5%;
+  padding-bottom: 5%;
+  border-bottom: solid 2px rgb(245, 245, 245);
+}
+body .dashboard_main_form input {
+  background-color: rgb(245, 245, 245);
+  border: none;
+  margin: 0 5%;
+  color: rgb(115, 115, 115);
+}
+body .dashboard_main_form select {
+  background-color: rgb(245, 245, 245);
+  margin: 0 5%;
+  color: rgb(115, 115, 115);
+}
+body .dashboard_main_form label {
+  text-align: left;
+  margin: 2.5% 5%;
+  color: rgb(115, 115, 115);
+}
+body .dashboard_main_form .save {
+  color: white;
+  background-color: rgb(150, 152, 214);
+  margin: 5%;
+  text-align: left;
+  text-indent: 2.5%;
+}
+
+@media screen and (min-width: 425px) {
+  body .dashboard_main_form {
+    margin-left: 0%;
+    width: 71vw;
+    font-size: 4vw;
+  }
+  body .dashboard_main_form p {
+    text-align: left;
+    margin: 2.5% 5%;
+    padding-bottom: 2%;
+    border-bottom: solid 2px rgb(245, 245, 245);
+    font-size: 2vw;
+  }
+  body .dashboard_main_form input {
+    margin: 0 5%;
+    padding: 1.5%;
+    font-size: 1.5vw;
+  }
+  body .dashboard_main_form select {
+    padding: 1.5%;
+    font-size: 1.5vw;
+  }
+  body .dashboard_main_form label {
+    text-align: left;
+    margin: 2.5% 5%;
+    color: rgb(115, 115, 115);
+    font-size: 1.5vw;
+  }
+  body .dashboard_main_form .save {
+    text-indent: 0%;
+  }
 }/*# sourceMappingURL=dashboard.css.map */

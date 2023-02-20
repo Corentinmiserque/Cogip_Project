@@ -70,7 +70,7 @@ const InvoicesPageTable = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="array arrays__lastContacts">
+    <div className="dasboard_main_allarrays">
       <div className="title">
         <h2 className="underline">All Invoices</h2>
         <input className="search" type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search" />
@@ -83,16 +83,13 @@ const InvoicesPageTable = () => {
               <th>Invoice Number</th>
               <th>
               Date Due
-              <div className="sortButtons">
-                <button
-                  className={`tri ${isOpen ? "activetri" : ""}`}
+              <button
+                  className="tri"
                   onClick={() => {
-                    handleClick();
-                    handleSortInvoices('Date_due');
+                    handleSortInvoices("Date_due");
                   }}>
-                  ▲
+                   {sortType.key === 'Date_due' && sortType.order === 'asc' ? '▲' : '▼'}
                 </button>
-              </div>
               </th>
               <th>Company</th>
               <th>Created At</th>

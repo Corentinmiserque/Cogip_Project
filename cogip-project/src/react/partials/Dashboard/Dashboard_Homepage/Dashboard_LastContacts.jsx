@@ -12,9 +12,10 @@ const DashboardLastContactsTable = () => {
   }, []);
 
   return (
-    <div className="array arrays__lastInvoices">
+    <div className="dashboard_arrays">
+    <div className="dashboard_main_all_arrays">
       <h2>Last Contacts</h2>
-      <section className="overflowArray">
+      <section className="dashboard_main_all_arrays_overflow">
         <table>
           <thead>
             <tr>
@@ -34,6 +35,7 @@ const DashboardLastContactsTable = () => {
           </tbody>
         </table>
       </section>
+    </div>
     </div>
   );
 };

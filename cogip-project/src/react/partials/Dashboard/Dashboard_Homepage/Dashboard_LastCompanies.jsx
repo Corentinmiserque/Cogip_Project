@@ -12,9 +12,10 @@ const DashboardLastCompaniesTable = () => {
 }, []);
 
   return (
-    <div className=" arrays__lastCompanies">
-      <h2>Last companies</h2>
-      <section className="overflowArray">
+    <div className="dashboard_arrays">
+    <div className="dashboard_main_all_arrays">
+    <h2>Last Companies</h2>
+    <section className="dashboard_main_all_arrays_overflow">
         <table>
           <thead>
             <tr>
@@ -34,6 +35,7 @@ const DashboardLastCompaniesTable = () => {
           </tbody>
         </table>
       </section>
+    </div>
     </div>
   );
 };

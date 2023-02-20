@@ -1,7 +1,8 @@
+import Editcompanies from "./Dashboard_Companies_Modif"
 
 function EditCompaniespage() {
   return(
-    <p>test</p>
+    <Editcompanies/>
   )
 }
 

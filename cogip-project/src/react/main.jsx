@@ -17,6 +17,8 @@ import DashboardInvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Da
 import DashboardCompaniespage from './partials/Dashboard/Dashboard_Companiespage/Dashboard_Companiespage';
 
 import Editinvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Editpage';
+import EditCompaniespage from './partials/Dashboard/Dashboard_Companiespage/Dashboard_Companies_Editpage';
+
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
 {
   path: `/dashboard_Companiespage`,
   element: <DashboardCompaniespage/>,
+},
+{
+  path: `/editcompaniespage/:id`,
+  element: <EditCompaniespage/>,
 },
 
 ]);

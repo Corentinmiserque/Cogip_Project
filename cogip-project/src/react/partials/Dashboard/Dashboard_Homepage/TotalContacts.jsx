@@ -21,7 +21,7 @@ const TotalContacts = () => {
   const totalContacts = contacts.length;
 
   return (
-    <div className="TotalContacts">
+    <div className="totalcontacts">
       <p>{totalContacts}</p>
       <p>Contacts</p>
     </div>

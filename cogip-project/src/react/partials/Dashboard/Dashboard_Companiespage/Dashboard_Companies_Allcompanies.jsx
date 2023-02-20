@@ -121,6 +121,7 @@ const DashboardCompaniesAllCompanies = () => {
       <td>{company.Name_type}</td>
       <td>{new Date(company.create_dat).toLocaleDateString()}</td>
       <td><button onClick={() => handleDeleteCompanies(company.id)}>delete</button></td>
+      <td><Link to={`/editcompaniespage/${company.id}`}><button>Edit</button></Link></td>
     </tr>
   ))}
 </tbody>

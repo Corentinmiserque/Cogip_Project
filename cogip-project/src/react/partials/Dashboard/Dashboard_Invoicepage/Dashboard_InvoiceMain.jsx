@@ -38,23 +38,24 @@ function DashboardInvoicesMain() {
   };
 
   return (
-    <form onSubmit={handleSubmit}id="form" method="post">
-      <label htmlFor="ref">Reference:</label>
-      <input type="text" id="ref" name="ref" /><br /><br />
+    <form className="dashboard_main_form" onSubmit={handleSubmit}id="form" method="post">
+      <p>New Invoice</p>
+      <label htmlFor="ref"></label>
+      <input type="text" id="ref" name="ref" placeholder="Référence" />
 
-      <label htmlFor="id_company">Company</label>
+      <label htmlFor="id_company"></label>
       <select id="id_company" name="id_company">
         {companies.map(company => (
           <option key={company.id} value={company.id}>{company.Name_company}</option>
         ))}
-      </select><br /><br />
+      </select>
 
       <input type="hidden" id="create_dat" name="create_dat" value={`${date}`} />
 
-      <label htmlFor="update_dat">Dates Due</label>
-      <input type="date" name="update_dat" id="update_dat" /><br /><br />
+      <label htmlFor="update_dat"></label>
+      <input type="date" name="update_dat" id="update_dat" />
 
-      <input type="submit" value="Submit" />
+      <input className="save" type="submit" value="Save" />
     </form>
   
   );

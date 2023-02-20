@@ -1,0 +1,83 @@
+body{
+    .dashboard{
+        &_main{
+            &_form{
+                margin-left: 18%;
+                width: 64%;
+                display: flex;
+                flex-direction: column;
+                background-color: $white;
+                border-radius: 10px;
+                font-size: 5vw;
+                p{
+                    text-align: left;
+                    margin: 5%;
+                    padding-bottom: 5%;
+                    border-bottom: solid 2px $lightgrey;
+                }
+                input{
+                    background-color: $lightgrey;
+                    border: none;
+                    margin: 0 5%;
+                    color: $grey;
+                }
+                select{
+                    background-color: $lightgrey;
+                    margin: 0 5%;
+                    color: $grey;
+                }
+                label{
+                text-align: left;
+                margin: 2.5% 5%;
+                color: $grey;
+                }
+                .save{
+                    color: white;
+                    background-color: $lavander;
+                    margin: 5%;
+                    text-align: left;
+                    text-indent: 2.5%;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 425px) {
+    body{
+        .dashboard{
+            &_main{
+                &_form{
+                    margin-left: 0%;
+                    width: 71vw;
+                   
+                    font-size: 4vw;
+                    p{
+                        text-align: left;
+                        margin: 2.5% 5%;
+                        padding-bottom: 2%;
+                        border-bottom: solid 2px $lightgrey;
+                        font-size: 2vw;
+                    }
+                    input{
+                        margin: 0 5%;
+                        padding: 1.5%;
+                        font-size: 1.5vw;
+                    }
+                    select{
+                        padding: 1.5%;
+                        font-size: 1.5vw;
+                    }
+                    label{
+                    text-align: left;
+                    margin: 2.5% 5%;
+                    color: $grey;
+                    font-size: 1.5vw;
+                    }
+                    .save{
+                        text-indent: 0%;
+                    }
+                }
+            }
+        }
+    }
+}

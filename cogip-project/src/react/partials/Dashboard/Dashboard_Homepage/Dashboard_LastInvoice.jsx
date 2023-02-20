@@ -14,9 +14,10 @@ import { Link } from "react-router-dom";
       
 
   return (
-    <div className="arrays__lastInvoices">
+    <div className="dashboard_arrays">
+    <div className="dashboard_main_all_arrays">
       <h2>Last invoices</h2>
-      <section className="overflowArray">
+      <section className="dashboard_main_all_arrays_overflow">
         <table>
           <thead>
             <tr>
@@ -36,6 +37,7 @@ import { Link } from "react-router-dom";
           </tbody>
         </table>
       </section>
+    </div>
     </div>
   );
 };

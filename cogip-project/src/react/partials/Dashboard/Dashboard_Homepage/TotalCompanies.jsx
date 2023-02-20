@@ -21,7 +21,7 @@ const totalCompanies= () => {
   const totalCompanies = companies.length;
 
   return (
-    <div className="TotalCompanies">
+    <div className="totalcompanies">
       <p>{totalCompanies}</p>
       <p>Companies</p>
 
