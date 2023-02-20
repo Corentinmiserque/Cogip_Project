@@ -10,7 +10,6 @@ const InvoicesPageTable = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage] = useState(10);
   const [error, setError] = useState('');
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     axios.get("https://quentin.hugoorickx.tech/invoices")

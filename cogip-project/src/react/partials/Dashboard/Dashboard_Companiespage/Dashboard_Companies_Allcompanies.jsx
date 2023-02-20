@@ -58,13 +58,18 @@ const DashboardCompaniesAllCompanies = () => {
     setCurrentPage(selected);
   };
 
+
   const handleDeleteCompanies = (id) => {
-    axios.delete(`https://quentin.hugoorickx.tech/company/${id}`)
-      .then(res => {
-        const updatedCompanies = companies.filter(company => company.id !== id);
-        setCompanies(updatedCompanies);
-      })
-      .catch(err => setError(err.message));
+    const confirmDelete = window.confirm("Are you sure you want to delete this company?");
+  
+    if (confirmDelete) {
+      axios.delete(`https://quentin.hugoorickx.tech/company/${id}`)
+        .then(res => {
+          const updatedCompanies = companies.filter(company => company.id !== id);
+          setCompanies(updatedCompanies);
+        })
+        .catch(err => setError(err.message));
+    }
   };
 
   const lastIndex = currentPage * perPage + perPage;

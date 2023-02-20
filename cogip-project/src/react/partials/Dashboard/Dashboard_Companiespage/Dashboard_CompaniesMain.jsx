@@ -19,18 +19,16 @@ function DashboardCompaniesMain() {
   }, []);
 
   const handleSubmit = (event) => {
-    let formIsValid = true;
     event.preventDefault();
-
-
+    let formIsValid = true;
     // Vérification des champs
     if (!name) {
       setNameError("Veuillez entrer un nom.");
       formIsValid = false;
-  } else {
-    setNameError("");
-  }
-
+    } else {
+      setNameError("");
+    }
+   
     if (!country) {
       setCountryError("Veuillez entrer un pays.");
       formIsValid = false;
@@ -39,7 +37,9 @@ function DashboardCompaniesMain() {
     }
     if (!tva) {
       setTvaError("Veuillez entrer un numéro de TVA.");
-      return;
+      formIsValid = false;
+    } else {
+      setTvaError("");
     }
     if (!/^[A-Za-z]{2}[0-9]{10}$/.test(tva)) {
       setTvaError("Le numéro de TVA doit contenir 2 lettres suivies de 10 chiffres.");
@@ -72,7 +72,7 @@ function DashboardCompaniesMain() {
       <label htmlFor="type_id"></label>
       <select id="type_id" name="type_id" value={typeId} onChange={(event) => {setTypeId(event.target.value);}}>
         <option value="1">Supplier</option>
-        <option value="2">Client</option>e
+        <option value="2">Client</option>
       </select>
 
       <label htmlFor="country"></label>
