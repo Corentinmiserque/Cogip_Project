@@ -1,4 +1,7 @@
 import logo from "../../../../public/img/logo.avif"
+import facebook from "../../../../public/img/Facebook.jsx"
+import twitter from "../../../../public/img/Twitter.jsx"
+import twitter from "../../../../public/img/Twitter.jsx"
 import { Link } from 'react-router-dom'
 
 function Footer() {
@@ -23,8 +26,8 @@ function Footer() {
 
         <section className="socialmedia">
             <p>Social media </p>
-            <a href="#"><img src="../public/img/Facebook.svg" alt="facebook"/></a>
-            <a href="#"><img src="../public/img/Twitter.svg" alt="twitter"/></a>
+            <a href="#"><img src={facebook} alt="facebook"/></a>
+            <a href="#"><img src={twitter}alt="twitter"/></a>
             <a href="#"><img src="../public/img/LinkedIn.svg" alt="linkedin"/></a>
             <a href="#"><img src="../public/img//Youtube.svg" alt="youtube"/></a>
             <a href="#"><img src="../public/img/Instagram.svg" alt="instagram"/></a>
