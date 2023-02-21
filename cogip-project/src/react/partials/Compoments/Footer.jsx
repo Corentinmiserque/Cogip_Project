@@ -1,4 +1,4 @@
-
+import logo from "../../../../public/img/logo.avif"
 import { Link } from 'react-router-dom'
 
 function Footer() {

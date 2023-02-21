@@ -1,3 +1,4 @@
+import spotlight from "../../../../public/img/spotlight.avif"
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -15,7 +16,7 @@ const LastCompaniesTable = () => {
 
   return (
     <div className="array arrays__lastCompanies">
-      <img className="spotlight" src="../public/img/spotlight.svg" alt="spotlight" /> 
+      <img className="spotlight" src={spotlight} alt="spotlight" /> 
       <h2>Last companies</h2>
 
       <section className="overflowArray">

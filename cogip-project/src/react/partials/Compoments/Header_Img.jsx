@@ -1,3 +1,5 @@
+import HeroSectionImg2 from "../../../../public/img/HeroSectionImg2.avif";
+
 function Header_Img() {
     // state, données
     
@@ -5,7 +7,7 @@ function Header_Img() {
     
     
     //render
-      return<img className="herosectionImg2"src="../public/img/herosectionImg2.svg" alt="heroSectionImg1" />
+      return<img className="herosectionImg2"src={HeroSectionImg2} alt="heroSectionImg1" />
         
         }
 

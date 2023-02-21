@@ -1,3 +1,4 @@
+import blocknote from "../../../../public/img/blocknote.avif"
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -14,7 +15,7 @@ const LastContactsTable = () => {
 
   return (
     <div className="array arrays__lastInvoices">
-       <img className="blocknote" src="../public/img/blocknote.svg" alt="blocknote" />
+       <img className="blocknote" src={blocknote} alt="blocknote" />
       <h2>Last Contacts</h2>
       <section className="overflowArray">
         <table>
