@@ -246,7 +246,7 @@ body main .arrays .array {
 }
 body main .arrays h2 {
   margin: 2rem 0;
-  font-size: 4vw;
+  font-size: 7vw;
 }
 body main .arrays .underline::before {
   content: "";
@@ -806,6 +806,108 @@ body .peoples .people p {
     text-align: center;
   }
 }
-body .dashboardheader {
-  background-color: white;
+body main .loginpage {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin: auto;
+}
+body main .loginpage input {
+  width: 60vw;
+  margin: 5% auto 0;
+  background-color: transparent;
+  border: rgb(115, 115, 115) solid 1px;
+  color: rgb(115, 115, 115);
+  text-align: left;
+  text-indent: 5%;
+  padding: 1%;
+  border-radius: 5px;
+  font-size: 4vw;
+}
+body main .loginpage .link {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  height: 8vh;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 12.5%;
+}
+body main .loginpage .link .login {
+  width: 25vw;
+  background-color: rgb(249, 222, 78);
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5% 0;
+  font-weight: 600;
+}
+body main .loginpage .link .signup {
+  width: 25vw;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5% 0;
+  font-weight: 600;
+}
+body main .loginpage h2 {
+  margin-left: 12.5%;
+  font-size: 7vw;
+  padding-bottom: 5%;
+}
+body main .loginpage .underline::before {
+  content: "";
+  position: absolute;
+  width: 25vw;
+  height: 4vw;
+  background-color: rgb(249, 222, 78);
+  z-index: -1;
+  transform: translateY(5vw) translateX(5vw);
+  font-size: 7vw;
+}
+
+@media screen and (min-width: 425px) {
+  body main .loginpage input {
+    font-size: 3vw;
+  }
+  body main .loginpage .link {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    height: 25vh;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 12.5%;
+  }
+  body main .loginpage .link .login {
+    width: 25vw;
+    background-color: rgb(249, 222, 78);
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2.5% 0;
+    font-weight: 600;
+  }
+  body main .loginpage .link .login:hover {
+    opacity: 0.9;
+  }
+  body main .loginpage .link .signup:hover {
+    opacity: 0.9;
+  }
+  body main .loginpage h2 {
+    margin-left: 12.5%;
+    font-size: 4vw;
+    padding-bottom: 5%;
+  }
+  body main .loginpage .underline::before {
+    content: "";
+    position: absolute;
+    width: 15vw;
+    height: 2vw;
+    background-color: rgb(249, 222, 78);
+    z-index: -1;
+    transform: translateY(3vw) translateX(5vw);
+    font-size: 7vw;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -1,7 +1,8 @@
 
-@import "./partials/_header";
+@import "./partials/page/_header";
 @import "./partials/_variables";
-@import "./partials/_array";
-@import "./partials/_home";
-@import "./partials/_footer.scss";
-@import "./partials/show";
+@import "./partials/page/_array";
+@import "./partials/page/_home";
+@import "./partials/page/_footer";
+@import "./partials/page/_show";
+@import "./partials/page/_login";

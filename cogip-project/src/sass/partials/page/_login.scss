@@ -1,0 +1,123 @@
+body{
+    main{
+        .loginpage{
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+            margin: auto;
+            input{
+            width: 60vw;
+            margin: 5% auto 0;
+            background-color: transparent;
+            border: $grey solid 1px;
+            color: $grey;
+            text-align: left;
+            text-indent: 5%;
+            padding: 1%;
+            border-radius: 5px;
+            font-size: 4vw;
+            }
+            .link{
+                display: flex;
+                flex-direction: row;
+                width: 75%;
+                height: 8vh;
+                align-items: center;
+                justify-content: space-between;
+                margin-left: 12.5%;
+                .login{
+                    width: 25vw;
+                    background-color: $yellow;
+                    border: none;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding:5% 0;
+                    font-weight: 600;
+                }
+                .signup{
+                    width: 25vw;
+                    background-color: $lightgrey;
+                    border: none;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding:5% 0;
+                    font-weight: 600;
+                }
+            }
+           
+            h2{
+                margin-left: 12.5%;
+                font-size: 7vw;
+                padding-bottom: 5%;
+            }
+            .underline{
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 25vw;
+                    height: 4vw;
+                    background-color: $yellow;
+                    z-index: -1;
+                    transform: translateY(5vw) translateX(5vw);
+                    font-size: 7vw;
+                }
+            }
+        }
+    }
+}
+
+    @media screen and (min-width: 425px) {
+        body{
+            main{
+                .loginpage{
+                    input{
+                    font-size: 3vw;
+                    }
+                    .link{
+                        display: flex;
+                        flex-direction: row;
+                        width: 75%;
+                        height: 25vh;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-left: 12.5%;
+                        .login{
+                            width: 25vw;
+                            background-color: $yellow;
+                            border: none;
+                            text-align: center;
+                            text-transform: uppercase;
+                            padding:2.5% 0;
+                            font-weight: 600;
+                            &:hover{
+                                opacity: 0.9;
+                            }
+                        }
+                        .signup{
+                            &:hover{
+                                opacity: 0.9;
+                            }
+                        }
+                    }
+                   
+                    h2{
+                        margin-left: 12.5%;
+                        font-size: 4vw;
+                        padding-bottom: 5%;
+                    }
+                    .underline{
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            width: 15vw;
+                            height: 2vw;
+                            background-color: $yellow;
+                            z-index: -1;
+                            transform: translateY(3vw) translateX(5vw);
+                            font-size: 7vw;
+                        }
+                    }
+                }
+            }
+        } 
+    }

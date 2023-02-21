@@ -22,6 +22,8 @@ import EditCompaniespage from './partials/Dashboard/Dashboard_Companiespage/Dash
 import EditContactspage from './partials/Dashboard/Dashboard_Contactspage/Dashboard_Contacts_Editpage';
 
 import Loginpage from './partials/login/Loginpage';
+import Singuppage from './partials/login/SignUppage';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +85,10 @@ const router = createBrowserRouter([
 {
   path: `/loginpage`,
   element: <Loginpage/>,
+},
+{
+  path: `/signuppage`,
+  element: <Singuppage/>,
 },
 
 ]);

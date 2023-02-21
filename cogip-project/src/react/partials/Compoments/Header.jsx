@@ -25,7 +25,7 @@ function Header() {
       </nav>
 
       <section className={`login ${isOpen ? "loginDisplay" : ""}`}>
-      <Link to="/dashboard_Homepage"><span className="signUp">SignUp</span></Link>
+      <Link to="/signuppage"><span className="signUp">Sign up</span></Link>
 
         <Link to="/loginpage">Login</Link>
       </section>
