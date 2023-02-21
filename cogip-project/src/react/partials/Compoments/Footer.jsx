@@ -1,8 +1,12 @@
 import logo from "../../../../public/img/logo.avif"
-import facebook from "../../../../public/img/Facebook.avis"
+import facebook from "../../../../public/img/Facebook.avif"
 import twitter from "../../../../public/img/Twitter.avif"
 import linkedin from "../../../../public/img/LinkedIn.avif"
 import youtube from "../../../../public/img/youtube.avif"
+import instagram from "../../../../public/img/Instagram.avif"
+import google from "../../../../public/img/GooglePlus.avif"
+import pinterest from "../../../../public/img/pinterest.avif"
+import SRR from "../../../../public/img/RSS.avif"
 import { Link } from 'react-router-dom'
 
 function Footer() {
@@ -30,11 +34,11 @@ function Footer() {
             <a href="#"><img src={facebook} alt="facebook"/></a>
             <a href="#"><img src={twitter}alt="twitter"/></a>
             <a href="#"><img src={linkedin} alt="linkedin"/></a>
-            <a href="#"><img src="../public/img//Youtube.svg" alt="youtube"/></a>
-            <a href="#"><img src="../public/img/Instagram.svg" alt="instagram"/></a>
-            <a href="#"><img src="../public/img/GooglePlus.svg" alt="google+"/></a>
-            <a href="#"><img src="../public/img/pinterest.svg" alt="pinterest"/></a>
-            <a href="#"><img src="../public/img//RSS.svg" alt="flux rss"/></a>
+            <a href="#"><img src={youtube}alt="youtube"/></a>
+            <a href="#"><img src={instagram}alt="instagram"/></a>
+            <a href="#"><img src={google} alt="google+"/></a>
+            <a href="#"><img src={pinterest} alt="pinterest"/></a>
+            <a href="#"><img src={SRR} alt="flux rss"/></a>
         </section>
 
     </div>  
