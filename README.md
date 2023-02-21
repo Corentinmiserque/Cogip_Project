@@ -6,10 +6,10 @@ A simple website for a fake company done with react/php
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](./screenshot.png)
 
 
-## Go to [Cogip](https://www.example.com)
+## Go to [Cogip](https://cogip-project-team2.000webhostapp.com/)
 ## About
 The COGIP is a company which we don't know a lot about apart that they produce Jean-Michel toys and that they are serious workers check. They also have incredible employees within their rank.
 
