@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import layer2 from "../../../../public/img/Layer2.avif"
 
 function Dashboard_Herosection() {
   const location = useLocation();
@@ -17,7 +18,7 @@ function Dashboard_Herosection() {
            <p>You can here add an invoice, a company and some contacts.</p>
            </section>
            <section className='dashboard_herosection_containers_container2'>
-            <img src="../../../../public/img/Layer2.svg" alt="dashboard_herosection" />
+            <img src={layer2} alt="dashboard_herosection" />
             </section>
         </div>
 

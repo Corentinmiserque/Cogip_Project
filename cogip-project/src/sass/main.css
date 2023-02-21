@@ -246,7 +246,7 @@ body main .arrays .array {
 }
 body main .arrays h2 {
   margin: 2rem 0;
-  font-size: 4vw;
+  font-size: 7vw;
 }
 body main .arrays .underline::before {
   content: "";
@@ -361,6 +361,10 @@ body main .arrays__lastCompanies .spotlight {
     display: flex;
     margin: 0 auto;
     flex-direction: column;
+  }
+  body main .arrays h2 {
+    margin: 2rem 0;
+    font-size: 4vw;
   }
   body main .arrays .array {
     width: 100%;
@@ -537,19 +541,19 @@ body footer .footer .contacts .contact :nth-child(3) {
   margin-left: 5%;
 }
 body footer .footer .contacts .contact .localisation {
-  background: url("../../../public/img/localisation.svg");
+  background: url("../../../../public/img/localisation.avif");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 7.5%;
 }
 body footer .footer .contacts .contact .phonenumber {
-  background: url("../../../public/img/phoneNumber.svg");
+  background: url("../../../../public/img/phoneNumber.avif");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 7.5%;
 }
 body footer .footer .contacts .contact .fax {
-  background: url("../../../public/img/fax.svg");
+  background: url("../../../../public/img/fax.avif");
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 7.5%;

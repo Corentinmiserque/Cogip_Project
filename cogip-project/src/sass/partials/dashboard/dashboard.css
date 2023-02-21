@@ -97,22 +97,22 @@ body .dashboard .dashboardheader .allheader .nav nav a {
   font-weight: 400;
 }
 body .dashboard .dashboardheader .allheader .nav nav :nth-child(1) {
-  background: url(../../../../public/img/Icon_dashboard.svg);
+  background: url(../../../../public/img/Icon_dashboard.avif);
   background-repeat: no-repeat;
   background-size: contain;
 }
 body .dashboard .dashboardheader .allheader .nav nav :nth-child(2) {
-  background: url(../../../../public/img/Icon_Invoices.svg);
+  background: url(../../../../public/img/Icon_Invoices.avif);
   background-repeat: no-repeat;
   background-size: contain;
 }
 body .dashboard .dashboardheader .allheader .nav nav :nth-child(3) {
-  background: url(../../../../public/img/Icon_Companies.svg);
+  background: url(../../../../public/img/Icon_Companies.avif);
   background-repeat: no-repeat;
   background-size: contain;
 }
 body .dashboard .dashboardheader .allheader .nav nav :nth-child(4) {
-  background: url(../../../../public/img/Icon_contact.svg);
+  background: url(../../../../public/img/Icon_contact.avif);
   background-repeat: no-repeat;
   background-size: contain;
 }
