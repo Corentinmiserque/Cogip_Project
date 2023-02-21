@@ -3,18 +3,12 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function Editcompanies() {
-  const [companies, setCompanies] = useState([]);
-  const [error, setError] = useState(null);
-  const [name, setName] = useState("");
-  const [country, setCountry] = useState("");
-  const [tva, setTva] = useState("");
   const [date, setDate] = useState(new Date());
   const [typeId, setTypeId] = useState("1");
   const [nameError, setNameError] = useState("");
   const [countryError, setCountryError] = useState("");
   const [tvaError, setTvaError] = useState("");
   const { id } = useParams();
-
 
   const handleSubmit = (event) => {
     event.preventDefault();

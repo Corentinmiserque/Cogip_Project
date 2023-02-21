@@ -1,43 +1,42 @@
+
 import React, { useState, useEffect, useMemo } from "react";
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import { Link } from "react-router-dom";
 
-const DashboardContactsAllContacts= () => {
-  const [contacts, setContacts] = useState([]);
-  const [sortType, setSortType] = useState({ key: '', order: '' });
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(0);
-  const [perPage] = useState(10);
-  const [error, setError] = useState('');
+const ContactsPageTable = () => {
+const [contacts, setContacts] = useState([]);
+const [sortType, setSortType] = useState({ key: '', order: '' });
+const [searchTerm, setSearchTerm] = useState('');
+const [currentPage, setCurrentPage] = useState(0);
+const [perPage] = useState(10);
+const [error, setError] = useState('');
 
-  useEffect(() => {
-    axios.get("https://quentin.hugoorickx.tech/contacts")
-      .then(res => res.data)
-      .then(res => setContacts(res.data))
-      .catch(err => setError(err.message));
-  }, []);
+useEffect(() => {
+  axios.get("https://quentin.hugoorickx.tech/contacts")
+    .then(res => setContacts(res.data))
+    .catch(err => setError(err.message));
+}, []);
+const sortByName = (contacts, order) => {
+  return contacts.sort((a, b) => {
+    return order === 'asc' ? a.Name_contact.localeCompare(b.Name_company) : b.Name_company.localeCompare(a.Name_company);
+  });
+};
 
-  const sortByName = (contacts, order) => {
-    return contacts.sort((a, b) => {
-      return order === 'asc' ? a.Name_contact.localeCompare(b.Name_contact) : b.Name_contact.localeCompare(a.Name_contact);
-    });
-  };
-
-  const sortByDate = (contacts, order) => {
-    return contacts.sort((a, b) => {
-      return order === 'asc' ? new Date(a.create_dat) - new Date(b.create_dat) : new Date(b.create_dat) - new Date(a.create_dat);
-    });
-  };
-
-  const sortedContacts = useMemo(() => {
-    let sorted = contacts.filter(contact => (
-      contact.Name_contact.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      contact.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      contact.Name_company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      new Date(contact.create_dat).toLocaleDateString().includes(searchTerm)
-    ));
+const sortByDate = (contacts, order) => {
+  return contacts.sort((a, b) => {
+    return order === 'asc' ? new Date(a.create_dat) - new Date(b.create_dat) : new Date(b.create_dat) - new Date(a.create_dat);
+  });
+};
+const sortedContacts = useMemo(() => {
+ let sorted = contacts
+.filter(contact => (
+contact.Name_contact.toLowerCase().includes(searchTerm.toLowerCase()) ||
+contact.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+contact.Name_company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+new Date(contact.create_dat).toLocaleDateString().includes(searchTerm)
+));
 
     if (sortType.key === 'Name_contact') {
       sorted = sortByName(sorted, sortType.order);
@@ -48,27 +47,19 @@ const DashboardContactsAllContacts= () => {
     return sorted;
   }, [contacts, sortType, searchTerm]);
 
-  const handleSort = key => {
-    const order = sortType.key === key && sortType.order === 'asc' ? 'desc' : 'asc';
-    setSortType({ key, order });
-  };
+const handleSort = key => {
+const order = sortType.key === key && sortType.order === 'asc' ? 'desc' : 'asc';
+setSortType({ key, order });
+};
 
-  const handlePageClick = (data) => {
-    setCurrentPage(data.selected);
-  };
+const handlePageClick = (data) => {
+  setCurrentPage(data.selected);
+};
 
-  const handleDeleteContact = (id) => {
-    axios.delete(`https://quentin.hugoorickx.tech/contacts/${id}`)
-      .then(res => {
-        const updatedContacts = contacts.filter(contact => contact.id !== id);
-        setContacts(updatedContacts);
-      })
-      .catch(err => setError(err.message));
-  };
+const lastIndex = currentPage * perPage + perPage;
+const firstIndex = currentPage * perPage;
+const displayedContacts = sortedContacts.slice(firstIndex, lastIndex);
 
-  const lastIndex = currentPage * perPage + perPage;
-  const firstIndex = currentPage * perPage;
-  const displayedContacts = sortedContacts.slice(firstIndex, lastIndex);
 
 //render
 
@@ -118,8 +109,6 @@ return (
                 <td><a href={`mailto:${contact.email}`}>{contact.email}</a></td>
                 <td><Link to={`/showcompany/${contact.IDCOMPANY}`}>{contact.Name_company}</Link></td>
                 <td>{new Date(contact.create_dat).toLocaleDateString()}</td>
-                <td><button className="delete" onClick={() => handleDeleteContacts(contacts.id)}></button></td>
-      <td><Link to={`/editcompaniespage/${company.id}`}><button className="edit"></button></Link></td>
               </tr>
             ))}
           </tbody>
@@ -141,4 +130,4 @@ return (
 </div>
 );
 };
-export default DashboardContactsAllContacts;
+export default ContactsPageTable;

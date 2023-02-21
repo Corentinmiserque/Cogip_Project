@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 function DashboardCompaniesMain() {
+  const [date, setDate] = useState(new Date());
   const [companies, setCompanies] = useState([]);
   const [error, setError] = useState(null);
   const [name, setName] = useState("");
@@ -83,7 +84,7 @@ function DashboardCompaniesMain() {
       <input type="text" id="tva" name="tva" placeholder="TVA" value={tva} onChange={(event) => {setTva(event.target.value); setTvaError("");}}/>
       <div className="error">{tvaError}</div>
 
-      <input type="hidden" id="create_dat" name="create_dat" value="" />
+      <input type="hidden" id="create_dat" name="create_dat" value={`${date}`} />
     
           <input className="save" type="submit" value="Save" />
         </form> 

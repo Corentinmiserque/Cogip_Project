@@ -1,109 +1,135 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 function DashboardContactsMain() {
-    const [name, setName] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [companyId, setCompanyId] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [error, setError] = useState(null);
-    const [nameError, setNameError] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [phoneError, setPhoneError] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [companies, setCompanies] = useState([]);
+  const [error, setError] = useState(null);
+  const [name, setName] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [companyId, setCompanyId] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [firstnameError, setFirstnameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [companyIdError, setCompanyIdError] = useState("");
 
   useEffect(() => {
-    axios.get("https://quentin.hugoorickx.tech/companies")
-      .then(res => setCompanies(res.data))
-      .catch(err => setError(err.message));
+    axios
+      .get("https://quentin.hugoorickx.tech/companies")
+      .then((res) => setCompanies(res.data))
+      .catch((err) => setError(err.message));
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+    let formIsValid = true;
+    const form = event.target;
+    const formData = new FormData(form);
+    const name = formData.get("name");
+    const firstname = formData.get("firstname");
+    const id_company = formData.get("id_company");
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const create_date = new Date().toISOString();
     // Vérification des champs
-let formIsValid = true;
+    if (!name) {
+      setNameError("Veuillez entrer un nom.");
+      formIsValid = false;
+    } else {
+      setNameError("");
+    }
+    if (!firstname) {
+      setFirstnameError("Veuillez entrer un prénom.");
+      formIsValid = false;
+    } else {
+      setFirstnameError("");
+   
+    }
+    if (!id_company) {
+      setCompanyIdError("La société ne peut pas être vide.");
+      formIsValid = false;
+    } else {
+      setCompanyIdError("");
 
-if (!name) {
-  setNameError("Veuillez entrer un nom.");
-  formIsValid = false;
-} else {
-  setNameError("");
-}
+    }
+    if (!email) {
+      setEmailError("Veuillez entrer un e-mail.");
+      formIsValid = false;
+    } else {
+      setEmailError("");
+  
+    }
 
-if (!email) {
-  setEmailError("Veuillez entrer une adresse e-mail.");
-  formIsValid = false;
-} else if (!/\S+@\S+\.\S+/.test(email)) {
-  setEmailError("Veuillez entrer une adresse e-mail valide.");
-  formIsValid = false;
-} else {
-  setEmailError("");
-}
+    if (!phone) {
+      setPhoneError("Veuillez entrer un numéro de téléphone.");
+      formIsValid = false;
+    } else {
+      setPhoneError("");
+    }
 
-if (!phone) {
-  setPhoneError("Veuillez entrer un numéro de téléphone.");
-  formIsValid = false;
-} else if (!/^\d+$/.test(phone)) {
-  setPhoneError("Veuillez entrer un numéro de téléphone valide.");
-  formIsValid = false;
-} else {
-  setPhoneError("");
-}
+    if (!/^[0-9]{10}$/.test(phone)) {
+      setPhoneError("Le numéro de téléphone doit contenir 10 chiffres.");
+      formIsValid = false;
+    } else {
+      setPhoneError("");
+    }
 
-if (!formIsValid) {
-  return;
-}
+    if (formIsValid) {
+      const create_date = new Date().toISOString();
 
-const createDat = new Date().toISOString();
+      const data = {
+        name: name,
+        company_id: id_company,
+        email: email,
+        phone: phone,
+        create_date: create_date,
+      };
 
-const data = { 
-  name: name, 
-  firstname: firstName,
-  company_id: companyId, 
-  email: email, 
-  phone: phone, 
-  create_dat: createDat 
-};
+      axios
+        .post("https://quentin.hugoorickx.tech/contacts", data)
+        .then(() => {
+          window.location.href = "/dashboard_Contactspage";
+        })
+        .catch((err) => console.error(err));
+    }
+  };
 
-axios.post('https://quentin.hugoorickx.tech/contacts', data)
-  .then(() => {
-    window.location.href = "/dashboard_Companiespage";
-  })
-  .catch(err => setError(err.message));
-};
+    return (
+      <form className="dashboard_main_form" onSubmit={handleSubmit}>
+        <p>New Contact</p>
+        <label htmlFor="name"></label>
+        <input type="text" id="name" name="name" placeholder="Name"/>
+        <div className="error">{nameError}</div>
+    
+        <label htmlFor="firstname"></label>
+        <input type="text" id="firstname" name="firstname" placeholder="First Name"
+        />
+        <div className="error">{firstnameError}</div>
+    
+        <label htmlFor="id_company"></label>
+        <select id="id_company" name="id_company">
+          {companies.map(company => (
+            <option key={company.id} value={company.id}>{company.Name_company}</option>
+          ))}
+        </select>
+        <div className="error">{companyIdError}</div>
+    
+        <label htmlFor="email"></label>
+        <input type="email" id="email" name="email" placeholder="E-mail"/>
+        <div className="error">{emailError}</div>
+    
+        <label htmlFor="phone"></label>
+        <input type="text" id="phone" name="phone" placeholder="Phone Number"/>
+        <div className="error">{phoneError}</div>
+    
+        <input type="hidden" id="create_dat" name="create_dat" value={`${date}`}/>
+    
+        <input className="save" type="submit" value="Save"/>
+      </form>
+    );
+  }
 
-  return (
-    <form className="dashboard_main_form" onSubmit={handleSubmit}>
-      <p>New Contact</p>
-      
-      <label htmlFor="name"></label>
-  <input type="text" id="name" name="name" value={name}  placeholder="Name" />
-
-  <label htmlFor="firstname"></label>
-  <input type="text" id="firstname" name="firstname" placeholder="Firstname" />
-
-  <label htmlFor="id_company"></label>
-      <select id="id_company" name="id_company">
-        {companies.map(company => (
-          <option key={company.id} value={company.id}>{company.Name_company}</option>
-        ))}
-      </select>
-      <div className="error">{companyIdError}</div>
-
-  <label htmlFor="email"></label>
-  <input type="text" id="email" name="email" placeholder="E-mail" />
-
-  <label htmlFor="phone"></label>
-  <input type="text" id="phone" name="phone"  placeholder="Phone Number" />
-
-  <input type="hidden" id="create_dat" name="create_dat" value="" />
-
-  <input className="save" type="submit" value="Save" />
-</form>
-
-  );
-}
-
-
-export default DashboardContactsMain;
+  export default DashboardContactsMain;    
