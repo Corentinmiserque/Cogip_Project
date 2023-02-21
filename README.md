@@ -20,7 +20,9 @@ Your mission here is to code a web application which will respond to the needs a
 **Backend**
 - [@Mariaule Aurélien](https://www.github.com/A-Mariaule)
 - [@Bource Quentin](https://github.com/Quentin-Bource)
+
 **Frontend**
+
 - [@Miserque Corentin](https://github.com/Corentinmiserque)
 - [@Bajoux Jonathan](https://github.com/JonathanBajoux)
 
