@@ -7,7 +7,7 @@ function DashboardContactsMain() {
   const [error, setError] = useState(null);
   const [name, setName] = useState("");
   const [firstname, setFirstname] = useState("");
-  const [companyId, setCompanyId] = useState("");
+  const [company_id, setCompany_id] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [nameError, setNameError] = useState("");
@@ -17,10 +17,9 @@ function DashboardContactsMain() {
   const [companyIdError, setCompanyIdError] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://quentin.hugoorickx.tech/companies")
-      .then((res) => setCompanies(res.data))
-      .catch((err) => setError(err.message));
+    axios.get("https://quentin.hugoorickx.tech/companies")
+      .then(res => setCompanies(res.data))
+      .catch(err => setError(err.message));
   }, []);
 
   const handleSubmit = (event) => {
@@ -30,7 +29,7 @@ function DashboardContactsMain() {
     const formData = new FormData(form);
     const name = formData.get("name");
     const firstname = formData.get("firstname");
-    const id_company = formData.get("id_company");
+    const company_id = formData.get("company_id");
     const email = formData.get("email");
     const phone = formData.get("phone");
     const create_date = new Date().toISOString();
@@ -48,7 +47,7 @@ function DashboardContactsMain() {
       setFirstnameError("");
    
     }
-    if (!id_company) {
+    if (!company_id) {
       setCompanyIdError("La société ne peut pas être vide.");
       formIsValid = false;
     } else {
@@ -81,8 +80,8 @@ function DashboardContactsMain() {
       const create_date = new Date().toISOString();
 
       const data = {
-        name: name,
-        company_id: id_company,
+       name : firstname +" " +name ,
+        company_id: company_id,
         email: email,
         phone: phone,
         create_date: create_date,
@@ -109,8 +108,8 @@ function DashboardContactsMain() {
         />
         <div className="error">{firstnameError}</div>
     
-        <label htmlFor="id_company"></label>
-        <select id="id_company" name="id_company">
+        <label htmlFor="company_id"></label>
+        <select id="company_id" name="company_id">
           {companies.map(company => (
             <option key={company.id} value={company.id}>{company.Name_company}</option>
           ))}
