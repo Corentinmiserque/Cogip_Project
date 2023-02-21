@@ -19,7 +19,7 @@ useEffect(() => {
 }, []);
 const sortByName = (contacts, order) => {
   return contacts.sort((a, b) => {
-    return order === 'asc' ? a.Name_contact.localeCompare(b.Name_company) : b.Name_company.localeCompare(a.Name_company);
+    return order === 'asc' ? a.Name_contact.localeCompare(b.Name_contact) : b.Name_contact.localeCompare(a.Name_contact);
   });
 };
 

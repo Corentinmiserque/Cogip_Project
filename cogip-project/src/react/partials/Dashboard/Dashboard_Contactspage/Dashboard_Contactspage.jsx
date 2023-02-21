@@ -15,7 +15,6 @@ function DashboardContactspage() {
        <div>
        <DashboardContactsMain/>
        <DashboardContactsAllContacts/>
-   
        </div>
      </main>
    </div>

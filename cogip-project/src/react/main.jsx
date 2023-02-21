@@ -19,8 +19,9 @@ import DashboardContactspage from './partials/Dashboard/Dashboard_Contactspage/D
 
 import Editinvoicespage from './partials/Dashboard/Dashboard_Invoicepage/Dashboard_Editpage';
 import EditCompaniespage from './partials/Dashboard/Dashboard_Companiespage/Dashboard_Companies_Editpage';
+import EditContactspage from './partials/Dashboard/Dashboard_Contactspage/Dashboard_Contacts_Editpage';
 
-
+import Loginpage from './partials/login/Loginpage';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -75,7 +76,14 @@ const router = createBrowserRouter([
   path: `/dashboard_Contactspage`,
   element: <DashboardContactspage/>,
 },
-
+{
+  path: `/editcontactspage/:id`,
+  element: <EditContactspage/>,
+},
+{
+  path: `/loginpage`,
+  element: <Loginpage/>,
+},
 
 ]);
 
