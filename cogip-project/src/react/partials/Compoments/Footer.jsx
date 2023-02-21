@@ -11,7 +11,7 @@ function Footer() {
   return <footer>
   <div className="footer">
 
-    <img className="logo"src="../public/img/logo.svg" alt="logo_border"/>
+    <img className="logo"src="../public/img/logo.avif" alt="logo_border"/>
 
     <div className="contacts">
 

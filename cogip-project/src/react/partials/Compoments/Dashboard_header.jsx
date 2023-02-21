@@ -26,7 +26,7 @@ function Dashboard_Header() {
                     </section>
                     <div className={`allheader ${isOpen ? "allheader_active" : ""}`} onClick={handleClick}>
                         <section className="profil">
-                            <img className="profil-img"src="/img/profil-contact.png" alt="Profile" />
+                            <img className="profil-img"src="/img/profil-contact.avif" alt="Profile" />
                             <h2>Henry George</h2>
                         </section>
                         <section className="nav">
@@ -38,7 +38,7 @@ function Dashboard_Header() {
                             </nav>
                         </section>
                         <section className="logout">
-                            <img src="/img/profil-contact.png" alt="Profile" />
+                            <img src="/img/profil-contact.avif" alt="Profile" />
                             <Link to="/"><button>Logout</button></Link>
                         </section>
                     </div>

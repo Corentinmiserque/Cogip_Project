@@ -18,7 +18,7 @@ const ShowCompaniesContactsPeople = () => {
       <img className="blocknote" src="../public/img/blocknote.svg" alt="blocknote" />
         {contacts.map(contact => (
           <div className="people" key={contact.IDCOMPANY}>
-            <img src="../public/img/profil-contact.png" alt="profil-contact" />
+            <img src="../public/img/profil-contact.avif" alt="profil-contact" />
             <p>{contact.Name_contact}</p>
           </div>
         ))}

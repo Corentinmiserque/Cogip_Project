@@ -27,7 +27,7 @@ const ContactsDetails = () => {
                   <p>Company: {contact.Name_company}</p>
                 </section>
                 <section className="profil-img">
-                  <img src="../public/img/profil-contact.png" alt="profil-img" />
+                  <img src="../public/img/profil-contact.avif" alt="profil-img" />
                 </section>
               </div>
        
