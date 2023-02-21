@@ -246,7 +246,7 @@ body main .arrays .array {
 }
 body main .arrays h2 {
   margin: 2rem 0;
-  font-size: 7vw;
+  font-size: 4vw;
 }
 body main .arrays .underline::before {
   content: "";
