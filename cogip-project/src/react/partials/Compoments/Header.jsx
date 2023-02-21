@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Logo from "../../../../public/img/logo.avif"
 function Header() {
 // state, données
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <img className="logo" src="../public/logo.avif" alt="logo" />
+        <img className="logo" src={Logo} alt="logo" />
       </Link>
 
       <nav className={`navbar ${isOpen ? "navbarDisplay" : ""}`}>
