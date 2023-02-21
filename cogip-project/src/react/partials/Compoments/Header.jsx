@@ -14,7 +14,7 @@ function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <img className="logo" src="../public/img/logo.avif" alt="logo" />
+        <img className="logo" src="../public/logo.avif" alt="logo" />
       </Link>
 
       <nav className={`navbar ${isOpen ? "navbarDisplay" : ""}`}>
