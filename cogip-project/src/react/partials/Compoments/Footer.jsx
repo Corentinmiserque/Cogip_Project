@@ -1,7 +1,8 @@
 import logo from "../../../../public/img/logo.avif"
-import facebook from "../../../../public/img/Facebook.jsx"
-import twitter from "../../../../public/img/Twitter.jsx"
-import twitter from "../../../../public/img/Twitter.jsx"
+import facebook from "../../../../public/img/Facebook.avis"
+import twitter from "../../../../public/img/Twitter.avif"
+import linkedin from "../../../../public/img/LinkedIn.avif"
+import youtube from "../../../../public/img/youtube.avif"
 import { Link } from 'react-router-dom'
 
 function Footer() {
@@ -14,7 +15,7 @@ function Footer() {
   return <footer>
   <div className="footer">
 
-    <img className="logo"src="../public/logo.avif" alt="logo_border"/>
+    <img className="logo"src={logo} alt="logo_border"/>
 
     <div className="contacts">
 
@@ -28,7 +29,7 @@ function Footer() {
             <p>Social media </p>
             <a href="#"><img src={facebook} alt="facebook"/></a>
             <a href="#"><img src={twitter}alt="twitter"/></a>
-            <a href="#"><img src="../public/img/LinkedIn.svg" alt="linkedin"/></a>
+            <a href="#"><img src={linkedin} alt="linkedin"/></a>
             <a href="#"><img src="../public/img//Youtube.svg" alt="youtube"/></a>
             <a href="#"><img src="../public/img/Instagram.svg" alt="instagram"/></a>
             <a href="#"><img src="../public/img/GooglePlus.svg" alt="google+"/></a>
